@@ -1,0 +1,2 @@
+class MasterCourseSchedule < ApplicationRecord
+end

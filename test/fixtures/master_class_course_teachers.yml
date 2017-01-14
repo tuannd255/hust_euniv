@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  class_code: MyString
+  user_code: MyString
+  master_session_code: MyString
+  credits: 1
+  room: MyString
+  name: 
+
+two:
+  code: MyString
+  class_code: MyString
+  user_code: MyString
+  master_session_code: MyString
+  credits: 1
+  room: MyString
+  name: 

@@ -1,0 +1,2 @@
+class MasterClassCourseTeacher < ApplicationRecord
+end

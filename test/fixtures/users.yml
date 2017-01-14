@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  User_ID: 
+  Username: 
+  Salt: 
+  Email: 
+  Enabled: 
+  User_Code: 
+  avatar: MyString
+
+two:
+  User_ID: 
+  Username: 
+  Salt: 
+  Email: 
+  Enabled: 
+  User_Code: 
+  avatar: MyString

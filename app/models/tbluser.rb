@@ -1,0 +1,2 @@
+class Tbluser < ApplicationRecord
+end

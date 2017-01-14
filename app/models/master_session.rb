@@ -1,0 +1,2 @@
+class MasterSession < ApplicationRecord
+end
