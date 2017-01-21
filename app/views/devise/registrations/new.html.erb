@@ -1,0 +1,42 @@
+<% provide :title, t("home.signup") %>
+<div class="sign-in" style="min-height: 750px;">
+  <div class="col-sm-8 col-sm-offset-2 sign-in-left">
+    <h2 class="text-left"><%= t "home.signup" %></h2>
+
+    <%= form_for resource, as: resource_name,
+      url: registration_path(resource_name) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="input">
+        <%= f.label :username %>
+        <%= f.text_field :username, autofocus: true, class: "form-control signin-input" %>
+      </div>
+
+      <div class="input">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, class: "form-control signin-input" %>
+      </div>
+
+      <div class="input">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+          <em><%= t "tblusers.minimum_password_length",
+            minpasslength: @minimum_password_length %></em>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "off",
+          class: "form-control signin-input" %>
+      </div>
+
+      <div class="input">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "off",
+          class: "form-control signin-input" %>
+      </div>
+
+      <div class="actions center">
+        <%= f.submit t("tblusers.#{params[:action]}"),
+          class: "btn btn-primary submit-btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>
