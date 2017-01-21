@@ -1,0 +1,32 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to t(:title), root_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <% if tbluser_signed_in? %>
+          <% if current_tbluser %>
+          <% else %>
+          <% end %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= current_tbluser.username %><b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to t("users.setting"),
+                  edit_tbluser_registration_path(current_tbluser) %>
+              </li>
+              <li>
+                <%= link_to t(:log_out), destroy_tbluser_session_path,
+                  method: :delete %>
+              </li>
+            </ul>
+        <% else %>
+          <li>
+            <%= link_to t(:log_in), new_tbluser_session_path %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

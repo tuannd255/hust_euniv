@@ -5,7 +5,7 @@ module Devise
     module Encryptors
       class Md5 < Base
         def self.digest password, stretches, salt, pepper
-          str = password.flatten.compact.join
+          str = [password].flatten.compact.join
           Digest::MD5.hexdigest str
         end
       end
