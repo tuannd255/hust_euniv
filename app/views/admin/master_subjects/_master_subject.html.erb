@@ -1,0 +1,8 @@
+<tr>
+  <th><%= master_subject.code %></th>
+  <th><%= master_subject.name %></th>
+  <th><%= master_subject.creadit %></th>
+  <th><%= link_to t("buttons.edit"), edit_admin_master_subject_path(master_subject) %></th>
+  <th><%= link_to t("buttons.delete"), admin_master_subject_path(master_subject),
+    method: :delete, data: {confirm: t("confirm")} %></th>
+</tr>

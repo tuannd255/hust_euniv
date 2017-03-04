@@ -1,0 +1,39 @@
+en:
+  code: &code Code
+  name: &name Name
+  creadit: &creadit Creadit
+  code_or_name: &code_or_name Code or name
+  admin:
+    master_classes:
+      search_form:
+        code_or_name: *code_or_name
+      master_classes_table:
+        code: *code
+        name: *name
+      index:
+        code: *code
+        name: *name
+      edit:
+        code: *code
+        name: *name
+    master_subjects:
+      search_form:
+        code_or_name: *code_or_name
+        creadit: *creadit
+      master_subjects_table:
+        code: *code
+        name: *name
+        creadit: *creadit
+      index:
+        code: *code
+        name: *name
+        creadit: *creadit
+      edit:
+        code: *code
+        name: *name
+        creadit: *creadit
+  layouts:
+    admin_sidebar:
+      master_subjects: Subject
+      master_classes: Class
+
