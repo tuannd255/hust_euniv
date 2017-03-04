@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
-//= require_tree .
+//= require app.min.js
 
 var flash = function(){
   setTimeout(function(){
