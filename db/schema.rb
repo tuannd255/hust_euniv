@@ -10,16 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170121025922) do
+ActiveRecord::Schema.define(version: 20170225083201) do
 
-  create_table "master_class_course_teachers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "master_class_subject_teachers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "code"
+    t.string   "tbluser_user_code"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "master_class_subjects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "code"
     t.string   "master_class_code"
-    t.string   "tbluser_code"
-    t.string   "master_session_code"
-    t.integer  "credits"
-    t.string   "room"
-    t.string   "name"
+    t.string   "master_subject_code"
+    t.string   "master_course_code"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
@@ -35,11 +39,12 @@ ActiveRecord::Schema.define(version: 20170121025922) do
     t.string   "code"
     t.datetime "date"
     t.integer  "slot"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "master_class_subject_teacher_code"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
-  create_table "master_sessions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "master_courses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "code"
     t.string   "name"
     t.datetime "start_date"
@@ -48,22 +53,30 @@ ActiveRecord::Schema.define(version: 20170121025922) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "master_class_subject_teacher_code"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
   create_table "tblusers", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id"
+    t.integer  "User_ID"
     t.string   "username"
     t.string   "salt"
     t.boolean  "enabled"
     t.string   "user_code"
     t.string   "avatar"
     t.string   "Password"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.boolean  "is_admin",               default: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
