@@ -22,6 +22,14 @@ gem "bootstrap-sass", "3.2.0.0"
 gem "kaminari"
 gem "paperclip", "5.0.0.beta1"
 gem "cancancan"
+gem "font-awesome-rails"
+gem "bootstrap-datepicker-rails"
+gem "kaminari"
+gem "bootstrap-kaminari-views"
+gem "public_activity"
+gem "breadcrumbs_on_rails"
+gem "activerecord-import"
+gem "closure_tree"
 
 group :development, :test do
   gem "byebug", platform: :mri
