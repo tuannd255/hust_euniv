@@ -2,10 +2,12 @@
 
 one:
   code: MyString
-  date: 2017-01-14 11:16:53
+  date: 2017-02-25 15:32:01
   slot: 1
+  master_class_subject_teacher_code: MyString
 
 two:
   code: MyString
-  date: 2017-01-14 11:16:53
+  date: 2017-02-25 15:32:01
   slot: 1
+  master_class_subject_teacher_code: MyString
