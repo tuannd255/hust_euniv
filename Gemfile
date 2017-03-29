@@ -30,6 +30,7 @@ gem "public_activity"
 gem "breadcrumbs_on_rails"
 gem "activerecord-import"
 gem "closure_tree"
+gem "ransack"
 
 group :development, :test do
   gem "byebug", platform: :mri

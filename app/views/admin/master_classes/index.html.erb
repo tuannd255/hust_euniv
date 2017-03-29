@@ -1,0 +1,26 @@
+<h1>Admin::MasterClass#index</h1>
+<div>
+  <div class="class-create">
+    <%= form_for [:admin, @master_class] do |f| %>
+      <%= render "shared/error_messages", object: @master_class %>
+
+      <%= f.label :code, t(".code") %>
+      <%= f.text_field :code, class: "form_control" %>
+
+      <%= f.label :name, t(".name") %>
+      <%= f.text_field :name, class: "form_control" %>
+
+      <%= f.submit t "buttons.create" %>
+    <% end %>
+  </div>
+  <div class="col-md-10 col-md-offset-1">
+    <div>
+      <%= render "search_form", search: @search %>
+    </div>
+    <div id="class-main">
+      <%= render "master_classes_table", search: @search, master_classes: @master_classes %>
+    </div>
+  </div>
+</div>
+
+<div id="class-create" class="modal fade"></div>

@@ -1,0 +1,16 @@
+en:
+  admin:
+    master_classes:
+      create:
+        success: Create class success
+      update:
+        success: Update class success
+      destroy:
+        success: Delete class success
+    master_subjects:
+      create:
+        successa: Create subject success
+      update:
+        success: Update subject success
+      destroy:
+        success: Delete subject success

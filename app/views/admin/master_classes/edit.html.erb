@@ -1,0 +1,12 @@
+<h1>Admin::Masterclass#edit</h1>
+<%= form_for [:admin, @master_class] do |f| %>
+  <%= render "shared/error_messages", object: @master_class %>
+
+  <%= f.label :code, t(".code") %>
+  <%= f.text_field :code, class: "form_control" %>
+
+  <%= f.label :name, t(".name") %>
+  <%= f.text_field :name, class: "form_control" %>
+
+  <%= f.submit t "buttons.update" %>
+<% end %>

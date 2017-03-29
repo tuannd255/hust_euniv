@@ -12,7 +12,7 @@
   </head>
 
   <body class="skin-blue sidebar-mini">
-    <% if current_tbluser.is_admin? %>
+    <% if current_tbluser && current_tbluser.is_admin? %>
       <div class="wrapper">
         <%= render "layouts/admin_header" %>
         <%= render "layouts/admin_sidebar" %>

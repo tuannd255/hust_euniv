@@ -4,7 +4,16 @@
     <!-- Sidebar Menu -->
     <ul class="sidebar-menu">
       <!-- Optionally, you can add icons to the links -->
-      <li><a href="#"><span>Another Link</span></a></li>
+      <li>
+        <%= link_to admin_master_subjects_path do %>
+          <span><%= t ".master_subjects" %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to admin_master_classes_path do %>
+          <span><%= t ".master_classes" %></span>
+        <% end %>
+      </li>
       <li class="treeview">
         <a href="#"><span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
         <ul class="treeview-menu">

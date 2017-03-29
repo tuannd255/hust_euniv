@@ -1,0 +1,29 @@
+<h1>Admin::MasterSubject#index</h1>
+<div>
+  <div class="subject-create">
+    <%= form_for [:admin, @master_subject] do |f| %>
+      <%= render "shared/error_messages", object: @master_subject %>
+
+      <%= f.label :code, t(".code") %>
+      <%= f.text_field :code, class: "form_control" %>
+
+      <%= f.label :name, t(".name") %>
+      <%= f.text_field :name, class: "form_control" %>
+
+      <%= f.label :creadit, t(".creadit") %>
+      <%= f.number_field :creadit, class: "form_control" %>
+
+      <%= f.submit t "buttons.create" %>
+    <% end %>
+  </div>
+  <div class="col-md-10 col-md-offset-1">
+    <div>
+      <%= render "search_form", search: @search %>
+    </div>
+    <div id="subject-main">
+      <%= render "master_subjects_table", search: @search, master_subjects: @master_subjects %>
+    </div>
+  </div>
+</div>
+
+<div id="subject-create" class="modal fade"></div>
