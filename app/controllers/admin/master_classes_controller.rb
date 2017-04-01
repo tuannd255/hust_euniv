@@ -8,25 +8,25 @@ class Admin::MasterClassesController < ApplicationController
   end
 
   def create
-    @master_class = MasterClass.new mastet_class_params
+    @master_class = MasterClass.new master_class_params
     if @master_class.save
       flash[:success] = t ".success"
     else
       flash[:danger] = t "fail"
     end
-      redirect_to admin_master_classes_path
+    redirect_to admin_master_classes_path
   end
 
   def edit
   end
 
   def update
-    if @master_class.update_attributes mastet_class_params
+    if @master_class.update_attributes master_class_params
       flash[:success] = t ".success"
     else
       flash[:danger] = t "fail"
     end
-      redirect_to admin_master_classes_path
+    redirect_to admin_master_classes_path
   end
 
   def destroy
@@ -35,11 +35,11 @@ class Admin::MasterClassesController < ApplicationController
     else
       flash[:danger] = t "fail"
     end
-      redirect_to admin_master_classes_path
+    redirect_to admin_master_classes_path
   end
 
   private
-  def mastet_class_params
+  def master_class_params
     params.require(:master_class).permit :code, :name, :creadit
   end
 

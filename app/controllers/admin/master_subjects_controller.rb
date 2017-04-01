@@ -12,25 +12,25 @@ class Admin::MasterSubjectsController < ApplicationController
   end
 
   def create
-    @master_subject = MasterSubject.new mastet_subject_params
+    @master_subject = MasterSubject.new master_subject_params
     if @master_subject.save
       flash[:success] = t ".successa"
     else
       flash[:danger] = t "fail"
     end
-      redirect_to admin_master_subjects_path
+    redirect_to admin_master_subjects_path
   end
 
   def edit
   end
 
   def update
-    if @master_subject.update_attributes mastet_subject_params
+    if @master_subject.update_attributes master_subject_params
       flash[:success] = t ".success"
     else
       flash[:danger] = t "fail"
     end
-      redirect_to admin_master_subjects_path
+    redirect_to admin_master_subjects_path
   end
 
   def destroy
@@ -39,11 +39,11 @@ class Admin::MasterSubjectsController < ApplicationController
     else
       flash[:danger] = t "fail"
     end
-      redirect_to admin_master_subjects_path
+    redirect_to admin_master_subjects_path
   end
 
   private
-  def mastet_subject_params
+  def master_subject_params
     params.require(:master_subject).permit :code, :name, :creadit
   end
 
