@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20170304040957) do
 
   create_table "master_class_subjects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "code"
+    t.string   "name"
     t.string   "master_class_code"
     t.string   "master_subject_code"
     t.string   "master_course_code"

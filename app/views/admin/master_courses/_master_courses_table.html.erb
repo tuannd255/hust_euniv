@@ -1,0 +1,22 @@
+<table class="table table-striped table-bordered table-condensed table-hover">
+  <thead class="thead-inverse">
+    <tr>
+      <th><%= sort_link search, :code, t(".code"), {}, {remote: true} %></th>
+      <th><%= sort_link search, :name, t(".name"), {}, {remote: true} %></th>
+      <th><%= t ".start_date" %></th>
+      <th><%= t ".end_date" %></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if master_courses.present? %>
+      <%= render master_courses %>
+    <% else %>
+      <tr>
+        <th><%= render "shared/nothing" %></th>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate master_courses, remote: true %>

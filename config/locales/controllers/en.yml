@@ -14,3 +14,8 @@ en:
         success: Update subject success
       destroy:
         success: Delete subject success
+    master_class_subjects:
+      create:
+        success: Create class subject success
+      destroy:
+        success: Delete class subject success

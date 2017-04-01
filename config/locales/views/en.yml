@@ -6,6 +6,8 @@ en:
   please_input_code: &please_input_code "Please input code"
   please_input_name: &please_input_name "Please input name"
   please_input_creadit: &please_input_creadit "Please input creadit"
+  start_date: &start_date Start date
+  end_date: &start_date End date
   admin:
     master_classes:
       search_form:
@@ -44,8 +46,30 @@ en:
         please_input_code: *please_input_code
         please_input_name: *please_input_name
         please_input_creadit: *please_input_creadit
+    master_courses:
+      master_class_subject_table:
+        code: *code
+        name: *name
+      master_courses_table:
+        code: *code
+        name: *name
+        start_date: *start_date
+        end_date: *start_date
+      index:
+        code: *code
+        name: *name
+        start_date: *start_date
+        end_date: *start_date
+        please_input_code: *please_input_code
+        please_input_name: *please_input_name
+      show:
+        master_subject_id: Subject
+        master_class_id: Class
+        name: *name
+        please_input_name: *please_input_name
   layouts:
     admin_sidebar:
       master_subjects: Subject
       master_classes: Class
+      master_courses: Course
 

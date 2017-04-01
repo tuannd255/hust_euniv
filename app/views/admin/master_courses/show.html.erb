@@ -1,0 +1,125 @@
+<h1>Admin::MasterCourses#show</h1>
+<h2><%= t "course_name", name: @master_course.name %></h2>
+<div class="create-class-subject">
+  <%= form_for [:admin, @master_class_subject] do |f| %>
+    <div>
+      <%= f.label :master_subject_id, t(".master_subject_id") %>
+      <%= f.select :master_subject_id, {}, {}, class: "form-control select-subject" %>
+    </div>
+    <div>
+      <%= f.label :master_class_id, t(".master_class_id") %>
+      <%= f.select :master_class_id, {}, {}, class: "form-control select-class" %>
+    </div>
+    <div>
+      <%= f.label :name, t(".name") %>
+      <%= f.text_field :name, placeholder: t(".please_input_name"), class: "form-control" %>
+    </div>
+
+    <%= f.hidden_field :master_course_id, value: @master_course.id %>
+    <%= f.submit t("buttons.create"), class:"btn btn-success" %>
+  <% end %>
+</div>
+<div id="master-class-subject-table">
+  <%= render "master_class_subject_table", search: @search,
+    master_class_subjects: @master_class_subjects %>
+</div>
+<script type="text/javascript">
+  var per_page = <%= Settings.per_page.default %>;
+
+  $(document).ready(function() {
+    $(".select-subject").select2({
+      ajax: {
+        type: "get",
+        url: "/admin/master_subjects",
+        dataType: "json",
+        delay: 250,
+        data: function (params) {
+          q = {};
+          q["code_or_name_cont"] = params.term;
+          page = params.page;
+          return {
+            q,
+            page
+          };
+        },
+        processResults: function (data, params) {
+          return {
+            results: data,
+            pagination: {
+              more: data.length >= per_page
+            }
+          };
+        },
+        cache: true
+      },
+      placeholder: "<%= I18n.t 'select.subject' %>",
+      allowClear: true,
+      escapeMarkup: function (markup) {return markup;},
+      minimumInputLength: 1,
+      templateResult: formatSubResult,
+      templateSelection: formatSubSelection,
+    });
+  });
+
+  $(".select-class").select2({
+    ajax: {
+      type: "get",
+      url: "/admin/master_classes",
+      dataType: "json",
+      delay: 250,
+      data: function (params) {
+        q = {};
+        q["code_or_name_cont"] = params.term;
+        page = params.page;
+        return {
+          page,
+          q,
+        };
+      },
+      processResults: function (data, params) {
+        return {
+          results: data,
+          pagination: {
+            more: data.length >= per_page
+          }
+        };
+      },
+      cache: true
+    },
+    placeholder: "<%= I18n.t 'select.class' %>",
+    allowClear: true,
+    escapeMarkup: function (markup) {return markup;},
+    minimumInputLength: 1,
+    templateResult: formatClResult,
+    templateSelection: formatClSelection,
+  });
+
+  function formatSubResult(subject) {
+    if (subject.loading) return subject.text;
+    return subject.name;
+  }
+
+  function formatSubSelection(subject) {
+    if (subject.name) {
+      return subject.name;
+    }
+    else {
+      return subject.text
+    }
+  }
+
+  function formatClResult(cla) {
+    if (cla.loading) return cla.text;
+    return cla.name;
+  }
+
+  function formatClSelection(cla) {
+    if(cla.name){
+      return cla.name;
+    }
+    else {
+      return cla.text
+    }
+  }
+
+</script>

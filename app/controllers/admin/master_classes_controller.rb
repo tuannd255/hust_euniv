@@ -1,10 +1,14 @@
-class Admin::MasterClassesController < ApplicationController
+class Admin::MasterClassesController < Admin::BaseController
   before_action :find_master_class, except: [:index, :new, :create]
 
   def index
     @master_class = MasterClass.new
     @search = MasterClass.search params[:q]
     @master_classes = @search.result.page(params[:page]).per Settings.per_page.default
+    respond_to do |format|
+      format.html
+      format.json {render json: @master_classes.to_json}
+    end
   end
 
   def create
