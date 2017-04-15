@@ -5,6 +5,9 @@ class CreateMasterClassSubjects < ActiveRecord::Migration[5.0]
       t.string :master_class_code
       t.string :master_subject_code
       t.string :master_course_code
+      t.integer :master_class_id
+      t.integer :master_subject_id
+      t.integer :master_course_id
 
       t.timestamps
     end
