@@ -18,7 +18,10 @@ class Admin::MasterSubjectsController < ApplicationController
     else
       flash[:danger] = t "fail"
     end
-    redirect_to admin_master_subjects_path
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def edit

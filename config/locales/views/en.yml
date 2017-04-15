@@ -3,6 +3,9 @@ en:
   name: &name Name
   creadit: &creadit Creadit
   code_or_name: &code_or_name Code or name
+  please_input_code: &please_input_code "Please input code"
+  please_input_name: &please_input_name "Please input name"
+  please_input_creadit: &please_input_creadit "Please input creadit"
   admin:
     master_classes:
       search_form:
@@ -24,14 +27,23 @@ en:
         code: *code
         name: *name
         creadit: *creadit
+        please_input_code: *please_input_code
+        please_input_name: *please_input_name
+        please_input_creadit: *please_input_creadit
       index:
         code: *code
         name: *name
         creadit: *creadit
+        please_input_code: *please_input_code
+        please_input_name: *please_input_name
+        please_input_creadit: *please_input_creadit
       edit:
         code: *code
         name: *name
         creadit: *creadit
+        please_input_code: *please_input_code
+        please_input_name: *please_input_name
+        please_input_creadit: *please_input_creadit
   layouts:
     admin_sidebar:
       master_subjects: Subject
