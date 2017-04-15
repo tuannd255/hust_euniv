@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20170304040957) do
   create_table "master_class_subject_teachers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "code"
     t.string   "tbluser_user_code"
+    t.integer  "tbluser_user_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
@@ -24,6 +25,9 @@ ActiveRecord::Schema.define(version: 20170304040957) do
     t.string   "master_class_code"
     t.string   "master_subject_code"
     t.string   "master_course_code"
+    t.integer  "master_class_id"
+    t.integer  "master_subject_id"
+    t.integer  "master_course_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
@@ -40,6 +44,7 @@ ActiveRecord::Schema.define(version: 20170304040957) do
     t.datetime "date"
     t.integer  "slot"
     t.string   "master_class_subject_teacher_code"
+    t.integer  "master_class_subject_teacher_id"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
   end
@@ -64,6 +69,7 @@ ActiveRecord::Schema.define(version: 20170304040957) do
   create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "master_class_subject_teacher_code"
+    t.integer  "master_class_subject_teacher_id"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
   end

@@ -3,6 +3,7 @@ class CreateMasterClassSubjectTeachers < ActiveRecord::Migration[5.0]
     create_table :master_class_subject_teachers do |t|
       t.string :code
       t.string :tbluser_user_code
+      t.integer :tbluser_user_id
 
       t.timestamps
     end
