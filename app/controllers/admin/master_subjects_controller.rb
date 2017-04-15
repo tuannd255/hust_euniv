@@ -14,35 +14,41 @@ class Admin::MasterSubjectsController < ApplicationController
   def create
     @master_subject = MasterSubject.new master_subject_params
     if @master_subject.save
-      flash[:success] = t ".successa"
+      flash.now[:success] = t ".successa"
+      respond_to do |format|
+        format.html
+        format.js
+      end
     else
-      flash[:danger] = t "fail"
+      flash.now[:danger] = t "fail"
     end
+  end
+
+  def edit
     respond_to do |format|
       format.html
       format.js
     end
   end
 
-  def edit
-  end
-
   def update
     if @master_subject.update_attributes master_subject_params
-      flash[:success] = t ".success"
+      flash.now[:success] = t ".success"
     else
-      flash[:danger] = t "fail"
+      flash.now[:danger] = t "fail"
     end
-    redirect_to admin_master_subjects_path
+    render json: {master_subject: @master_subject}
   end
 
   def destroy
     if @master_subject.destroy
-      flash[:success] = t ".success"
+      flash.now[:success] = t ".success"
     else
-      flash[:danger] = t "fail"
+      flash.now[:danger] = t "fail"
     end
-    redirect_to admin_master_subjects_path
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
@@ -51,7 +57,7 @@ class Admin::MasterSubjectsController < ApplicationController
   end
 
   def find_master_subject
-    @master_subject = MasterSubject.find_by_id params[:id]
+    @master_subject = MasterSubject.find_by id: params[:id]
     redirect_to admin_master_subjects_path if @master_subject.nil?
   end
 end

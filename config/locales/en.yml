@@ -9,4 +9,5 @@ en:
     edit: Edit
     delete: Delete
     update: Update
-  logout: "Log out"
+    close: Close
+  logout: Log out

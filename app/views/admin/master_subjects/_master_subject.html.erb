@@ -1,8 +1,10 @@
-<tr id="master-subject-<%= master_subject.id %>">
-  <th><%= master_subject.code %></th>
-  <th><%= master_subject.name %></th>
-  <th><%= master_subject.creadit %></th>
-  <th><%= link_to t("buttons.edit"), edit_admin_master_subject_path(master_subject) %></th>
-  <th><%= link_to t("buttons.delete"), admin_master_subject_path(master_subject),
-    method: :delete, data: {confirm: t("confirm")} %></th>
+<tr class="master-subject master-subject-<%= master_subject.id %>"
+  data-id="<%= master_subject.id %>">
+  <td><%= master_subject.code %></td>
+  <td><%= master_subject.name %></td>
+  <td><%= master_subject.creadit %></td>
+  <td><%= link_to t("buttons.edit"), edit_admin_master_subject_path(master_subject),
+    remote: true, class: "edit-master-subject" %></td>
+  <td><%= link_to t("buttons.delete"), admin_master_subject_path(master_subject),
+    method: :delete, remote: true, data: {confirm: t("confirm")} %></td>
 </tr>

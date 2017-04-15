@@ -1,0 +1,6 @@
+<% if params[:close] %>
+  $('.master-subject-<%= @master_subject.id %>').replaceWith('<%= j render "master_subject", master_subject: @master_subject %>')
+<% else %>
+  $('.master-subject-<%= @master_subject.id %>').replaceWith('<%= j render "edit_master_subject", master_subject: @master_subject %>')
+<% end %>
+$('.flash').html('<%= j render "layouts/flash" %>');
