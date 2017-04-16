@@ -21,6 +21,7 @@
 //= require master_subject
 //= require select2.min.js
 //= require_tree ../../../vendor/assets/javascripts/i18n
+//= require master_class
 
 $(document).on('turbolinks:load ajaxComplete', function() {
   $('.alert').delay(1000).fadeOut();

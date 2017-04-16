@@ -15,12 +15,18 @@ en:
       master_classes_table:
         code: *code
         name: *name
+        please_input_code: *please_input_code
+        please_input_name: *please_input_name
       index:
         code: *code
         name: *name
+        please_input_code: *please_input_code
+        please_input_name: *please_input_name
       edit:
         code: *code
         name: *name
+        please_input_code: *please_input_code
+        please_input_name: *please_input_name
     master_subjects:
       search_form:
         code_or_name: *code_or_name

@@ -1,5 +1,5 @@
-<%= search_form_for search, remote: true, url: admin_master_classes_path do |f| %>
-  <div class="form-group">
+<div class="form-group">
+  <%= search_form_for search, remote: true, url: admin_master_classes_path do |f| %>
     <div class="col-sm-1">
       <%= f.label :code_or_name_cont, t(".search")%>
     </div>
@@ -9,6 +9,6 @@
     <div class="col-sm-1">
       <%= f.submit t "buttons.search" %>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
 

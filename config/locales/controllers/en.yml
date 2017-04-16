@@ -9,7 +9,7 @@ en:
         success: Delete class success
     master_subjects:
       create:
-        successa: Create subject success
+        success: Create subject success
       update:
         success: Update subject success
       destroy:

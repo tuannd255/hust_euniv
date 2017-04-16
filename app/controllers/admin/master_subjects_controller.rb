@@ -18,7 +18,7 @@ class Admin::MasterSubjectsController < Admin::BaseController
   def create
     @master_subject = MasterSubject.new master_subject_params
     if @master_subject.save
-      flash.now[:success] = t ".successa"
+      flash.now[:success] = t ".success"
       respond_to do |format|
         format.html
         format.js
