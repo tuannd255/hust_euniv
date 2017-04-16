@@ -31,6 +31,7 @@ gem "breadcrumbs_on_rails"
 gem "activerecord-import"
 gem "closure_tree"
 gem "ransack"
+gem "i18n-js"
 
 group :development, :test do
   gem "byebug", platform: :mri

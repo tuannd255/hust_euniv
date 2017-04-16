@@ -1,0 +1,13 @@
+<tr class="master-subject master-subject-<%= master_subject.id %>"
+  data-id="<%= master_subject.id %>">
+  <td><%= text_field_tag :code, {}, value: master_subject.code,
+    class: "form-control master_subject.code" %></td>
+  <td><%= text_field_tag :name, {}, value: master_subject.name,
+    class: "form-control master_subject_name" %></td>
+  <td><%= number_field_tag :creadit, {}, value: master_subject.creadit,
+    class: "form-control master_subject_creadit" %></td>
+  <td><div class="update-master-subject text-blue" style="cursor: pointer"><%= t "buttons.update" %></div></td>
+  <td><%= link_to t("buttons.close"),
+    edit_admin_master_subject_path(master_subject, close: true),
+    remote: true %></td>
+</tr>

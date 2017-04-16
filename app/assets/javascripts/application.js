@@ -15,18 +15,12 @@
 //= require bootstrap
 //= require turbolinks
 //= require app.min.js
+//= require i18n
+//= require i18n/translations
+//= require i18n.js
+//= require master_subject
 
-var flash = function(){
-  setTimeout(function(){
-    $('.alert').slideUp(300);
-  }, 1000);
-  var x = $(window).height();
-  var y = x - 60;
-  $('.content').css('min-height', x);
-  $('.page-content').css('min-height', x);
-  $('.signin').css('min-height', y);
-};
-
-$(document).ready(flash);
-$(document).on('page:load', flash);
-$(document).on('page:change', flash);
+$(document).on('turbolinks:load ajaxComplete', function() {
+  $('.alert').delay(1000).fadeOut();
+  $('#error_explanation').delay(1000).slideUp();
+});
