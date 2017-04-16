@@ -1,10 +1,14 @@
-class Admin::MasterSubjectsController < ApplicationController
+class Admin::MasterSubjectsController < Admin::BaseController
   before_action :find_master_subject, except: [:index, :new, :create]
 
   def index
     @master_subject = MasterSubject.new
     @search = MasterSubject.search params[:q]
     @master_subjects = @search.result.page(params[:page]).per Settings.per_page.default
+    respond_to do |format|
+      format.html
+      format.json {render json: @master_subjects.to_json}
+    end
   end
 
   def new

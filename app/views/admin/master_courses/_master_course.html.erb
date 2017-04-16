@@ -1,0 +1,9 @@
+<tr>
+  <td><%= master_course.code %></td>
+  <td><%= link_to master_course.name, [:admin, master_course] %></td>
+  <td><%= master_course.start_date %></td>
+  <td><%= master_course.end_date %></td>
+  <td><%= link_to t("buttons.show"), [:admin, master_course] %></td>
+  <td><%= link_to t("buttons.delete"),  admin_master_course_path(master_course),
+    method: :delete, data: {confirm: t("confirm")} %></td>
+</tr>
