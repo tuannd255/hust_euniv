@@ -11,43 +11,53 @@ class Admin::MasterClassesController < Admin::BaseController
     end
   end
 
+  def new
+    @master_class = MasterClass.new
+  end
+
   def create
     @master_class = MasterClass.new master_class_params
     if @master_class.save
-      flash[:success] = t ".success"
+      flash.now[:success] = t ".success"
+      respond_to do |format|
+        format.html
+        format.js
+      end
     else
-      flash[:danger] = t "fail"
+      flash.now[:danger] = t "fail"
     end
+  end
+
+  def edit
     respond_to do |format|
       format.html
       format.js
     end
   end
 
-  def edit
-  end
-
   def update
     if @master_class.update_attributes master_class_params
-      flash[:success] = t ".success"
+      flash.now[:success] = t ".success"
     else
-      flash[:danger] = t "fail"
+      flash.now[:danger] = t "fail"
     end
-    redirect_to admin_master_classes_path
+    render json: {master_class: @master_class}
   end
 
   def destroy
     if @master_class.destroy
-      flash[:success] = t ".success"
+      flash.now[:success] = t ".success"
     else
-      flash[:danger] = t "fail"
+      flash.now[:danger] = t "fail"
     end
-    redirect_to admin_master_classes_path
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
   def master_class_params
-    params.require(:master_class).permit :code, :name, :creadit
+    params.require(:master_class).permit :code, :name
   end
 
   def find_master_class
