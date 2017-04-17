@@ -38,7 +38,7 @@ en:
         please_input_code: *please_input_code
         please_input_name: *please_input_name
         please_input_creadit: *please_input_creadit
-      index:
+      master_subject_form:
         code: *code
         name: *name
         creadit: *creadit

@@ -7,6 +7,7 @@ class Admin::MasterSubjectsController < Admin::BaseController
     @master_subjects = @search.result.page(params[:page]).per Settings.per_page.default
     respond_to do |format|
       format.html
+      format.js
       format.json {render json: @master_subjects.to_json}
     end
   end
