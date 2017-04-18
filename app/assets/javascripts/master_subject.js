@@ -16,11 +16,13 @@ $(document).on('turbolinks:load', function() {
           $('#master_subjects .master-subject.master-subject-' + data.master_subject.id).html('\
             <td>' + data.master_subject.code + '</td><td>' + data.master_subject.name + '</td><td>' +
             data.master_subject.creadit + '</td><td>' +
-            '<a class="edit-master-subject" data-remote="true" href="/admin/master_subjects/'+
-            data.master_subject.id +'/edit">' + I18n.t('buttons.edit') + '</a></td><td>\
-            <a data-method="delete" data-remote="true" data-confirm="' + I18n.t('confirm') +
+            '<a class="fa fa-pencil-square-o edit-master-subject index-button" title="' +
+            I18n.t('buttons.edit') + '" data-remote="true" href="/admin/master_subjects/'+
+            data.master_subject.id +'/edit"></a>\
+            <a class="fa fa-times index-button" title="' + I18n.t('buttons.delete') +
+            '"data-method="delete" data-remote="true" data-confirm="' + I18n.t('confirm') +
             '" href="/admin/master_subjects/' +
-            data.master_subject.id + '">' + I18n.t('buttons.delete') + '</a>\
+            data.master_subject.id + '"></a>\
           </td>');
         }
       });
