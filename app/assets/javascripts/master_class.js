@@ -14,11 +14,13 @@ $(document).on('turbolinks:load', function() {
         success: function(data) {
           $('#master_classes .master-class.master-class-' + data.master_class.id).html('\
             <td>' + data.master_class.code + '</td><td>' + data.master_class.name + '</td><td>' +
-            '<a class="edit-master-class" data-remote="true" href="/admin/master_classes/'+
-            data.master_class.id +'/edit">' + I18n.t('buttons.edit') + '</a></td><td>\
-            <a data-method="delete" data-remote="true" data-confirm="' + I18n.t('confirm') +
+            '<a class="fa fa-pencil-square-o edit-master-subject index-button" title="' +
+            I18n.t('buttons.edit') + '" data-remote="true" href="/admin/master_classes/'+
+            data.master_class.id +'/edit"></a>\
+            <a class="fa fa-times index-button" title="' + I18n.t('buttons.delete') +
+            '"data-method="delete" data-remote="true" data-confirm="' + I18n.t('confirm') +
             '" href="/admin/master_classes/' +
-            data.master_class.id + '">' + I18n.t('buttons.delete') + '</a>\
+            data.master_class.id + '"></a>\
           </td>');
         }
       });

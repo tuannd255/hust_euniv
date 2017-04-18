@@ -7,6 +7,7 @@ class Admin::MasterClassesController < Admin::BaseController
     @master_classes = @search.result.page(params[:page]).per Settings.per_page.default
     respond_to do |format|
       format.html
+      format.js
       format.json {render json: @master_classes.to_json}
     end
   end

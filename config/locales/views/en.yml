@@ -17,7 +17,7 @@ en:
         name: *name
         please_input_code: *please_input_code
         please_input_name: *please_input_name
-      index:
+      master_class_form:
         code: *code
         name: *name
         please_input_code: *please_input_code
