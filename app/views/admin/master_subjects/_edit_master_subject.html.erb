@@ -7,8 +7,8 @@
   <td><%= number_field_tag :creadit, {}, value: master_subject.creadit,
     class: "form-control master_subject_creadit" %></td>
   <td>
-    <i class="fa fa-check index-button update-master-subject text-blue index-button"
-      aria-hidden="true" title="<%= t 'buttons.update'%>" style="cursor: pointer"></i>
+    <a class="fa fa-check index-button update-master-subject"
+      aria-hidden="true" title="<%= t 'buttons.update'%>" style="cursor: pointer"></a>
 
     <%= link_to edit_admin_master_subject_path(master_subject, close: true),
       remote: true  do %>

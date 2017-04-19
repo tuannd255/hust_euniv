@@ -2,8 +2,16 @@
   data-id="<%= master_class.id %>">
   <td><%= master_class.code %></td>
   <td><%= master_class.name %></td>
-  <td><%= link_to t("buttons.edit"), edit_admin_master_class_path(master_class),
-    remote: true, class: "edit-master-class" %></td>
-  <td><%= link_to t("buttons.delete"), admin_master_class_path(master_class),
-    method: :delete, remote: true, data: {confirm: t("confirm")} %></td>
+  <td>
+    <%= link_to edit_admin_master_class_path(master_class),
+      remote: true, class: "edit-master-class" do %>
+      <i class="fa fa-pencil-square-o index-button" aria-hidden="true"
+        title="<%=t 'buttons.edit'%>"></i>
+    <% end %>
+    <%= link_to admin_master_class_path(master_class),
+      method: :delete, remote: true, data: {confirm: t("confirm")} do %>
+      <i class="fa fa-times index-button" aria-hidden="true"
+        title="<%= t 'buttons.delete' %>"></i>
+    <% end %>
+  </td>
 </tr>

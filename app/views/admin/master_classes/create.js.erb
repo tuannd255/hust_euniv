@@ -1,3 +1,8 @@
-$('#master_class_code, #master_class_name').val('');
-$('#subject-main table tbody').append('<%= j render "master_class", master_class: @master_class %>')
-$('.flash').html('<%= j render "layouts/flash" %>');
+<% if @master_class.errors.any? %>
+  $('.class-create').html("<%= j render 'master_class_form',
+    master_class: @master_class %>")
+<% else %>
+  $('#master_class_code, #master_class_name').val('');
+  $('#subject-main table tbody').append('<%= j render "master_class", master_class: @master_class %>')
+  $('.flash').html('<%= j render "layouts/flash" %>');
+<% end %>
