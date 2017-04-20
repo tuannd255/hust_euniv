@@ -18,12 +18,24 @@
 //= require i18n
 //= require i18n/translations
 //= require i18n.js
+//= require bootstrap-datepicker
+//= require bootstrap-datepicker/core
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.ja.js
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.en-GB.js
 //= require master_subject
 //= require select2.min.js
 //= require_tree ../../../vendor/assets/javascripts/i18n
 //= require master_class
+//= require master_course
 
 $(document).on('turbolinks:load ajaxComplete', function() {
   $('.alert').delay(1000).fadeOut();
-  $('#error_explanation').delay(1000).slideUp();
+  $('table tbody tr td p.validation-error').delay(3000).slideUp();
+  $('.datepicker').datepicker({
+    format: I18n.t("datepicker.time.default"),
+    enableOnReadonly: true,
+    orientation: "auto",
+    forceParse: false,
+    todayHighlight: true
+  });
 });

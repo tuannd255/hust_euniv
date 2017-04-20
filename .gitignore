@@ -29,9 +29,11 @@ capybara-*.html
 /public/system
 /public/assets/
 /public/uploads/
+/public/javascripts/
 /coverage/
 /spec/tmp
 **.orig
 rerun.txt
 pickle-email-*.html
 /test/*
+/app/assets/javascripts/i18n/

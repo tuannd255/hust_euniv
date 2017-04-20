@@ -24,8 +24,6 @@ class Admin::MasterSubjectsController < Admin::BaseController
         format.html
         format.js
       end
-    else
-      flash.now[:danger] = t "fail"
     end
   end
 
@@ -39,21 +37,17 @@ class Admin::MasterSubjectsController < Admin::BaseController
   def update
     if @master_subject.update_attributes master_subject_params
       flash.now[:success] = t ".success"
-    else
-      flash.now[:danger] = t "fail"
     end
     render json: {master_subject: @master_subject}
   end
 
   def destroy
     if @master_subject.destroy
-      flash.now[:success] = t ".success"
+      flash[:success] = t ".success"
     else
-      flash.now[:danger] = t "fail"
+      flash[:danger] = t "fail"
     end
-    respond_to do |format|
-      format.js
-    end
+    redirect_to [:admin, :master_subjects]
   end
 
   private

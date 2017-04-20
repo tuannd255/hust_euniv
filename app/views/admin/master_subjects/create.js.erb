@@ -1,9 +1,9 @@
 <% if @master_subject.errors.any? %>
-  $('.subject-create').html("<%= j render 'master_subject_form',
+  $('.subject-create').html("<%= j render 'master_subject_form',\
     master_subject: @master_subject %>")
 <% else %>
   $('#master_subject_code, #master_subject_name, #master_subject_creadit').val('');
-  $('#subject-main table tbody').append('<%= j render "master_subject",
+  $('#subject-main table tbody').append('<%= j render "master_subject",\
     master_subject: @master_subject %>')
   $('.flash').html('<%= j render "layouts/flash" %>');
 <% end %>

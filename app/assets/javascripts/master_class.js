@@ -13,12 +13,12 @@ $(document).on('turbolinks:load', function() {
         data: {master_class: {code: code, name: name}},
         success: function(data) {
           $('#master_classes .master-class.master-class-' + data.master_class.id).html('\
-            <td>' + data.master_class.code + '</td><td>' + data.master_class.name + '</td><td>' +
+            <td>' + data.master_class.code + '</td><td>' + data.master_class.name + '</td><td class="text-center">' +
             '<a class="fa fa-pencil-square-o edit-master-subject index-button" title="' +
             I18n.t('buttons.edit') + '" data-remote="true" href="/admin/master_classes/'+
             data.master_class.id +'/edit"></a>\
             <a class="fa fa-times index-button" title="' + I18n.t('buttons.delete') +
-            '"data-method="delete" data-remote="true" data-confirm="' + I18n.t('confirm') +
+            '"data-method="delete" data-confirm="' + I18n.t('confirm') +
             '" href="/admin/master_classes/' +
             data.master_class.id + '"></a>\
           </td>');

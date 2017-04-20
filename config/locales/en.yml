@@ -16,3 +16,21 @@ en:
     class: Search class
   course_name: Course %{name}
   end_date_gt_start_date: End date can't be greater than start date
+  datetime: &datetime
+    formats:
+      year_month: "%Y/%m"
+      time_log: "%d:%m:%Y_%H:%M:%S"
+      default: "%Y/%m/%d"
+      short: "%y/%m/%d"
+      year: "%d/%m/%Y"
+      datetime: "%Y-%m-%d %I:%M %p"
+      times: "%H:%M:%S"
+      timeline_js: "%Y,%m,%d"
+  date:
+    <<: *datetime
+  time:
+    <<: *datetime
+  datepicker:
+    time:
+      default: "yyyy/mm/dd"
+      short: "yyyy/mm"
