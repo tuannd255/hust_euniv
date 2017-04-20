@@ -16,14 +16,28 @@ class Admin::MasterCoursesController < Admin::BaseController
   def create
     @master_course = MasterCourse.new master_course_params
     if @master_course.save
-      flash[:success] = t ".success"
-    else
-      flash[:danger] = t "fail"
+      flash.now[:success] = t ".success"
     end
-    redirect_to admin_master_courses_path
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
+  def edit
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def update
+    if @master_course.update_attributes master_course_params
+      flash.now[:success] = t ".success"
+    end
+    respond_to do |format|
+      format.json
+    end
   end
 
   def destroy
@@ -32,7 +46,7 @@ class Admin::MasterCoursesController < Admin::BaseController
     else
       flash[:danger] = t "fail"
     end
-    redirect_to admin_master_courses_path
+    redirect_to [:admin, :master_courses]
   end
 
   private

@@ -1,0 +1,21 @@
+<tr class="master-course master-course-<%= master_course.id %>"
+  data-id="<%= master_course.id %>">
+  <td><%= text_field_tag :code, {}, value: master_course.code,
+    class: "form-control master_course.code" %></td>
+  <td><%= text_field_tag :name, {}, value: master_course.name,
+    class: "form-control master_course_name" %></td>
+  <td><%= text_field_tag :start_date, {}, value: l(master_course.start_date),
+    class: "form-control master_course_start_date datepicker" %></td>
+  <td><%= text_field_tag :end_date, {}, value: l(master_course.end_date),
+    class: "form-control master_course_end_date datepicker" %></td>
+  <td class="text-center">
+    <a class="fa fa-check index-button update-master-course"
+      aria-hidden="true" title="<%= t 'buttons.update'%>" style="cursor: pointer"></a>
+
+    <%= link_to edit_admin_master_course_path(master_course, close: true),
+      remote: true  do %>
+        <i class="fa fa-times index-button" aria-hidden="true"
+          title="<%= t 'buttons.close'%>"></i>
+    <% end %>
+  </td>
+</tr>

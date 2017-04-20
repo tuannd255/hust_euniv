@@ -1,0 +1,10 @@
+<% if @master_course.errors.any? %>
+  $('.course-create').html("<%= j render 'master_course_form',\
+    master_course: @master_course %>")
+<% else %>
+  $('#master_course_code, #master_course_name, #master_course_start_date,\
+    #master_course_end_date').val('');
+  $('#course-main table tbody').append('<%= j render "master_course",\
+    master_course: @master_course %>')
+  $('.flash').html('<%= j render "layouts/flash" %>');
+<% end %>

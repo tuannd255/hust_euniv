@@ -15,12 +15,12 @@ $(document).on('turbolinks:load', function() {
         success: function(data) {
           $('#master_subjects .master-subject.master-subject-' + data.master_subject.id).html('\
             <td>' + data.master_subject.code + '</td><td>' + data.master_subject.name + '</td><td>' +
-            data.master_subject.creadit + '</td><td>' +
+            data.master_subject.creadit + '</td><td class="text-center">' +
             '<a class="fa fa-pencil-square-o edit-master-subject index-button" title="' +
             I18n.t('buttons.edit') + '" data-remote="true" href="/admin/master_subjects/'+
             data.master_subject.id +'/edit"></a>\
             <a class="fa fa-times index-button" title="' + I18n.t('buttons.delete') +
-            '"data-method="delete" data-remote="true" data-confirm="' + I18n.t('confirm') +
+            '"data-method="delete" data-confirm="' + I18n.t('confirm') +
             '" href="/admin/master_subjects/' +
             data.master_subject.id + '"></a>\
           </td>');

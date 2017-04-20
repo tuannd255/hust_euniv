@@ -8,7 +8,7 @@ class MasterCourse < ApplicationRecord
   validate :end_date_after_start_date?
 
   def end_date_after_start_date?
-    if start_date.nil? || end_date.nil? || end_date < start_date
+    if self.start_date.nil? || self.end_date.nil? || self.end_date < self.start_date
       errors.add :end_date, I18n.t("end_date_gt_start_date")
     end
   end

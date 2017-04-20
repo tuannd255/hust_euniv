@@ -6,8 +6,10 @@ en:
   please_input_code: &please_input_code "Please input code"
   please_input_name: &please_input_name "Please input name"
   please_input_creadit: &please_input_creadit "Please input creadit"
+  please_input_start_date: &please_input_start_date "Please input start date"
+  please_input_end_date: &please_input_end_date "Please input end date"
   start_date: &start_date Start date
-  end_date: &start_date End date
+  end_date: &end_date End date
   admin:
     master_classes:
       search_form:
@@ -60,12 +62,12 @@ en:
         code: *code
         name: *name
         start_date: *start_date
-        end_date: *start_date
+        end_date: *end_date
       index:
         code: *code
         name: *name
         start_date: *start_date
-        end_date: *start_date
+        end_date: *end_date
         please_input_code: *please_input_code
         please_input_name: *please_input_name
       show:
@@ -73,9 +75,17 @@ en:
         master_class_id: Class
         name: *name
         please_input_name: *please_input_name
+      master_course_form:
+        code: *code
+        name: *name
+        start_date: *start_date
+        end_date: *end_date
+        please_input_code: *please_input_code
+        please_input_name: *please_input_name
+        please_input_start_date: *please_input_start_date
+        please_input_end_date: *please_input_end_date
   layouts:
     admin_sidebar:
       master_subjects: Subject
       master_classes: Class
       master_courses: Course
-

@@ -20,12 +20,10 @@ class Admin::MasterClassesController < Admin::BaseController
     @master_class = MasterClass.new master_class_params
     if @master_class.save
       flash.now[:success] = t ".success"
-      respond_to do |format|
-        format.html
-        format.js
-      end
-    else
-      flash.now[:danger] = t "fail"
+    end
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 
@@ -39,21 +37,17 @@ class Admin::MasterClassesController < Admin::BaseController
   def update
     if @master_class.update_attributes master_class_params
       flash.now[:success] = t ".success"
-    else
-      flash.now[:danger] = t "fail"
     end
     render json: {master_class: @master_class}
   end
 
   def destroy
     if @master_class.destroy
-      flash.now[:success] = t ".success"
+      flash[:success] = t ".success"
     else
-      flash.now[:danger] = t "fail"
+      flash[:danger] = t "fail"
     end
-    respond_to do |format|
-      format.js
-    end
+    redirect_to [:admin, :master_classes]
   end
 
   private

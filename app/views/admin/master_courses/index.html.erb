@@ -1,25 +1,9 @@
-<h1>Admin::MasterCourses#index</h1>
-<div>
-  <div class="course-create">
-    <%= form_for [:admin, @master_course] do |f| %>
-      <%= render "shared/error_messages", object: @master_course %>
-
-      <%= f.label :code, t(".code") %>
-      <%= f.text_field :code, placeholder: t(".please_input_code"), class: "form-control" %>
-
-      <%= f.label :name, t(".name") %>
-      <%= f.text_field :name, placeholder: t(".please_input_name"), class: "form-control" %>
-
-      <%= f.label :start_date, t(".start_date") %>
-      <%= f.date_field :start_date, class: "form-control" %>
-
-      <%= f.label :end_date, t(".end_date") %>
-      <%= f.date_field :end_date, class: "form-control" %>
-
-      <%= f.submit t "buttons.create" %>
-    <% end %>
-  </div>
+<div id="master_courses">
+  <h1>Admin::MasterCourses#index</h1>
   <div class="col-md-10 col-md-offset-1">
+    <div class="course-create">
+      <%= render "master_course_form", master_course: @master_course %>
+    </div><br>
 
     <div id="course-main">
       <%= render "master_courses_table", search: @search, master_courses: @master_courses %>
