@@ -20,7 +20,9 @@
         <%= render "layouts/admin_sidebar" %>
         <div class="content-wrapper" style="margin-top: -20px;">
           <div class="flash"><%= render "layouts/flash" %></div>
-          <%= yield %>
+            <div class="row">
+              <%= yield %>
+            </div>
         </div>
       </div>
     <% else %>
