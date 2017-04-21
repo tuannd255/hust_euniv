@@ -1,16 +1,21 @@
-<div id="master_class_subjects" class="col-md-10 col-md-offset-1"
-  data-course-code="<%= @master_course.code %>">
-  <h1>Admin::MasterCourses#show</h1>
-  <h2><%= t "course_name", name: @master_course.name %></h2>
-  <div class="create-class-subject">
-    <%= render "master_class_subject_form", master_course: @master_course,
-      master_class_subject: @master_class_subject %>
-  </div>
-  <div id="master-class-subject-table">
-    <%= render "master_class_subject_table", search: @search,
-      master_class_subjects: @master_class_subjects %>
-  </div>
-</div>
+<tr class="master-class-subject master-class-subject-<%= master_class_subject.id %>"
+  data-id="<%= master_class_subject.id %>">
+  <td><%= text_field_tag :code, {}, value: master_class_subject.code, disabled: true,
+    class: "form-control master_class_subject.code" %></td>
+  <td><%= text_field_tag :name, {}, value: master_class_subject.name, class: "form-control master_class_subject_name" %></td>
+  <td><%= select_tag :master_subject_id, {}, class: "form-control select-subject" %></td>
+  <td><%= select_tag :master_class_id, {}, class: "form-control select-class" %></td>
+  <%= hidden_field_tag :master_course_id, {}, value: master_class_subject.master_course_id %>
+  <td class="text-center">
+    <a class="fa fa-check index-button update-master-class-subject"
+      aria-hidden="true" style="cursor: pointer;" title="<%= t 'buttons.update'%>"></a>
+    <%= link_to edit_admin_master_class_subject_path(master_class_subject,
+      close: true), remote: true  do %>
+      <i class="fa fa-times index-button" aria-hidden="true"
+        title="<%= t 'buttons.close'%>"></i>
+    <% end %>
+  </td>
+</tr>
 <script type="text/javascript">
   var per_page = <%= Settings.per_page.default %>;
 

@@ -27,6 +27,7 @@
 //= require_tree ../../../vendor/assets/javascripts/i18n
 //= require master_class
 //= require master_course
+//= require master_class_subject
 
 $(document).on('turbolinks:load ajaxComplete', function() {
   $('.alert').delay(1000).fadeOut();

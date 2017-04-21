@@ -1,7 +1,18 @@
-<tr>
+<tr class="master-class-subject master-class-subject-<%= master_class_subject.id %>">
   <td><%= master_class_subject.code %></td>
   <td><%= master_class_subject.name %></td>
-  <td><%= link_to t("buttons.edit"), [:admin, master_class_subject] %></td>
-  <td><%= link_to t("buttons.delete"),  admin_master_class_subject_path(master_class_subject),
-    method: :delete, data: {confirm: t("confirm")} %></td>
+  <td><%= master_class_subject.master_subject_name %></td>
+  <td><%= master_class_subject.master_class_name %></td>
+  <td class="text-center">
+    <%= link_to edit_admin_master_class_subject_path(master_class_subject),
+      remote: true, class: "edit-master-class-subject" do %>
+      <i class="fa fa-pencil-square-o index-button" aria-hidden="true"
+        title="<%=t 'buttons.edit'%>"></i>
+    <% end %>
+    <%= link_to admin_master_class_subject_path(master_class_subject),
+      method: :delete, data: {confirm: t("confirm")} do %>
+      <i class="fa fa-times index-button" aria-hidden="true"
+        title="<%= t 'buttons.delete' %>"></i>
+    <% end %>
+  </td>
 </tr>

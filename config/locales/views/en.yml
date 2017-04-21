@@ -70,10 +70,11 @@ en:
         end_date: *end_date
         please_input_code: *please_input_code
         please_input_name: *please_input_name
-      show:
+      master_class_subject_form:
         master_subject_id: Subject
         master_class_id: Class
         name: *name
+        code: *code
         please_input_name: *please_input_name
       master_course_form:
         code: *code
