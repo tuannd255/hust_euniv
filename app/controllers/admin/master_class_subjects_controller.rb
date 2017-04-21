@@ -12,6 +12,21 @@ class Admin::MasterClassSubjectsController < Admin::BaseController
     redirect_to [:admin, @master_course]
   end
 
+  def edit
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def update
+    if @master_class_subject.update_attributes master_class_subject_params
+      flash.now[:success] = t ".success"
+    end
+    respond_to do |format|
+      format.json
+    end
+  end
+
   def destroy
     if @master_class_subject.destroy
       flash[:success] = t ".success"

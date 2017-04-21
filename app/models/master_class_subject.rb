@@ -10,6 +10,10 @@ class MasterClassSubject < ApplicationRecord
 
   before_save :add_code
 
+  delegate :name, to: :master_subject, prefix: true, allow_nil: true
+  delegate :name, to: :master_class, prefix: true, allow_nil: true
+  delegate :name, to: :master_course, prefix: true, allow_nil: true
+
   private
   def add_code
     self.code = master_course.code + "-" + master_subject.code + "-" +master_class.code
