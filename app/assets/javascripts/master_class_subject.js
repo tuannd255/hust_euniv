@@ -1,8 +1,8 @@
 $(document).on('turbolinks:load', function() {
   if ($('#master_class_subjects').length > 0) {
     master_course_code = $('#master_class_subjects').data('course-code');
-    $('#master_class_subjects #master_class_subject_code').val(master_course_code + '-');
-
+    $('#master_class_subjects #master_class_subject_code')
+      .val(master_course_code + '-');
     $('#master_class_subjects').on('click', '.update-master-class-subject', function(){
       parent = $(this).closest('.master-class-subject');
       id = parent.data('id');

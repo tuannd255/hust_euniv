@@ -1,7 +1,7 @@
 <tr class="master-class-subject master-class-subject-<%= master_class_subject.id %>"
   data-id="<%= master_class_subject.id %>">
   <td><%= text_field_tag :code, {}, value: master_class_subject.code, disabled: true,
-    class: "form-control master_class_subject.code" %></td>
+    class: "form-control master_class_subject_code" %></td>
   <td><%= text_field_tag :name, {}, value: master_class_subject.name, class: "form-control master_class_subject_name" %></td>
   <td>
     <%= select_tag :master_subject_id, "<option value='#{master_class_subject.master_subject_id}'>
@@ -101,6 +101,19 @@
   }
 
   function formatSubSelection(subject) {
+    master_course_code = $('#master_class_subjects').data('course-code');
+    master_subject_code = subject.code == undefined ? <%= master_class_subject.master_subject.code %> : subject.code;
+    master_class_code = $('.select-class-<%= master_class_subject.id %>')
+      .data('class-code');
+    master_class_code = master_class_code == undefined ? <%= master_class_subject
+      .master_class.code %> : master_class_code;
+    $('#master_class_subjects .master-class-subject.master-class-subject-<%= master_class_subject.id %> .master_class_subject_code')
+      .val(master_course_code + '-' + master_subject_code + '-' + master_class_code);
+    $('.select-subject-<%= master_class_subject.id %>').data('subject-code',
+      master_subject_code);
+    $('#master_class_subjects .master-class-subject.master-class-subject-\
+      <%= master_class_subject.id %> .master_class_subject_code').attr('title',
+      master_course_code + '-' + master_subject_code + '-' + master_class_code);
     if (subject.name) {
       return subject.name;
     }
@@ -115,6 +128,21 @@
   }
 
   function formatClSelection(cla) {
+    master_course_code = $('#master_class_subjects').data('course-code');
+    master_subject_code = $('.select-subject-<%= master_class_subject.id %>')
+      .data('subject-code');
+
+    master_subject_code = master_subject_code == undefined ? <%= master_class_subject.master_subject.code %> : master_subject_code
+
+    master_class_code = cla.code == undefined ? <%= master_class_subject.
+      master_class.code %> : cla.code
+
+    $('#master_class_subjects .master-class-subject.master-class-subject-<%= master_class_subject.id %> .master_class_subject_code')
+      .val(master_course_code + '-' + master_subject_code + '-' + master_class_code);
+    $('.select-class-<%= master_class_subject.id %>').data('class-code',
+      master_class_code);
+    $('#master_class_subjects .master-class-subject.master-class-subject-<%= master_class_subject.id %> .master_class_subject_code').attr('title',
+      master_course_code + '-' + master_subject_code + '-' + master_class_code);
     if(cla.name){
       return cla.name;
     }
