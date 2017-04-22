@@ -4,6 +4,7 @@
 <% else %>
   $('#master_course_code, #master_course_name, #master_course_start_date,\
     #master_course_end_date').val('');
+  $('.validation-error').remove();
   $('#course-main table tbody').append('<%= j render "master_course",\
     master_course: @master_course %>')
   $('.flash').html('<%= j render "layouts/flash" %>');

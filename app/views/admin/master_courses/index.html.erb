@@ -1,12 +1,17 @@
 <div id="master_courses">
   <h1>Admin::MasterCourses#index</h1>
-  <div class="col-md-10 col-md-offset-1">
-    <div class="course-create">
-      <%= render "master_course_form", master_course: @master_course %>
-    </div><br>
 
-    <div id="course-main">
-      <%= render "master_courses_table", search: @search, master_courses: @master_courses %>
+  <div>
+    <div class="course-create col-md-10 col-md-offset-1">
+      <%= render "master_course_form", master_course: @master_course %>
+    </div>
+    <div class="col-md-10 col-md-offset-1">
+      <div class="search-form">
+        <%= render "search_form", search: @search %>
+      </div>
+      <div id="course-main">
+        <%= render "master_courses_table", search: @search, master_courses: @master_courses %>
+      </div>
     </div>
   </div>
 </div>

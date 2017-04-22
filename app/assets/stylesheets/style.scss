@@ -9,3 +9,32 @@
 .index-button {
   margin: 5px;
 }
+
+#flash {
+  position: absolute;
+  top: 70px;
+  right: 5%;
+  z-index: 100;
+  width: 30%;
+  word-wrap: break-word;
+  float: right !important;
+  text-align: center;
+
+  .nht-flash {
+    display: inline-block;
+  }
+}
+
+.truncate-col {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fixed-table {
+  table-layout: fixed;
+  width: 100%;
+  th, td {
+    text-align: center;
+  }
+}

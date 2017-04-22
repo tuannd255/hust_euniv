@@ -30,7 +30,7 @@
 //= require master_class_subject
 
 $(document).on('turbolinks:load ajaxComplete', function() {
-  $('.alert').delay(1000).fadeOut();
+  $('.alert').delay(2000).fadeOut();
   $('table tbody tr td p.validation-error').delay(3000).slideUp();
   $('.datepicker').datepicker({
     format: I18n.t("datepicker.time.default"),

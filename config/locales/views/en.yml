@@ -55,6 +55,8 @@ en:
         please_input_name: *please_input_name
         please_input_creadit: *please_input_creadit
     master_courses:
+      search_form:
+        code_or_name: *code_or_name
       master_class_subject_table:
         code: *code
         name: *name
@@ -90,3 +92,12 @@ en:
       master_subjects: Subject
       master_classes: Class
       master_courses: Course
+  kaminari:
+    next_page:
+      next: "Next ›"
+    last_page:
+      last: "Last ››"
+    first_page:
+      first: "« First"
+    prev_page:
+      previous: "‹ Prev"

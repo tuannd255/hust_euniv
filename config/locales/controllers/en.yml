@@ -14,6 +14,13 @@ en:
         success: Update subject success
       destroy:
         success: Delete subject success
+    master_courses:
+      create:
+        success: Create course success
+      update:
+        success: Update course success
+      destroy:
+        success: Delete course success
     master_class_subjects:
       create:
         success: Create class subject success

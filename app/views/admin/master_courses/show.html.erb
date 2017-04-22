@@ -6,6 +6,7 @@
     <%= render "master_class_subject_form", master_course: @master_course,
       master_class_subject: @master_class_subject %>
   </div>
+
   <div id="master-class-subject-table">
     <%= render "master_class_subject_table", search: @search,
       master_class_subjects: @master_class_subjects %>
@@ -88,6 +89,8 @@
   }
 
   function formatSubSelection(subject) {
+            debugger;
+
     if (subject.name) {
       return subject.name;
     }
