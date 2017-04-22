@@ -3,6 +3,7 @@
     master_subject: @master_subject %>")
 <% else %>
   $('#master_subject_code, #master_subject_name, #master_subject_creadit').val('');
+  $('.validation-error').remove();
   $('#subject-main table tbody').append('<%= j render "master_subject",\
     master_subject: @master_subject %>')
   $('.flash').html('<%= j render "layouts/flash" %>');

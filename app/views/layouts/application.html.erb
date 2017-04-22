@@ -19,16 +19,16 @@
         <%= render "layouts/admin_header" %>
         <%= render "layouts/admin_sidebar" %>
         <div class="content-wrapper" style="margin-top: -20px;">
-          <div class="flash"><%= render "layouts/flash" %></div>
-            <div class="row">
-              <%= yield %>
-            </div>
+          <div class="flash" id="flash"><%= render "layouts/flash" %></div>
+          <div class="row">
+            <%= yield %>
+          </div>
         </div>
       </div>
     <% else %>
       <div>
         <%= render "layouts/header" %>
-        <div class="flash"><%= render "layouts/flash" %></div>
+        <div class="flash" id="flash"><%= render "layouts/flash" %></div>
         <%= yield %>
         <%= render "layouts/footer" %>
       </div>
