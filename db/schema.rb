@@ -12,25 +12,17 @@
 
 ActiveRecord::Schema.define(version: 20170304040957) do
 
-  create_table "master_class_subject_teachers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "code"
-    t.string   "tbluser_user_code"
-    t.integer  "tbluser_user_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-  end
-
   create_table "master_class_subjects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "code"
     t.string   "name"
-    t.string   "master_class_code"
-    t.string   "master_subject_code"
-    t.string   "master_course_code"
+    t.boolean  "status"
+    t.integer  "tbluser"
+    t.integer  "room"
     t.integer  "master_class_id"
     t.integer  "master_subject_id"
     t.integer  "master_course_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "master_classes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -44,10 +36,9 @@ ActiveRecord::Schema.define(version: 20170304040957) do
     t.string   "code"
     t.datetime "date"
     t.integer  "slot"
-    t.string   "master_class_subject_teacher_code"
-    t.integer  "master_class_subject_teacher_id"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.integer  "master_class_subject_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "master_courses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -69,15 +60,14 @@ ActiveRecord::Schema.define(version: 20170304040957) do
 
   create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.string   "master_class_subject_teacher_code"
-    t.integer  "master_class_subject_teacher_id"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tblusers", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "User_ID"
     t.string   "username"
+    t.string   "name"
     t.string   "salt"
     t.boolean  "enabled"
     t.string   "user_code"
