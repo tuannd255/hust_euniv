@@ -4,8 +4,7 @@ class CreateMasterCourseSchedules < ActiveRecord::Migration[5.0]
       t.string :code
       t.datetime :date
       t.integer :slot
-      t.string :master_class_subject_teacher_code
-      t.integer :master_class_subject_teacher_id
+      t.integer :master_class_subject_id
 
       t.timestamps
     end

@@ -3,6 +3,7 @@ class CreateTblusers < ActiveRecord::Migration[5.0]
     create_table :tblusers, id: false do |t|
       t.integer :User_ID
       t.string :username
+      t.string :name
       t.string :salt
       t.boolean :enabled
       t.string :user_code
