@@ -17,10 +17,11 @@ class Admin::MasterCoursesController < Admin::BaseController
     @master_course = MasterCourse.new master_course_params
     if @master_course.save
       flash.now[:success] = t ".success"
-    end
-    respond_to do |format|
-      format.html
-      format.js
+      redirect_to [:admin, :master_courses]
+    else
+      respond_to do |format|
+        format.js
+      end
     end
   end
 

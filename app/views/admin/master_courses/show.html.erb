@@ -89,8 +89,16 @@
   }
 
   function formatSubSelection(subject) {
-            debugger;
-
+    master_course_code = $('#master_class_subjects').data('course-code');
+    master_subject_code = subject.code == undefined ? "" : subject.code
+    master_class_code = $('#master_class_subjects #select2-master_class_subject_master_class_id-container')
+      .data('class-code');
+    master_class_code = master_class_code == undefined ? "" : master_class_code
+    $('#master_class_subjects #master_class_subject_code')
+      .val(master_course_code + '-' + master_subject_code + '-' + master_class_code);
+    $('#master_class_subjects #select2-master_class_subject_master_subject_id-container')
+      .data('subject-code', subject.code);
+    $('#master_class_subjects #master_class_subject_code').attr('title',master_course_code + '-' + master_subject_code + '-' + master_class_code);
     if (subject.name) {
       return subject.name;
     }
@@ -105,6 +113,17 @@
   }
 
   function formatClSelection(cla) {
+    master_course_code = $('#master_class_subjects').data('course-code');
+    master_subject_code = $('#master_class_subjects #select2-master_class_subject_master_subject_id-container')
+      .data('subject-code');
+    master_subject_code = master_subject_code == undefined ? "" : master_subject_code
+    master_class_code = cla.code == undefined ? "" : cla.code
+    $('#master_class_subjects #master_class_subject_code')
+      .val(master_course_code + '-' + master_subject_code + '-' + master_class_code);
+    $('#master_class_subjects #select2-master_class_subject_master_class_id-container')
+      .data('class-code', cla.code);
+    $('#master_class_subjects #master_class_subject_code').attr('title',
+      master_course_code + '-' + master_subject_code + '-' + master_class_code);
     if(cla.name){
       return cla.name;
     }

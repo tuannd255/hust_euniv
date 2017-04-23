@@ -20,8 +20,9 @@ class Admin::MasterSubjectsController < Admin::BaseController
     @master_subject = MasterSubject.new master_subject_params
     if @master_subject.save
       flash.now[:success] = t ".success"
+      redirect_to [:admin, :master_subjects]
+    else
       respond_to do |format|
-        format.html
         format.js
       end
     end

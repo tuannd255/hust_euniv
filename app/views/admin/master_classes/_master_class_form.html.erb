@@ -13,7 +13,9 @@
           placeholder: t(".please_input_code") %></td>
         <td><%= f.text_field :name, class: "form-control",
           placeholder: t(".please_input_name") %></td>
-        <td><%= f.submit t("buttons.create"), class: "btn btn-primary" %></td>
+        <td class="text-center">
+          <%= f.submit t("buttons.create"), class: "btn btn-primary" %>
+        </td>
       </tr>
     </tbody>
   </table>
