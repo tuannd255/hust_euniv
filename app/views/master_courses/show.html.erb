@@ -1,0 +1,14 @@
+<div id="master_class_subjects" class="col-md-10 col-md-offset-1"
+  data-course-code="<%= @master_course.code %>">
+  <h1>Admin::MasterCourses#show</h1>
+  <h2><%= t "course_name", name: @master_course.name %></h2>
+
+  <div id="master-class-subject-table">
+    <%= render "master_class_subject_table", search: @search,
+      master_class_subjects: @master_class_subjects %>
+  </div>
+</div>
+
+<div class="modal-calendar">
+  <%#= render "modal_calendar" %>
+</div>

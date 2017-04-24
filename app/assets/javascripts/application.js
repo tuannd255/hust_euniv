@@ -28,6 +28,8 @@
 //= require master_class
 //= require master_course
 //= require master_class_subject
+//= require responsive-calendar
+//= require custom-calendar
 
 $(document).on('turbolinks:load ajaxComplete', function() {
   $('.alert').delay(2000).fadeOut();

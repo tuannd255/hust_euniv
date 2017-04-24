@@ -21,7 +21,7 @@ en:
   end_date_gt_start_date: End date can't be greater than start date
   datetime: &datetime
     formats:
-      year_month: "%Y/%m"
+      year_month: "%Y-%m"
       time_log: "%d:%m:%Y_%H:%M:%S"
       default: "%Y/%m/%d"
       short: "%y/%m/%d"

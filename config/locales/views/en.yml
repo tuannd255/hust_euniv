@@ -10,6 +10,8 @@ en:
   please_input_end_date: &please_input_end_date "Please input end date"
   start_date: &start_date Start date
   end_date: &end_date End date
+  status: &status Status
+  pick_schedule: "Pick Schedule"
   admin:
     master_classes:
       search_form:
@@ -95,6 +97,40 @@ en:
         name: *name
         code: *code
         please_input_name: *please_input_name
+  master_courses:
+    search_form:
+      code_or_name: *code_or_name
+    master_class_subject_table:
+      code: *code
+      name: *name
+    master_courses_table:
+      code: *code
+      name: *name
+      start_date: *start_date
+      end_date: *end_date
+      status: *status
+    index:
+      code: *code
+      name: *name
+      start_date: *start_date
+      end_date: *end_date
+      please_input_code: *please_input_code
+      please_input_name: *please_input_name
+    master_class_subject_form:
+      master_subject_id: Subject
+      master_class_id: Class
+      name: *name
+      code: *code
+      please_input_name: *please_input_name
+    master_course_form:
+      code: *code
+      name: *name
+      start_date: *start_date
+      end_date: *end_date
+      please_input_code: *please_input_code
+      please_input_name: *please_input_name
+      please_input_start_date: *please_input_start_date
+      please_input_end_date: *please_input_end_date
   layouts:
     admin_sidebar:
       master_subjects: Subject

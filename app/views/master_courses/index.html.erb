@@ -1,0 +1,14 @@
+<div id="master_courses">
+  <h1>Admin::MasterCourses#index</h1>
+
+  <div>
+    <div class="col-md-10 col-md-offset-1">
+      <div class="search-form">
+        <%= render "search_form", search: @search %>
+      </div>
+      <div id="course-main">
+        <%= render "master_courses_table", search: @search, master_courses: @master_courses %>
+      </div>
+    </div>
+  </div>
+</div>
