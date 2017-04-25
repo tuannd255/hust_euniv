@@ -1,0 +1,242 @@
+var per_page = <%= Settings.per_page.default %>;
+
+$(document).ready(function() {
+  $(".select-subject").select2({
+    ajax: {
+      type: "get",
+      url: "/admin/master_subjects",
+      dataType: "json",
+      delay: 250,
+      data: function (params) {
+        q = {};
+        q["code_or_name_cont"] = params.term;
+        page = params.page;
+        return {
+          q,
+          page
+        };
+      },
+      processResults: function (data, params) {
+        return {
+          results: data,
+          pagination: {
+            more: data.length >= per_page
+          }
+        };
+      },
+      cache: true
+    },
+    placeholder: "<%= t 'select.subject' %>",
+    allowClear: true,
+    escapeMarkup: function (markup) {return markup;},
+    minimumInputLength: 1,
+    templateResult: formatSubResult,
+    templateSelection: formatSubSelection,
+    width: "100%"
+  });
+
+  $(".select-class").select2({
+    ajax: {
+      type: "get",
+      url: "/admin/master_classes",
+      dataType: "json",
+      delay: 250,
+      data: function (params) {
+        q = {};
+        q["code_or_name_cont"] = params.term;
+        page = params.page;
+        return {
+          page,
+          q,
+        };
+      },
+      processResults: function (data, params) {
+        return {
+          results: data,
+          pagination: {
+            more: data.length >= per_page
+          }
+        };
+      },
+      cache: true
+    },
+    placeholder: "<%= t 'select.class' %>",
+    allowClear: true,
+    escapeMarkup: function (markup) {return markup;},
+    minimumInputLength: 1,
+    templateResult: formatClResult,
+    templateSelection: formatClSelection,
+    width: "100%"
+  });
+
+  $(".select-user").select2({
+    ajax: {
+      type: "get",
+      url: "/admin/users",
+      dataType: "json",
+      delay: 250,
+      data: function (params) {
+        q = {};
+        q["email_or_name_cont"] = params.term;
+        page = params.page;
+        return {
+          page,
+          q,
+        };
+      },
+      processResults: function (data, params) {
+        return {
+          results: data,
+          pagination: {
+            more: data.length >= per_page
+          }
+        };
+      },
+      cache: true
+    },
+    placeholder: "<%= t 'select.user' %>",
+    allowClear: true,
+    escapeMarkup: function (markup) {return markup;},
+    minimumInputLength: 1,
+    templateResult: formatUserResult,
+    templateSelection: formatUserSelection,
+    width: "100%"
+  });
+
+  $(".select-room").select2({
+    ajax: {
+      type: "get",
+      url: "/admin/rooms",
+      dataType: "json",
+      delay: 250,
+      data: function (params) {
+        q = {};
+        q["name_cont"] = params.term;
+        page = params.page;
+        return {
+          page,
+          q,
+        };
+      },
+      processResults: function (data, params) {
+        return {
+          results: data,
+          pagination: {
+            more: data.length >= per_page
+          }
+        };
+      },
+      cache: true
+    },
+    placeholder: "<%= t 'select.room' %>",
+    allowClear: true,
+    escapeMarkup: function (markup) {return markup;},
+    minimumInputLength: 1,
+    templateResult: formatRoomResult,
+    templateSelection: formatRoomSelection,
+    width: "100%"
+  });
+});
+
+function formatUserResult(user) {
+  if (user.loading) return user.text;
+  var markup = "<div class='select2-result-user clearfix'>" +
+    "<div class='select2-result-user-name'>" + user.name + "</div>" +
+    "<div class='select2-result-user-email'>" + user.email + "</div>" +
+    "</div>";
+  return markup;
+}
+
+function formatUserSelection(user) {
+  var markup = "<div class='select2-result-user clearfix'>" +
+    user.name + "-" + user.email + "</div>"
+  if(user.name){
+    return markup;
+  }
+  else {
+    return user.text
+  }
+}
+
+function formatRoomResult(room) {
+  if (room.loading) return room.text;
+  return room.name;
+}
+
+function formatRoomSelection(room) {
+  if(room.name){
+    return room.name;
+  }
+  else {
+    return room.text
+  }
+}
+
+function formatSubResult(subject) {
+  if (subject.loading) return subject.text;
+  var markup = "<div class='select2-result-subject clearfix'>"+
+    subject.code + "-" + subject.name + "</div>";
+  return markup;
+}
+
+function formatSubSelection(subject) {
+
+  master_course_code = $("#master_class_subjects").data("course-code");
+
+  master_subject_code = subject.code == undefined ? "..." : subject.code;
+  if (master_subject_code != "...") {
+    $("#master_class_subject_name").val(subject.name)
+    $("#select2-master_class_subject_master_subject_id-container")
+      .data("subject-code", subject.code);
+  }
+
+  master_class_code = $("#select2-master_class_subject_master_class_id-container")
+    .data("class-code");
+  master_class_code = (master_class_code == undefined) ? "..." : master_class_code
+
+  master_class_subject_code = "<div class='class_subject_code'>" + master_course_code + '-' + master_subject_code + '-' + master_class_code + "</div>";
+  $(".class_subject_code").replaceWith(master_class_subject_code);
+
+  var markup = "<div class='select2-result-subject clearfix'>"+
+    subject.code + "-" + subject.name + "</div>";
+  if (subject.name) {
+    return markup;
+  }
+  else {
+    return subject.text
+  }
+}
+
+function formatClResult(cla) {
+  if (cla.loading) return cla.text;
+  var markup = "<div class='select2-result-class clearfix'>"+
+    cla.code + "-" + cla.name + "</div>";
+  return markup;
+}
+
+function formatClSelection(cla) {
+  master_course_code = $("#master_class_subjects").data("course-code");
+
+  master_subject_code = $("#select2-master_class_subject_master_subject_id-container")
+    .data("subject-code");
+  master_subject_code = (master_subject_code == undefined) ? "..." : master_subject_code;
+
+  master_class_code = cla.code == undefined ? "..." : cla.code;
+  if (master_class_code != "...") {
+    $("#select2-master_class_subject_master_class_id-container")
+      .data("class-code", cla.code);
+  }
+  master_class_subject_code = "<div class='class_subject_code'>" + master_course_code + '-' + master_subject_code + '-' + master_class_code + "</div>";
+  $(".class_subject_code").replaceWith(master_class_subject_code);
+
+  var markup = "<div class='select2-result-class clearfix'>"+
+    cla.code + "-" + cla.name + "</div>";
+  if(cla.name){
+    return markup;
+  }
+  else {
+    return cla.text
+  }
+}
+
+

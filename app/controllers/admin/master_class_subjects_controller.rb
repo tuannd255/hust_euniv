@@ -1,15 +1,19 @@
 class Admin::MasterClassSubjectsController < Admin::BaseController
-  before_action :handle_condition_create, only: :create
+  before_action :load_and_handle_course, only: [:new, :create]
   before_action :find_master_class_subject, except: [:index, :new, :create]
+
 
   def create
     @master_class_subject = MasterClassSubject.new master_class_subject_params
     if @master_class_subject.save
       flash[:success] = t ".success"
-    else
-      flash[:danger] = t "fail"
     end
-    redirect_to [:admin, @master_course]
+    @search = @master_course.master_class_subjects.search params[:q]
+    @master_class_subjects = @search.result.page(params[:page]).per Settings.per_page.default
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def edit
@@ -39,7 +43,7 @@ class Admin::MasterClassSubjectsController < Admin::BaseController
   private
   def master_class_subject_params
     params.require(:master_class_subject).permit :name, :master_class_id, :master_subject_id,
-      :master_course_id
+      :master_course_id, :user_id, :room_id
   end
 
   def master_class_exist? master_class_id
@@ -73,5 +77,13 @@ class Admin::MasterClassSubjectsController < Admin::BaseController
   def find_master_class_subject
     @master_class_subject = MasterClassSubject.find_by id: params[:id]
     redirect_to :back unless @master_class_subject
+  end
+
+  def load_and_handle_course
+    @master_course = MasterCourse.find_by id: params[:master_class_subject][:master_course_id]
+    unless @master_course
+      flash[:danger] = t ".master_course_not_found"
+      redirect_to admin_master_courses_path
+    end
   end
 end

@@ -1,0 +1,9 @@
+$("#master-class-subject-table").html("<%= j render\
+  '/admin/master_courses/master_class_subject_table', search: @search,\
+  master_class_subjects: @master_class_subjects %>")
+
+<% if(params[:create_and_continue]) %>
+
+<% else %>
+  $(".modal").modal('hide');
+<% end %>

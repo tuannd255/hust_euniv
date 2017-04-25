@@ -3,9 +3,9 @@ class CreateMasterClassSubjects < ActiveRecord::Migration[5.0]
     create_table :master_class_subjects do |t|
       t.string :code
       t.string :name
-      t.boolean :status
-      t.integer :tbluser
-      t.integer :room
+      t.boolean :status, default: 0
+      t.integer :user_id
+      t.integer :room_id
       t.integer :master_class_id
       t.integer :master_subject_id
       t.integer :master_course_id

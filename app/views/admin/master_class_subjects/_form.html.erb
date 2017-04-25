@@ -1,0 +1,84 @@
+<%= form_for [:admin, master_class_subject], remote: true do |f| %>
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-2">
+          <%= f.label t(".code") %>
+        </div>
+        <div class="col-md-10">
+          <div class="class_subject_code">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-2">
+          <%= f.label t(".name") %>
+        </div>
+        <div class="col-md-10">
+          <%= f.text_field :name, placeholder: t(".please_input_name"),
+            class: "form-control" %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-2">
+          <%= f.label t(".master_subject_id") %>
+        </div>
+        <div class="col-md-10">
+          <%= f.select :master_subject_id, {}, {},
+            class: "form-control select-subject" %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-2">
+          <%= f.label t(".master_class_id") %>
+        </div>
+        <div class="col-md-10">
+          <%= f.select :master_class_id, {}, {}, class: "form-control select-class" %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-2">
+          <%= f.label t(".user_id") %>
+        </div>
+        <div class="col-md-10">
+          <%= f.select :user_id, {}, {}, class: "form-control select-user" %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-2">
+          <%= f.label t(".room_id") %>
+        </div>
+        <div class="col-md-10">
+          <%= f.select :room_id, {}, {}, class: "form-control select-room" %>
+        </div>
+      </div>
+    </div>
+    <%= f.hidden_field :master_course_id, value: master_course.id %>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary pull-left" data-dismiss="modal">Close</button>
+    <%= f.submit t("buttons.create_and_continue"), name: "create_and_continue",
+      class: "btn btn-primary pull-right btn-create-and-continue btn-submit" %>
+    <%= f.submit t("buttons.create"),
+      class: "btn btn-primary pull-right btn-submit" %>
+  </div>
+<% end %>
+<script type="text/javascript">
+  <%= render "/admin/master_class_subjects/select2.js" %>
+</script>

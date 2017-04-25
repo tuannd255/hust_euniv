@@ -31,6 +31,7 @@ gem "activerecord-import"
 gem "closure_tree"
 gem "ransack"
 gem "i18n-js"
+gem "activerecord-import"
 
 group :development, :test do
   gem "byebug", platform: :mri

@@ -1,2 +1,0 @@
-class MasterClassSubjectTeacher < ApplicationRecord
-end

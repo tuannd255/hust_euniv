@@ -2,9 +2,11 @@
   <thead class="thead-inverse">
     <tr>
       <th class="col-md-2"><%= sort_link search, :code, t(".code"), {}, {remote: true} %></th>
+      <th class="col-md-2"><%= sort_link search, :master_subject_code, t(".subject_code"), {}, {remote: true} %></th>
       <th class="col-md-3"><%= sort_link search, :name, t(".name"), {}, {remote: true} %></th>
-      <th class="col-md-3"><%= sort_link search, :subject, t(".subject"), {}, {remote: true} %></th>
-      <th class="col-md-3"><%= sort_link search, :class, t(".class"), {}, {remote: true} %></th>
+      <th class="col-md-2"><%= sort_link search, :master_class_name, t(".class"), {}, {remote: true} %></th>
+      <th class="col-md-3"><%= sort_link search, :user_username, t(".teacher"), {}, {remote: true} %></th>
+      <th class="col-md-3"><%= sort_link search, :room_name, t(".room"), {}, {remote: true} %></th>
       <th class="col-md-1"></th>
     </tr>
   </thead>
@@ -14,6 +16,8 @@
     <% else %>
       <tr>
         <td><%= render "shared/nothing" %></td>
+        <td></td>
+        <td></td>
         <td></td>
         <td></td>
         <td></td>
