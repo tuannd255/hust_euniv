@@ -1,7 +1,7 @@
 class AdminAbility
   include CanCan::Ability
-  def initialize tbluser
-    if tbluser.is_admin?
+  def initialize user
+    if user.is_admin?
       # can :manage, Proxy
     else
       cannot :manage, :all

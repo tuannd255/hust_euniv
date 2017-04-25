@@ -1,5 +1,5 @@
 en:
-  tblusers:
+  users:
     create: "Sign up"
     default_password: "(If you sign in with facebook then default password is 12345678)"
     edit: "Edit"

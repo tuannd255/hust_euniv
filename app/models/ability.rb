@@ -2,7 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize user
-    user ||= Tbluser.new
+    user ||= User.new
     can :manage, :all
   end
 end
