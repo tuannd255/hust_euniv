@@ -1,5 +1,5 @@
-<% provide :title, t("tblusers.edit") %>
-<h1><%= t "tblusers.edit" %></h1>
+<% provide :title, t("users.edit") %>
+<h1><%= t "users.edit" %></h1>
 <div class="col-md-6 col-md-offset-3">
   <%= form_for resource, as: resource_name,
     url: registration_path(resource_name), html: {method: :put} do |f| %>
@@ -16,7 +16,7 @@
 
     <div class="field">
       <%= f.label :password %>
-      <i><%= t "tblusers.leave_blank" %></i>
+      <i><%= t "users.leave_blank" %></i>
       <% if @minimum_password_length %>
         <em><%= t "devise.registrations.minimum_password_length",
           minpasslength: @minimum_password_length %></em>
@@ -34,15 +34,15 @@
     <div class="field">
       <%= f.label :current_password %>
       <i>
-        <%= t "tblusers.need_current_pass" %><br>
-        <%= t "tblusers.default_password" if resource.uid.present? %>
+        <%= t "users.need_current_pass" %><br>
+        <%= t "users.default_password" if resource.uid.present? %>
       </i>
       <%= f.password_field :current_password, autocomplete: "off",
         class: "form-control" %>
     </div>
 
     <div class="actions center">
-      <%= f.submit t("tblusers.save"),
+      <%= f.submit t("users.save"),
         class: "btn btn-primary" %>
     </div>
   <% end %>

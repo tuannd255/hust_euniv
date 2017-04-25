@@ -20,7 +20,7 @@
       <div class="input">
         <%= f.label :password %>
         <% if @minimum_password_length %>
-          <em><%= t "tblusers.minimum_password_length",
+          <em><%= t "users.minimum_password_length",
             minpasslength: @minimum_password_length %></em>
         <% end %>
         <%= f.password_field :password, autocomplete: "off",
@@ -34,7 +34,7 @@
       </div>
 
       <div class="actions center">
-        <%= f.submit t("tblusers.#{params[:action]}"),
+        <%= f.submit t("users.#{params[:action]}"),
           class: "btn btn-primary submit-btn" %>
       </div>
     <% end %>
