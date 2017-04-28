@@ -3,8 +3,9 @@
   <h1>Admin::MasterCourses#show</h1>
   <h2><%= t "course_name", name: @master_course.name %></h2>
   <div class="create-class-subject">
-    <%= render "master_class_subject_form", master_course: @master_course,
-      master_class_subject: @master_class_subject %>
+    <a role="button" href="#class_subject_form" class="btn btn-primary" data-toggle="modal">
+      <%= t ".create_master_class_subject" %>
+    </a>
   </div>
 
   <div id="master-class-subject-table">
@@ -12,124 +13,7 @@
       master_class_subjects: @master_class_subjects %>
   </div>
 </div>
-<script type="text/javascript">
-  var per_page = <%= Settings.per_page.default %>;
 
-  $(document).ready(function() {
-    $(".select-subject").select2({
-      ajax: {
-        type: "get",
-        url: "/admin/master_subjects",
-        dataType: "json",
-        delay: 250,
-        data: function (params) {
-          q = {};
-          q["code_or_name_cont"] = params.term;
-          page = params.page;
-          return {
-            q,
-            page
-          };
-        },
-        processResults: function (data, params) {
-          return {
-            results: data,
-            pagination: {
-              more: data.length >= per_page
-            }
-          };
-        },
-        cache: true
-      },
-      placeholder: "<%= I18n.t 'select.subject' %>",
-      allowClear: true,
-      escapeMarkup: function (markup) {return markup;},
-      minimumInputLength: 1,
-      templateResult: formatSubResult,
-      templateSelection: formatSubSelection,
-    });
-  });
-
-  $(".select-class").select2({
-    ajax: {
-      type: "get",
-      url: "/admin/master_classes",
-      dataType: "json",
-      delay: 250,
-      data: function (params) {
-        q = {};
-        q["code_or_name_cont"] = params.term;
-        page = params.page;
-        return {
-          page,
-          q,
-        };
-      },
-      processResults: function (data, params) {
-        return {
-          results: data,
-          pagination: {
-            more: data.length >= per_page
-          }
-        };
-      },
-      cache: true
-    },
-    placeholder: "<%= I18n.t 'select.class' %>",
-    allowClear: true,
-    escapeMarkup: function (markup) {return markup;},
-    minimumInputLength: 1,
-    templateResult: formatClResult,
-    templateSelection: formatClSelection,
-  });
-
-  function formatSubResult(subject) {
-    if (subject.loading) return subject.text;
-    return subject.name;
-  }
-
-  function formatSubSelection(subject) {
-    master_course_code = $('#master_class_subjects').data('course-code');
-    master_subject_code = subject.code == undefined ? "" : subject.code
-    master_class_code = $('#master_class_subjects #select2-master_class_subject_master_class_id-container')
-      .data('class-code');
-    master_class_code = master_class_code == undefined ? "" : master_class_code
-    $('#master_class_subjects #master_class_subject_code')
-      .val(master_course_code + '-' + master_subject_code + '-' + master_class_code);
-    $('#master_class_subjects #select2-master_class_subject_master_subject_id-container')
-      .data('subject-code', subject.code);
-    $('#master_class_subjects #master_class_subject_code').attr('title',master_course_code + '-' + master_subject_code + '-' + master_class_code);
-    if (subject.name) {
-      return subject.name;
-    }
-    else {
-      return subject.text
-    }
-  }
-
-  function formatClResult(cla) {
-    if (cla.loading) return cla.text;
-    return cla.name;
-  }
-
-  function formatClSelection(cla) {
-    master_course_code = $('#master_class_subjects').data('course-code');
-    master_subject_code = $('#master_class_subjects #select2-master_class_subject_master_subject_id-container')
-      .data('subject-code');
-    master_subject_code = master_subject_code == undefined ? "" : master_subject_code
-    master_class_code = cla.code == undefined ? "" : cla.code
-    $('#master_class_subjects #master_class_subject_code')
-      .val(master_course_code + '-' + master_subject_code + '-' + master_class_code);
-    $('#master_class_subjects #select2-master_class_subject_master_class_id-container')
-      .data('class-code', cla.code);
-    $('#master_class_subjects #master_class_subject_code').attr('title',
-      master_course_code + '-' + master_subject_code + '-' + master_class_code);
-    if(cla.name){
-      return cla.name;
-    }
-    else {
-      return cla.text
-    }
-  }
-
-</script>
+<div class="modal-master_class_subject">
+  <%= render "/admin/master_class_subjects/modal_create", master_class_subject: @master_class_subject, master_course: @master_course %>
+</div>

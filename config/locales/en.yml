@@ -10,10 +10,13 @@ en:
     delete: Delete
     update: Update
     close: Close
+    create_and_continue: Create and continue
   logout: Log out
   select:
     subject: Search subject
     class: Search class
+    user: Search Teacher
+    room: Search room
   course_name: Course %{name}
   end_date_gt_start_date: End date can't be greater than start date
   datetime: &datetime

@@ -60,6 +60,10 @@ en:
       master_class_subject_table:
         code: *code
         name: *name
+        class: &class Class
+        subject_code: Subject code
+        teacher: &teacher Teacher
+        room: &room Room
       master_courses_table:
         code: *code
         name: *name
@@ -72,12 +76,7 @@ en:
         end_date: *end_date
         please_input_code: *please_input_code
         please_input_name: *please_input_name
-      master_class_subject_form:
-        master_subject_id: Subject
-        master_class_id: Class
-        name: *name
-        code: *code
-        please_input_name: *please_input_name
+
       master_course_form:
         code: *code
         name: *name
@@ -87,6 +86,15 @@ en:
         please_input_name: *please_input_name
         please_input_start_date: *please_input_start_date
         please_input_end_date: *please_input_end_date
+    master_class_subjects:
+      form:
+        master_subject_id: Subject
+        master_class_id: Class
+        user_id: *teacher
+        room_id: *room
+        name: *name
+        code: *code
+        please_input_name: *please_input_name
   layouts:
     admin_sidebar:
       master_subjects: Subject

@@ -31,7 +31,7 @@
 
 $(document).on('turbolinks:load ajaxComplete', function() {
   $('.alert').delay(2000).fadeOut();
-  $('table tbody tr td p.validation-error').delay(3000).slideUp();
+  $('p.validation-error').delay(3000).slideUp();
   $('.datepicker').datepicker({
     format: I18n.t("datepicker.time.default"),
     enableOnReadonly: true,
