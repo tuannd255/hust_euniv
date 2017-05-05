@@ -4,14 +4,18 @@ class MasterClassSubject < ApplicationRecord
   belongs_to :master_course
   belongs_to :user
   belongs_to :room
+  has_many :master_course_schedules, dependent: :destroy
 
-  validates :name, presence: true, length: {minimum: 3, maximum: 70}
   validate :master_course_exist, :master_subject_exist, :master_class_exist,
     :user_exist, :room_exist
-
-  enum status: [:unregistered, :registered, :cancelled]
+  validates :name, presence: true, length: {minimum: 3, maximum: 70}
+  validates :master_course_id, presence: true
+  validates :master_subject_id, presence: true
+  validates :master_class_id, presence: true
 
   before_save :add_code
+
+  enum status: [:unregistered, :registered, :cancelled]
 
   delegate :name, :code, to: :master_subject, prefix: true, allow_nil: true
   delegate :name, :code, to: :master_class, prefix: true, allow_nil: true

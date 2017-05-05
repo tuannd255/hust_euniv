@@ -1,0 +1,13 @@
+<tr class="master-course master-course-<%= master_course.id %>">
+  <td><%= master_course.code %></td>
+  <td class="truncate-col" title="<%= master_course.name %>">
+    <%= link_to master_course.name, master_course %>
+  </td>
+  <td><%= l master_course.start_date, format: :default %></td>
+  <td><%= l master_course.end_date, format: :default %></td>
+  <td class="text-center">
+    <span class="color-status-<%= master_course.status %>">
+      <%= master_course.status %>
+    </span>
+  </td>
+</tr>

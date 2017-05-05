@@ -26,10 +26,12 @@
         </div>
       </div>
     <% else %>
-      <div>
+      <div class="body-user">
         <%= render "layouts/header" %>
         <div class="flash" id="flash"><%= render "layouts/flash" %></div>
-        <%= yield %>
+        <div class="row">
+          <%= yield %>
+        </div>
         <%= render "layouts/footer" %>
       </div>
     <% end %>

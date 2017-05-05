@@ -7,6 +7,9 @@ html {
   height: 100% !important;
   box-sizing: border-box;
 }
+.body-user {
+  margin-top: 45px;
+}
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
@@ -120,4 +123,10 @@ footer ul li {
 .select2-container--default .select2-selection--single,
   .select2-selection .select2-selection--single {
   border-radius: 4px;
+}
+.day {
+  border: 0.1px solid #cecece;
+  &.header {
+    border: none;
+  }
 }
