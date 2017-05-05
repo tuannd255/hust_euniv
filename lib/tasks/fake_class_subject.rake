@@ -7,7 +7,7 @@ namespace :db do
     rooms = Room.all
     users = User.all
     master_courses.each do |master_course|
-      20.times do ||
+      50.times do ||
         master_subject = master_subjects.order("rand()").first
         master_class = master_classes.order("rand()").first
         user = users.order("rand()").first

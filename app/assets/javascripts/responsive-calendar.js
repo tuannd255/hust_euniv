@@ -160,18 +160,21 @@
         return null;
       },
       addOthers: function(day, dayEvents) {
-        var badge;
+        // var badge;
         if (typeof dayEvents === "object") {
-          if (dayEvents.number != null) {
-            badge = $("<span></span>").html(dayEvents.number).addClass("badge");
-            if (dayEvents.badgeClass != null) {
-              badge.addClass(dayEvents.badgeClass);
+          if (dayEvents.slot != null) {
+            day.find('.' + dayEvents.slot).css('background-color', 'red');
+            day.find('.' + dayEvents.slot).data('disabled', true)
+            // badge = $("<span></span>").html(dayEvents.number).addClass("badge");
+            // if (dayEvents.badgeClass != null) {
+            //   badge.addClass(dayEvents.badgeClass);
+            // }
+            // day.append(badge);
+            if (dayEvents.other) {
+              day.find('.' + dayEvents.slot).css('background-color', '#eaeaea');
             }
-            day.append(badge);
           }
-          if (dayEvents.url) {
-            day.find("a").attr("href", dayEvents.url);
-          }
+
         }
         return day;
       },
@@ -185,7 +188,7 @@
               day.addClass(eventClass);
             }
           } else {
-            day.addClass("active");
+            // day.addClass("active");
           }
           day = this.addOthers(day, dayEvents);
         }

@@ -16,7 +16,9 @@ $(document).on('turbolinks:load ajaxCompleted', function() {
           slot: slot}},
         success: function(data) {
           $('.day:not(.header) a.' + data.master_course_schedule.slot).each(function() {
-            if ($(this).data('day') == data.master_course_schedule.date.substring(8,10)) {
+            if ($(this).data('day') == data.master_course_schedule.date.substring(8,10) &&
+              $(this).data('month') == data.master_course_schedule.date.substring(5,7) &&
+              $(this).data('year') == data.master_course_schedule.date.substring(0,4)) {
               $(this).css('background-color', 'red');
             }
           });

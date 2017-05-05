@@ -1,3 +1,5 @@
 $('.modal-calendar').html('<%= j render "master_courses/modal_calendar",\
-  master_class_subject: @master_class_subject %>')
+  master_class_subject: @master_class_subject,\
+  master_course_schedules: @master_course_schedules,\
+  other_master_course_schedules: @other_master_course_schedules %>')
 $('.modal').modal('show');
