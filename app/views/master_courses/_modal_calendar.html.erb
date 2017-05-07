@@ -49,8 +49,8 @@
             '<%= l master_course_schedule.date, format: :ymd %>': {'slot': '<%= master_course_schedule.slot %>'},
           <% end %>
         <% end %>
-        <% if other_master_course_schedules.any? %>
-          <% other_master_course_schedules.each do |master_course_schedule| %>
+        <% if picked_master_course_schedules.any? %>
+          <% picked_master_course_schedules.each do |master_course_schedule| %>
             '<%= l master_course_schedule.date, format: :ymd %>': {'slot': '<%= master_course_schedule.slot %>',
             'other': true},
           <% end %>

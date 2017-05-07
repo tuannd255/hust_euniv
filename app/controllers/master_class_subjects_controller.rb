@@ -10,14 +10,14 @@ class MasterClassSubjectsController < ApplicationController
   private
   def find_master_class_subject
     @master_class_subject = MasterClassSubject.find_by id: params[:id]
-    redirect_to admin_master_class_subjects_path if @master_class_subject.nil?
+    redirect_to master_courses_path if @master_class_subject.nil?
   end
 
   def find_schedule
-    master_class_subjects = MasterClassSubject.same_class_and_time @master_class_subject.master_class_id,
-      @master_class_subject.room_id, @master_class_subject.master_course_id
-    master_course_schedules = MasterCourseSchedule.where master_class_subject: master_class_subjects
-    @master_course_schedules = master_course_schedules.by_user current_user.id
-    @other_master_course_schedules = master_course_schedules - @master_course_schedules
+    picked_master_class_subjects = MasterClassSubject.picked_master_class_subject @master_class_subject.master_class_id,
+      @master_class_subject.room_id, current_user.id, @master_class_subject.master_course_id
+    all_schedules = MasterCourseSchedule.where master_class_subject_id: picked_master_class_subjects.pluck(:id)
+    @master_course_schedules = all_schedules.where master_class_subject_id: @master_class_subject.id
+    @picked_master_course_schedules = all_schedules - @master_course_schedules
   end
 end
