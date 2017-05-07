@@ -4,27 +4,59 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">
+          <%= t :pick_schedules %>
+        </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <!-- Responsive calendar - START -->
-        <div class="responsive-calendar">
+        <div class="responsive-calendar"
+          data-start-course="<%= l master_class_subject.master_course_start_date,
+          format: :default %>"
+          data-end-course="<%= l master_class_subject.master_course_end_date,
+          format: :default %>">
           <div class="controls">
-              <a class="pull-left" data-go="prev"><div class="btn btn-primary">Prev</div></a>
-              <h4><span data-head-year></span> <span data-head-month></span></h4>
-              <a class="pull-right" data-go="next"><div class="btn btn-primary">Next</div></a>
+            <a class="pull-left" data-go="prev"
+              data-start-course="<%= l master_class_subject.master_course_start_date,
+              format: :default %>">
+              <div class="btn btn-primary">
+                <%= t "kaminari.prev_page.previous" %>
+              </div>
+            </a>
+            <h4><span data-head-year></span> <span data-head-month></span></h4>
+            <a class="pull-right" data-go="next"
+              data-end-course="<%= l master_class_subject.master_course_end_date,
+              format: :default %>">
+              <div class="btn btn-primary">
+                <%= t "kaminari.next_page.next" %>
+              </div>
+            </a>
           </div><hr/>
           <div class="day-headers">
-            <div class="day header">Mon</div>
-            <div class="day header">Tue</div>
-            <div class="day header">Wed</div>
-            <div class="day header">Thu</div>
-            <div class="day header">Fri</div>
-            <div class="day header">Sat</div>
-            <div class="day header">Sun</div>
+            <div class="day header">
+              <%= t "days.mon" %>
+            </div>
+            <div class="day header">
+              <%= t "days.tue" %>
+            </div>
+            <div class="day header">
+              <%= t "days.wed" %>
+            </div>
+            <div class="day header">
+              <%= t "days.thu" %>
+            </div>
+            <div class="day header">
+              <%= t "days.fri" %>
+            </div>
+            <div class="day header">
+              <%= t "days.sat" %>
+            </div>
+            <div class="day header">
+              <%= t "days.sun" %>
+            </div>
           </div>
           <div class="days" data-group="days">
 
@@ -33,8 +65,12 @@
         <!-- Responsive calendar - END -->
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          <%= t "buttons.close" %>
+        </button>
+        <button type="button" class="btn btn-primary">
+          <%= t "buttons.save_changes" %>
+        </button>
       </div>
     </div>
   </div>

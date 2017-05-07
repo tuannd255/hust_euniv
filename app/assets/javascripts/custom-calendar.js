@@ -34,3 +34,17 @@ var handleCalendar = function() {
   $('.day.mon a.morning, .day.tue a.morning, .day.wed a.morning,\
     .day.thu a.morning, .day.fri a.morning').data('disabled', true);
 }
+
+var handleClickOption = function(data, parent) {
+  parent = parent ? parent : $('.responsive-calendar')[0]
+  if (parseInt($(parent).data('start-course').substring(5, 7)) >= data.currentMonth + 1) {
+    $($('.pull-left', $(parent))[0]).hide();
+  } else {
+    $($('.pull-left', $(parent))[0]).show();
+  }
+  if (parseInt($(parent).data('end-course').substring(5, 7)) <= data.currentMonth + 1) {
+    $($('.pull-right', $(parent))[0]).hide();
+  } else {
+    $($('.pull-right', $(parent))[0]).show();
+  }
+}

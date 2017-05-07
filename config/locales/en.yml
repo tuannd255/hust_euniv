@@ -11,6 +11,7 @@ en:
     update: Update
     close: Close
     create_and_continue: Create and continue
+    save_changes: Save changes
   logout: Log out
   select:
     subject: Search subject
@@ -38,3 +39,6 @@ en:
     time:
       default: "yyyy/mm/dd"
       short: "yyyy/mm"
+  can_not_prev: "Can not prev"
+  can_not_next: "Can not next"
+  pick_schedules: "Pick Schedules"
