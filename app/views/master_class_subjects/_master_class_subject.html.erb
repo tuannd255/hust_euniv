@@ -1,5 +1,5 @@
 <tr class="master-class-subject master-class-subject-<%= master_class_subject.id %>">
-  <td><%= master_class_subject.code %></td>
+  <td><%= master_class_subject.master_subject_code %></td>
   <td class="truncate-col" title="<%= master_class_subject.name %>">
     <%= master_class_subject.name %>
   </td>
@@ -8,6 +8,9 @@
   </td>
   <td class="truncate-col" title="<%= master_class_subject.master_class_name %>">
     <%= master_class_subject.master_class_name %>
+  </td>
+  <td>
+    <%= master_class_subject.room_name %>
   </td>
   <td class="text-center">
     <%= link_to t(:pick_schedule),

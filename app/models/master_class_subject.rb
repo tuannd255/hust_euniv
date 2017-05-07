@@ -17,9 +17,9 @@ class MasterClassSubject < ApplicationRecord
 
   enum status: [:unregistered, :registered, :cancelled]
 
-  scope :same_class_and_time, ->master_class_id, room_id, master_course_id do
-    where "(master_class_id = ? OR room_id = ?) AND master_course_id = ?",
-      master_class_id, room_id, master_course_id
+  scope :picked_master_class_subject, ->master_class_id, room_id, user_id, master_course_id do
+    where "(master_class_id = ? OR room_id = ? OR user_id = ?) AND master_course_id = ?",
+      master_class_id, room_id, user_id, master_course_id
   end
 
   scope :by_user, ->user { where user: user }
