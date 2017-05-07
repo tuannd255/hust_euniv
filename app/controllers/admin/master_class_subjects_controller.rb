@@ -2,14 +2,23 @@ class Admin::MasterClassSubjectsController < Admin::BaseController
   before_action :load_and_handle_course, only: [:new, :create]
   before_action :find_master_class_subject, except: [:index, :new, :create]
 
+  def new
+    master_class_subject = @master_course.master_class_subjects.new
+    @support = Supports::MasterClassSubject.new master_course: @master_course,
+      master_class_subject: master_class_subject
+  end
 
   def create
-    @master_class_subject = MasterClassSubject.new master_class_subject_params
-    if @master_class_subject.save
-      flash[:success] = t ".success"
+    master_class_subject = @master_course.master_class_subjects.new master_class_subject_params
+    if master_class_subject.save
+      flash.now[:success] = t ".success"
     end
-    @search = @master_course.master_class_subjects.search params[:q]
-    @master_class_subjects = @search.result.page(params[:page]).per Settings.per_page.default
+    search = @master_course.master_class_subjects.search params[:q]
+    master_class_subjects = search.result.page(params[:page]).per Settings.per_page.default
+    @support = Supports::MasterClassSubject.new master_course: @master_course,
+      search: search, master_class_subjects: master_class_subjects,
+      master_class_subject: (master_class_subject.valid? ?
+        @master_course.master_class_subjects.new : master_class_subject)
     respond_to do |format|
       format.html
       format.js
@@ -80,7 +89,7 @@ class Admin::MasterClassSubjectsController < Admin::BaseController
   end
 
   def load_and_handle_course
-    @master_course = MasterCourse.find_by id: params[:master_class_subject][:master_course_id]
+    @master_course = MasterCourse.find_by id: params[:master_course_id]
     unless @master_course
       flash[:danger] = t ".master_course_not_found"
       redirect_to admin_master_courses_path

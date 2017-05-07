@@ -6,7 +6,6 @@ Rails.application.routes.draw do
     resources :master_classes
     resources :master_subjects
     resources :master_class_subjects
-    resources :master_class_subject_teachers
     resources :rooms
     resources :master_course_schedules
     resources :users
