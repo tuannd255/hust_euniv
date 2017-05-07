@@ -2,18 +2,37 @@
   data-course-code="<%= @master_course.code %>">
   <h1>Admin::MasterCourses#show</h1>
   <h2><%= t "course_name", name: @master_course.name %></h2>
-  <div class="create-class-subject">
-    <a role="button" href="#class_subject_form" class="btn btn-primary" data-toggle="modal">
-      <%= t ".create_master_class_subject" %>
-    </a>
+
+  <div class="search-form">
+    <%= render "admin/master_class_subjects/search_form", search: @support.search,
+      master_course: @support.master_course %>
   </div>
 
+  <button id="create-class-subject" class="btn btn-primary"
+    data-master-course-id="<%= @support.master_course.id %>">
+    <%= t ".create_master_class_subject" %>
+  </button>
+  <%= link_to t(".create_master_class_subject"), new_admin_master_class_subject_path(master_course_id: @support.master_course.id),
+    remote: true, class: "btn btn-primary" %>
+
   <div id="master-class-subject-table">
-    <%= render "master_class_subject_table", search: @search,
-      master_class_subjects: @master_class_subjects %>
+    <%= render "admin/master_class_subjects/master_class_subject_table",
+      search: @support.search, master_class_subjects: @support.master_class_subjects %>
   </div>
 </div>
 
 <div class="modal-master_class_subject">
-  <%= render "/admin/master_class_subjects/modal_create", master_class_subject: @master_class_subject, master_course: @master_course %>
 </div>
+
+<script type="text/javascript">
+  $(document).on('turbolinks:load', function() {
+    $("#create-class-subject").on('click', function(){
+      master_course_id = $(this).data('master-course-id');
+      $.ajax({
+        type: 'GET',
+        url: '/admin/master_class_subjects/new',
+        data: {master_course_id: master_course_id}
+      });
+    });
+  });
+</script>

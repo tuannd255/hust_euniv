@@ -6,12 +6,9 @@ class MasterClassSubject < ApplicationRecord
   belongs_to :room
   has_many :master_course_schedules, dependent: :destroy
 
-  validate :master_course_exist, :master_subject_exist, :master_class_exist,
-    :user_exist, :room_exist
   validates :name, presence: true, length: {minimum: 3, maximum: 70}
-  validates :master_course_id, presence: true
-  validates :master_subject_id, presence: true
-  validates :master_class_id, presence: true
+  validates :master_course_id, :master_subject_id, :master_class_id, :user_id,
+    :room_id, presence: true
 
   before_save :add_code
 
