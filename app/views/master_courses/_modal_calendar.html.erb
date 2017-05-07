@@ -41,14 +41,25 @@
 </div>
 <script type="text/javascript">
   $(document).ready(function () {
-    $(".responsive-calendar").responsiveCalendar({
-      time: "<%= l Date.today, format: :year_month %>",
-      // events: {
-      //   "2013-04-30": {"number": 5, "url": "http://w3widgets.com/responsive-slider"},
-      //   "2013-04-26": {"number": 1, "url": "http://w3widgets.com"},
-      //   "2013-05-03":{"number": 1},
-      //   "2013-06-12": {}
-      // }
+    $('.responsive-calendar').responsiveCalendar({
+      time: '<%= l Date.today, format: :year_month %>',
+      events: {
+        <% if master_course_schedules.any? %>
+          <% master_course_schedules.each do |master_course_schedule| %>
+            '<%= l master_course_schedule.date, format: :ymd %>': {'slot': '<%= master_course_schedule.slot %>'},
+          <% end %>
+        <% end %>
+        <% if other_master_course_schedules.any? %>
+          <% other_master_course_schedules.each do |master_course_schedule| %>
+            '<%= l master_course_schedule.date, format: :ymd %>': {'slot': '<%= master_course_schedule.slot %>',
+            'other': true},
+          <% end %>
+        <% end %>
+        // "2017-04-03": {"number": 5, "url": "http://w3widgets.com/responsive-slider"},
+        // "2017-04-04": {"number": 1, "url": "http://w3widgets.com"},
+        // "2017-05-05":{"number": 1},
+        // "2017-06-06": {}
+      }
     });
   });
 </script>

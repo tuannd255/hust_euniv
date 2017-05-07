@@ -29,6 +29,7 @@ en:
       datetime: "%Y-%m-%d %I:%M %p"
       times: "%H:%M:%S"
       timeline_js: "%Y,%m,%d"
+      ymd: "%Y-%m-%d"
   date:
     <<: *datetime
   time:
