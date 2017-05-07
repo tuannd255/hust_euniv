@@ -334,12 +334,23 @@
         if (options.onInit) {
           options.onInit.call(data);
         }
+        handleClickOption(data, $this);
         return $this.find("[data-go]").click(function() {
           if ($(this).data("go") === "prev") {
-            data.prev();
+            if ($(this).data('start-course').substring(5,7) >= data.currentMonth + 1) {
+              alert(I18n.t('can_not_prev'));
+            } else {
+              data.prev();
+              handleClickOption(data, $this);
+            }
           }
           if ($(this).data("go") === "next") {
-            return data.next();
+            if ($(this).data('end-course').substring(5,7) <= data.currentMonth + 1) {
+              alert(I18n.t('can_not_next'));
+            } else {
+              data.next();
+              handleClickOption(data, $this);
+            }
           }
         });
       };

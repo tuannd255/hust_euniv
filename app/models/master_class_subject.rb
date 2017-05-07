@@ -29,6 +29,7 @@ class MasterClassSubject < ApplicationRecord
   delegate :name, :code, to: :master_course, prefix: true, allow_nil: true
   delegate :name, to: :user, prefix: true, allow_nil: true
   delegate :name, to: :room, prefix: true, allow_nil: true
+  delegate :start_date, :end_date, to: :master_course, prefix: true, allow_nil: true
 
 
   private
