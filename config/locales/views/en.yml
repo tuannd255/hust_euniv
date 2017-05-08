@@ -91,6 +91,8 @@ en:
         please_input_name: *please_input_name
         please_input_start_date: *please_input_start_date
         please_input_end_date: *please_input_end_date
+      show:
+        create_master_class_subject: "Create master class subject"
     master_class_subjects:
       form:
         master_subject_id: *subject
