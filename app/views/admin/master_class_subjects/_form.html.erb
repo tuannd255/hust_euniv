@@ -107,7 +107,14 @@ $(document).ready(function() {
   });
 
   master_course_code = $('.modal').data('master-course-code');
-  $('#master_class_subject_code').val(master_course_code + '--');
+  master_subject_code = $('#master_class_subject_master_subject_id')[0].value == "" ?
+    "" : $('#master_class_subject_master_subject_id')[0]
+    .options[$('#master_class_subject_master_subject_id')[0].value].text.split('-')[0];
+  master_class_code = $('#master_class_subject_master_class_id')[0].value == "" ?
+    "" : $('#master_class_subject_master_class_id')[0]
+    .options[$('#master_class_subject_master_class_id')[0].value].text.split('-')[0];
+  $('#master_class_subject_code').val(master_course_code + '-' + master_subject_code +
+    '-' + master_class_code);
   $('#master_class_subject_master_subject_id').on('change', function() {
     text = this.value == "" ? "" : this.options[this.value].text.split('-');
     code = $('#master_class_subject_code')[0].value.split('-');
