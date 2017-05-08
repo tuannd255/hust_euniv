@@ -12,8 +12,6 @@
     data-master-course-id="<%= @support.master_course.id %>">
     <%= t ".create_master_class_subject" %>
   </button>
-  <%= link_to t(".create_master_class_subject"), new_admin_master_class_subject_path(master_course_id: @support.master_course.id),
-    remote: true, class: "btn btn-primary" %>
 
   <div id="master-class-subject-table">
     <%= render "admin/master_class_subjects/master_class_subject_table",
