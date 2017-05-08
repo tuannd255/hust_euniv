@@ -1,1 +1,2 @@
-$('#master-class-subject-table').html('<%= j render "master_class_subject_table", search: @search, master_class_subjects: @master_class_subjects %>');
+$('#master-class-subject-table').html('<%= j render "admin/master_class_subjects/master_class_subject_table",\
+  search: @support.search, master_class_subjects: @support.master_class_subjects %>');

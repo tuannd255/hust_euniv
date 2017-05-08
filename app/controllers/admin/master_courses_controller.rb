@@ -8,9 +8,10 @@ class Admin::MasterCoursesController < Admin::BaseController
   end
 
   def show
-    @master_class_subject = @master_course.master_class_subjects.new
-    @search = @master_course.master_class_subjects.search params[:q]
-    @master_class_subjects = @search.result.page(params[:page]).per Settings.per_page.default
+    class_subject_search = @master_course.master_class_subjects.search params[:q]
+    master_class_subjects = class_subject_search.result.page(params[:page]).per Settings.per_page.default
+    @support = Supports::MasterClassSubject.new master_course: @master_course,
+      search: class_subject_search, master_class_subjects: master_class_subjects
   end
 
   def create
