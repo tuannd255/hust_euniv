@@ -1,6 +1,16 @@
 namespace :db do
   desc "Fake course"
   task fake_course: [:environment] do
+    MasterCourse.create code: "20171", name: "20171",
+      start_date: "2017/08/01", end_date: "2017/12/31"
+    MasterCourse.create code: "20172", name: "20172",
+      start_date: "2018/01/15", end_date: "2018/6/31"
+
+    MasterCourse.create code: "20161", name: "20161",
+      start_date: "2016/08/01", end_date: "2016/12/31"
+    MasterCourse.create code: "20162", name: "20162",
+      start_date: "2017/01/15", end_date: "2017/6/31"
+
     MasterCourse.create code: "20101", name: "20101",
       start_date: "2010/08/01", end_date: "2010/12/31"
     MasterCourse.create code: "20102", name: "20102",
@@ -30,16 +40,6 @@ namespace :db do
       start_date: "2015/08/01", end_date: "2015/12/31"
     MasterCourse.create code: "20152", name: "20152",
       start_date: "2016/01/15", end_date: "2016/6/31"
-
-    MasterCourse.create code: "20161", name: "20161",
-      start_date: "2016/08/01", end_date: "2016/12/31"
-    MasterCourse.create code: "20162", name: "20162",
-      start_date: "2017/01/15", end_date: "2017/6/31"
-
-    MasterCourse.create code: "20171", name: "20171",
-      start_date: "2017/08/01", end_date: "2017/12/31"
-    MasterCourse.create code: "20172", name: "20172",
-      start_date: "2018/01/15", end_date: "2018/6/31"
 
     MasterCourse.create code: "20181", name: "20181",
       start_date: "2018/08/01", end_date: "2018/12/31"

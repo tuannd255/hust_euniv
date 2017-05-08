@@ -10,7 +10,7 @@ class MasterClassSubject < ApplicationRecord
   validates :master_course_id, :master_subject_id, :master_class_id, :user_id,
     :room_id, presence: true
 
-  before_save :add_code
+  before_save :add_code, :add_slot_count
 
   enum status: [:unregistered, :registered, :cancelled]
 
@@ -21,9 +21,9 @@ class MasterClassSubject < ApplicationRecord
 
   scope :by_user, ->user { where user: user }
 
-  delegate :name, :code, to: :master_subject, prefix: true, allow_nil: true
+  delegate :name, :code, :creadit, to: :master_subject, prefix: true, allow_nil: true
   delegate :name, :code, to: :master_class, prefix: true, allow_nil: true
-  delegate :name, :code, to: :master_course, prefix: true, allow_nil: true
+  delegate :name, :code, :start_date, :end_date, to: :master_course, prefix: true, allow_nil: true
   delegate :name, to: :user, prefix: true, allow_nil: true
   delegate :name, to: :room, prefix: true, allow_nil: true
   delegate :start_date, :end_date, to: :master_course, prefix: true, allow_nil: true
@@ -33,6 +33,19 @@ class MasterClassSubject < ApplicationRecord
   def add_code
     if master_course && master_subject && master_class
       self.code = master_course.code + "-" + master_subject.code + "-" + master_class.code
+    end
+  end
+
+  def add_slot_count
+    self.slot_count = case self.master_subject_creadit
+    when 1
+      5
+    when 2
+      8
+    when 3
+      12
+    when 4
+      16
     end
   end
 

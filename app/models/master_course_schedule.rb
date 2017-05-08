@@ -1,6 +1,8 @@
 class MasterCourseSchedule < ApplicationRecord
   belongs_to :master_class_subject
 
+  validates :date, :slot, :master_class_subject_id, presence: true
+
   enum slot: [:morning, :afternoon, :evening]
 
   scope :by_user_subject, -> user_id, master_subject_id do
