@@ -109,6 +109,13 @@ en:
         room: *room
         code_or_name: *code_or_name
         name: *name
+      master_class_subject_table:
+        code: *code
+        name: *name
+        class: *class
+        subject_code: Subject code
+        teacher: *teacher
+        room: *room
   master_courses:
     search_form:
       code_or_name: *code_or_name
