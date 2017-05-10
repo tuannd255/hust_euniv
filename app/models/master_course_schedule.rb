@@ -12,4 +12,6 @@ class MasterCourseSchedule < ApplicationRecord
   scope :by_other_user, -> id do
     joins(:master_class_subject).where "master_class_subjects.user_id != ?", id
   end
+
+  delegate :user_id, to: :master_class_subject, prefix: true
 end

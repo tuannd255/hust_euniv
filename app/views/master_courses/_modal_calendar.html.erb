@@ -82,13 +82,14 @@
       events: {
         <% if master_course_schedules.any? %>
           <% master_course_schedules.each do |master_course_schedule| %>
-            '<%= l master_course_schedule.date, format: :ymd %>': {'slot': '<%= master_course_schedule.slot %>'},
+            '<%= l master_course_schedule.date, format: :ymd %>': {'slot': '<%= master_course_schedule.slot %>',
+            'other': false, 'id': <%= master_course_schedule.id %>},
           <% end %>
         <% end %>
         <% if picked_master_course_schedules.any? %>
           <% picked_master_course_schedules.each do |master_course_schedule| %>
             '<%= l master_course_schedule.date, format: :ymd %>': {'slot': '<%= master_course_schedule.slot %>',
-            'other': true},
+            'other': true, 'id': <%= master_course_schedule.id %>},
           <% end %>
         <% end %>
         // "2017-04-03": {"number": 5, "url": "http://w3widgets.com/responsive-slider"},

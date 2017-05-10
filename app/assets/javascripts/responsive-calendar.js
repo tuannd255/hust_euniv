@@ -163,15 +163,17 @@
         // var badge;
         if (typeof dayEvents === "object") {
           if (dayEvents.slot != null) {
-            day.find('.' + dayEvents.slot).css('background-color', 'red');
-            day.find('.' + dayEvents.slot).data('disabled', true)
+            day.find('.' + dayEvents.slot).data('disabled', true);
+            day.find('.' + dayEvents.slot).data('id', dayEvents.id);
             // badge = $("<span></span>").html(dayEvents.number).addClass("badge");
             // if (dayEvents.badgeClass != null) {
             //   badge.addClass(dayEvents.badgeClass);
             // }
             // day.append(badge);
             if (dayEvents.other) {
-              day.find('.' + dayEvents.slot).css('background-color', '#eaeaea');
+              day.find('.' + dayEvents.slot).addClass('background-gray');
+            } else {
+              day.find('.' + dayEvents.slot).addClass('background-red');
             }
           }
 
