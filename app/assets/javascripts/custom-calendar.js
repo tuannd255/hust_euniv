@@ -19,9 +19,34 @@ $(document).on('turbolinks:load ajaxCompleted', function() {
             if ($(this).data('day') == data.master_course_schedule.date.substring(8,10) &&
               $(this).data('month') == data.master_course_schedule.date.substring(5,7) &&
               $(this).data('year') == data.master_course_schedule.date.substring(0,4)) {
-              $(this).css('background-color', 'red');
+              $(this).addClass('background-red');
             }
           });
+        }
+      });
+    }
+  });
+
+  $('.body-user').on('click', '.day:not(.header) a', function() {
+    if ($(this).data('disabled') && $(this).hasClass('background-red')) {
+      id = $(this).data('id');
+      $.ajax({
+        url: '/master_course_schedules/' + id,
+        type: "DELETE",
+        dataType: "json",
+        success: function(data) {
+          if (data.status !== 500) {
+            $('.day:not(.header) a.' + data.master_course_schedule.slot).each(function() {
+              if ($(this).data('day') == data.master_course_schedule.date.substring(8,10) &&
+                $(this).data('month') == data.master_course_schedule.date.substring(5,7) &&
+                $(this).data('year') == data.master_course_schedule.date.substring(0,4)) {
+                $(this).removeClass('background-red');
+                $(this).data('disabled', false);
+              }
+            });
+          } else {
+            alert(data.errors);
+          }
         }
       });
     }
