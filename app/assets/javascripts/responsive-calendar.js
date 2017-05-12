@@ -20,14 +20,14 @@
       this.$element = element;
       this.options = options;
       this.weekDays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
-      this.time = new Date();
+      this.time = new Date($('#modal-schedule').data('date'));
       this.currentYear = this.time.getFullYear();
       this.currentMonth = this.time.getMonth();
-      if (this.options.time) {
-        time = this.splitDateString(this.options.time);
-        this.currentYear = time.year;
-        this.currentMonth = time.month;
-      }
+      // if (this.options.time) {
+      //   time = this.splitDateString(this.options.time);
+      //   this.currentYear = time.year;
+      //   this.currentMonth = time.month;
+      // }
       this.initialDraw();
       return null;
     };

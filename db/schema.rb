@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 20170508151912) do
   end
 
   create_table "master_course_schedules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "code"
     t.datetime "date"
     t.integer  "slot"
     t.integer  "master_class_subject_id"
