@@ -1,6 +1,8 @@
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+<div class="modal fade" id="modal-schedule" tabindex="-1" role="dialog"
   aria-labelledby="exampleModalLabel" aria-hidden="true"
-  data-id="<%= master_class_subject.id %>">
+  data-id="<%= master_class_subject.id %>"
+  data-date="<%= l master_class_subject.master_course_start_date,
+    format: :default %>">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
