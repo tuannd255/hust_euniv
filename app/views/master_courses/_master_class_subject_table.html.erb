@@ -14,15 +14,7 @@
       <%= render master_class_subjects %>
     <% else %>
       <tr>
-        <td><%= render "shared/nothing" %></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>
-          <a role="button" href="#myModal" class="btn btn-primary" data-toggle="modal">
-            <%= t "pick_schedule" %>
-          </a>
-        </td>
+        <td colspan="6"><%= render "shared/nothing" %></td>
       </tr>
     <% end %>
   </tbody>
