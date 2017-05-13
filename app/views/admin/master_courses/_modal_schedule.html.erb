@@ -1,0 +1,30 @@
+<div class="modal fade schedule" id="modal-schedule" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalLabel" aria-hidden="true"
+  data-id="<%= master_class_subject.id %>"
+  data-date="<%= l master_class_subject.master_course_start_date,
+    format: :default %>">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <%= t :pick_schedules %>
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render "admin/master_course_schedules/master_course_schedule_table", master_course_schedules: master_course_schedules %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          <%= t "buttons.close" %>
+        </button>
+        <button type="button" class="btn btn-primary">
+          <%= t "buttons.save_changes" %>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

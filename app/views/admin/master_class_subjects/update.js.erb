@@ -1,0 +1,4 @@
+$('#master-class-subject-table').html('<%= j render "admin/master_class_subjects/master_class_subject_table",\
+  search: @support.search, master_class_subjects: @support.master_class_subjects %>');
+$(".modal").modal('hide');
+$('.flash').html('<%= j render "layouts/flash" %>');

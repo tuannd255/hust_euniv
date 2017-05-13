@@ -26,6 +26,8 @@ en:
         success: Create class subject success
       destroy:
         success: Delete class subject success
+      update:
+        success: Update class subject success
   errors:
     not_found: "%{model_name} not found"
     not_owner: You're not schedule's owner

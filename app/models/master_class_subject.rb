@@ -12,7 +12,7 @@ class MasterClassSubject < ApplicationRecord
 
   before_save :add_code, :add_slot_count
 
-  enum status: [:unregistered, :registered, :cancelled]
+  enum status: [:inprogess, :finished, :cancelled]
 
   scope :picked_master_class_subject, ->master_class_id, room_id, user_id, master_course_id do
     where "(master_class_id = ? OR room_id = ? OR user_id = ?) AND master_course_id = ?",
@@ -28,6 +28,9 @@ class MasterClassSubject < ApplicationRecord
   delegate :name, to: :room, prefix: true, allow_nil: true
   delegate :start_date, :end_date, to: :master_course, prefix: true, allow_nil: true
 
+  def slot_pick_count
+    master_course_schedules.count
+  end
 
   private
   def add_code

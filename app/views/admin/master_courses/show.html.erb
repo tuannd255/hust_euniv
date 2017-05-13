@@ -1,11 +1,9 @@
 <div id="master_class_subjects" class="col-md-10 col-md-offset-1"
   data-course-code="<%= @master_course.code %>">
-  <h1>Admin::MasterCourses#show</h1>
   <h2><%= t "course_name", name: @master_course.name %></h2>
 
   <div class="search-form">
-    <%= render "admin/master_class_subjects/search_form", search: @support.search,
-      master_course: @support.master_course %>
+    <%= render "admin/master_class_subjects/search_form", support: @support %>
   </div>
 
   <button id="create-class-subject" class="btn btn-primary"
@@ -19,8 +17,8 @@
   </div>
 </div>
 
-<div class="modal-master_class_subject">
-</div>
+<div class="modal-master_class_subject"></div>
+<div class="modal-calendar"></div>
 
 <script type="text/javascript">
   $(document).on('turbolinks:load', function() {

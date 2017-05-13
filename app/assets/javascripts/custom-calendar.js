@@ -7,7 +7,6 @@ $(document).on('turbolinks:load ajaxCompleted', function() {
       year = $(this).data('year');
       date = year + '-' + month + '-' + day;
       slot = $(this).data('event');
-      console.log(id, date, slot);
       $.ajax({
         url: '/master_course_schedules/',
         type: "POST",

@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170508151912) do
+ActiveRecord::Schema.define(version: 20170513044136) do
 
   create_table "master_class_subjects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "code"
     t.string   "name"
-    t.boolean  "status",            default: false
     t.integer  "user_id"
     t.integer  "room_id"
     t.integer  "master_class_id"
     t.integer  "master_subject_id"
     t.integer  "master_course_id"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.integer  "slot_count"
+    t.integer  "status",            default: 0
   end
 
   create_table "master_classes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -1,0 +1,18 @@
+<table class="table table-striped table-bordered table-condensed table-hover fixed-table">
+  <thead class="thead-inverse">
+    <tr>
+      <th class="col-md-5"><%= t ".date" %></th>
+      <th class="col-md-5"><%= t ".slot" %></th>
+      <th class="col-md-2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if master_course_schedules.present? %>
+      <%= render master_course_schedules %>
+    <% else %>
+      <tr>
+        <td colspan="3"><%= render "shared/nothing" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

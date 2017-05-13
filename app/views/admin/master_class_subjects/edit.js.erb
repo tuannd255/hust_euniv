@@ -3,8 +3,8 @@
     .replaceWith('<%= j render "master_class_subject",\
     master_class_subject: @master_class_subject %>')
 <% else %>
-  $('.master-class-subject-<%= @master_class_subject.id %>')
-    .replaceWith('<%= j render "edit_master_class_subject",\
-    master_class_subject: @master_class_subject %>')
+  $(".modal-master_class_subject").html("<%= j render 'modal_create',\
+    support: @support %>");
+  $('.modal.class-subject').modal('show');
 <% end %>
 $('.flash').html('<%= j render "layouts/flash" %>');

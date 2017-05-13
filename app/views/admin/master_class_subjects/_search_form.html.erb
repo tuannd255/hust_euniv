@@ -1,12 +1,17 @@
-<%= search_form_for search, remote: true, url: admin_master_course_path(master_course) do |f| %>
+<%= search_form_for support.search, remote: true,
+  url: admin_master_course_path(support.master_course) do |f| %>
   <div class="form-group">
     <div class="row">
       <label class="col-sm-1">
         <%= t "search" %>
       </label>
-      <div class="col-sm-10">
+      <div class="col-sm-8">
         <%= f.search_field :code_or_name_cont, placeholder: t(".code_or_name"),
           class: "form-control" %>
+      </div>
+      <div class="col-sm-2">
+        <%= f.select :status_cont, support.collection_status_select,
+          {include_blank: true}, class: "form-control" %>
       </div>
 
       <div class="col-sm-1">
