@@ -30,3 +30,4 @@ en:
     not_found: "%{model_name} not found"
     not_owner: You're not schedule's owner
     not_deleted: "%{model_name} not deleted"
+    not_created: "%{model_name} not created"

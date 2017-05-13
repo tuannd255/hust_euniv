@@ -150,6 +150,12 @@ en:
       please_input_name: *please_input_name
       please_input_start_date: *please_input_start_date
       please_input_end_date: *please_input_end_date
+    modal_calendar:
+      name: *name
+      subject: *subject
+      class: *class
+      room: *room
+      picked_schedules: "Picked Schedules"
   layouts:
     admin_sidebar:
       master_subjects: *subject

@@ -42,3 +42,7 @@ en:
   can_not_prev: "Can not prev"
   can_not_next: "Can not next"
   pick_schedules: "Pick Schedules"
+  days:
+    morning: "Morning"
+    afternoon: "Afternoon"
+    evening: "Evening"

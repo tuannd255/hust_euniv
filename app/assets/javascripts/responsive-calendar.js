@@ -23,11 +23,11 @@
       this.time = new Date($('#modal-schedule').data('date'));
       this.currentYear = this.time.getFullYear();
       this.currentMonth = this.time.getMonth();
-      // if (this.options.time) {
-      //   time = this.splitDateString(this.options.time);
-      //   this.currentYear = time.year;
-      //   this.currentMonth = time.month;
-      // }
+      if (this.options.time) {
+        time = this.splitDateString(this.options.time);
+        this.currentYear = time.year;
+        this.currentMonth = time.month;
+      }
       this.initialDraw();
       return null;
     };
@@ -173,7 +173,7 @@
             if (dayEvents.other) {
               day.find('.' + dayEvents.slot).addClass('background-gray');
             } else {
-              day.find('.' + dayEvents.slot).addClass('background-red');
+              day.find('.' + dayEvents.slot).addClass('background-picked');
             }
           }
 
@@ -339,7 +339,9 @@
         handleClickOption(data, $this);
         return $this.find("[data-go]").click(function() {
           if ($(this).data("go") === "prev") {
-            if ($(this).data('start-course').substring(5,7) >= data.currentMonth + 1) {
+            start_date = $(this).data('start-course').split('/');
+            if ((start_date[1] >= data.currentMonth + 1) &&
+              start_date[0] >= data.currentYear) {
               alert(I18n.t('can_not_prev'));
             } else {
               data.prev();
@@ -347,7 +349,9 @@
             }
           }
           if ($(this).data("go") === "next") {
-            if ($(this).data('end-course').substring(5,7) <= data.currentMonth + 1) {
+            end_date = $(this).data('end-course').split('/');
+            if ((end_date[1] <= data.currentMonth + 1) &&
+              end_date[0] <= data.currentYear) {
               alert(I18n.t('can_not_next'));
             } else {
               data.next();

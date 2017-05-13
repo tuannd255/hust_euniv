@@ -130,9 +130,32 @@ footer ul li {
     border: none;
   }
 }
-.background-red {
-  background-color: red;
+.background-picked {
+  background-color: green;
 }
 .background-gray {
   background-color: #eaeaea;
+}
+.modal .modal-dialog .custom-modal-body {
+  display: inline-flex;
+
+  .schedule-info {
+    margin-left: 10px;
+    border-right: 1px solid #cecece;
+
+    .picked-schedules {
+      color: red;
+    }
+  }
+}
+@media (min-width: 768px) {
+  .modal-dialog {
+    width: 1000px;
+    .schedule-info {
+      width: 400px;
+    }
+    .modal-body {
+      width: 600px;
+    }
+  }
 }

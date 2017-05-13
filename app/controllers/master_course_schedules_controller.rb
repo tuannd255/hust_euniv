@@ -6,13 +6,23 @@ class MasterCourseSchedulesController < ApplicationController
 
   def create
     master_course_schedule = @master_class_subject.master_course_schedules.build master_course_schedule_params
-    master_course_schedule.save
-    render json: {master_course_schedule: master_course_schedule}
+    if master_course_schedule.save
+      render json: {
+        master_course_schedule: master_course_schedule,
+        picked_schedules: @master_class_subject.master_course_schedules.size
+      }
+    else
+      render json: {errors: t("errors.not_created",
+        model_name: MasterCourseSchedule.name), status: 500}
+    end
   end
 
   def destroy
     if @master_course_schedule.destroy
-      render json: {master_course_schedule: @master_course_schedule}
+      render json: {
+        master_course_schedule: @master_course_schedule,
+        picked_schedules: @master_class_subject.master_course_schedules.size
+      }
     else
       render json: {errors: t("errors.not_deleted",
         model_name: MasterCourseSchedule.name), status: 500}
