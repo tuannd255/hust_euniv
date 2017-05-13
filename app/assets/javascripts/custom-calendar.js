@@ -20,14 +20,14 @@ $(document).on('turbolinks:load ajaxCompleted', function() {
               $(this).data('month') == data.master_course_schedule.date.substring(5,7) &&
               $(this).data('year') == data.master_course_schedule.date.substring(0,4)) {
               $(this).addClass('background-red');
+              $(this).data('disabled', true);
+              $(this).data('id', data.master_course_schedule.id);
             }
           });
         }
       });
     }
-  });
 
-  $('.body-user').on('click', '.day:not(.header) a', function() {
     if ($(this).data('disabled') && $(this).hasClass('background-red')) {
       id = $(this).data('id');
       $.ajax({
@@ -36,10 +36,11 @@ $(document).on('turbolinks:load ajaxCompleted', function() {
         dataType: "json",
         success: function(data) {
           if (data.status !== 500) {
+            date = data.master_course_schedule.date.split('/');
             $('.day:not(.header) a.' + data.master_course_schedule.slot).each(function() {
-              if ($(this).data('day') == data.master_course_schedule.date.substring(8,10) &&
-                $(this).data('month') == data.master_course_schedule.date.substring(5,7) &&
-                $(this).data('year') == data.master_course_schedule.date.substring(0,4)) {
+              if ($(this).data('day') == date[2] &&
+                $(this).data('month') == date[1] &&
+                $(this).data('year') == date[0]) {
                 $(this).removeClass('background-red');
                 $(this).data('disabled', false);
               }
@@ -51,6 +52,7 @@ $(document).on('turbolinks:load ajaxCompleted', function() {
       });
     }
   });
+
 })
 
 var handleCalendar = function() {
