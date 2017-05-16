@@ -16,6 +16,10 @@ en:
   class: &class Class
   teacher: &teacher Teacher
   room: &room Room
+  inprogess: &inprogess Inprogess
+  finished: &finished Finished
+  cancelled: &cancelled Cancelled
+  no_chosse: No Chosse
   admin:
     master_classes:
       search_form:
@@ -35,6 +39,8 @@ en:
         name: *name
         please_input_code: *please_input_code
         please_input_name: *please_input_name
+      index:
+        title: Classes
     master_subjects:
       search_form:
         code_or_name: *code_or_name
@@ -60,6 +66,8 @@ en:
         please_input_code: *please_input_code
         please_input_name: *please_input_name
         please_input_creadit: *please_input_creadit
+      index:
+        title: Subjects
     master_courses:
       search_form:
         code_or_name: *code_or_name
@@ -76,12 +84,7 @@ en:
         start_date: *start_date
         end_date: *end_date
       index:
-        code: *code
-        name: *name
-        start_date: *start_date
-        end_date: *end_date
-        please_input_code: *please_input_code
-        please_input_name: *please_input_name
+        title: Courses
       master_course_form:
         code: *code
         name: *name
@@ -93,6 +96,7 @@ en:
         please_input_end_date: *please_input_end_date
       show:
         create_master_class_subject: "Create master class subject"
+        title: Class Subjects
     master_class_subjects:
       form:
         master_subject_id: *subject
@@ -102,6 +106,7 @@ en:
         name: *name
         code: *code
         please_input_name: *please_input_name
+        create: Create new class subject
       search_form:
         subject: *subject
         class: *class
@@ -116,6 +121,19 @@ en:
         subject_code: Subject code
         teacher: *teacher
         room: *room
+        status: Status
+      master_class_subject:
+        inprogess: *inprogess
+        finished: *finished
+        cancelled: *cancelled
+    master_course_schedules:
+      master_course_schedule_table:
+        date: Date
+        slot: Slot
+      master_course_schedule:
+        morning: Morning
+        afternoon: Afternoon
+        evening: Evening
   master_courses:
     search_form:
       code_or_name: *code_or_name

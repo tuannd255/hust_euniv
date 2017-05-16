@@ -19,7 +19,7 @@ $(document).on('turbolinks:load', function() {
             <td>' + data.master_course.code + '</td><td><a href="/admin/master_courses/' +
             data.master_course.id + '">' + data.master_course.name + '</a></td><td>' +
             data.master_course.start_date + '</td><td>' + data.master_course.end_date +
-            '</td><td class="text-center">' +
+            '</td><td class="icon-link text-center">' +
             '<a class="fa fa-pencil-square-o edit-master-course index-button" title="' +
             I18n.t('buttons.edit') + '" data-remote="true" href="/admin/master_courses/'+
             data.master_course.id +'/edit"></a>\

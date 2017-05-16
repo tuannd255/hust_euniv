@@ -25,7 +25,16 @@ class Admin::MasterClassSubjectsController < Admin::BaseController
     end
   end
 
+  def show
+    @master_course_schedules = @master_class_subject.master_course_schedules
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def edit
+    @support = Supports::MasterClassSubject.new master_course: @master_class_subject.master_course,
+      master_class_subject: @master_class_subject
     respond_to do |format|
       format.js
     end
@@ -33,10 +42,14 @@ class Admin::MasterClassSubjectsController < Admin::BaseController
 
   def update
     if @master_class_subject.update_attributes master_class_subject_params
+      search = @master_class_subject.master_course.master_class_subjects.search params[:q]
+      master_class_subjects = search.result.page(params[:page]).per Settings.per_page.default
+      @support = Supports::MasterClassSubject.new master_course: @master_course,
+        search: search, master_class_subjects: master_class_subjects
       flash.now[:success] = t ".success"
     end
     respond_to do |format|
-      format.json
+      format.js
     end
   end
 

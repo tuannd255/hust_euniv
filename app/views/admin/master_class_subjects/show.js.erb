@@ -1,0 +1,4 @@
+$('.modal-calendar').html('<%= j render "admin/master_courses/modal_schedule",\
+  master_course_schedules: @master_course_schedules,\
+  master_class_subject: @master_class_subject %>');
+$('.modal.schedule').modal('show');

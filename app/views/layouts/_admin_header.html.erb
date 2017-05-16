@@ -1,10 +1,15 @@
 <header class="main-header">
-  <%= link_to t(:title), root_path, class: "logo" %>
+  <div class="icon-link">
+    <%= link_to t(:title), admin_root_path, class: "logo" %>
+  </div>
   <!-- Header Navbar: style can be found in header.less -->
   <nav class="navbar navbar-static-top" role="navigation">
-    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-      <span class="sr-only">Toggle navigation</span>
-    </a>
+    <div class="icon-link">
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+
+    </div>
     <!-- Navbar Right Menu -->
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">

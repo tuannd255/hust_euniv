@@ -8,10 +8,6 @@
         <%= sort_link search, :name, t(".name"), {}, {remote: true} %>
       </th>
       <th class="col-md-2">
-        <%= sort_link search, :master_subject_code, t(".subject_code"),
-          {}, {remote: true} %>
-      </th>
-      <th class="col-md-2">
         <%= sort_link search, :master_class_name, t(".class"), {}, {remote: true} %>
       </th>
       <th class="col-md-3">
@@ -19,6 +15,9 @@
       </th>
       <th class="col-md-1">
         <%= sort_link search, :room_name, t(".room"), {}, {remote: true} %>
+      </th>
+      <th class="col-md-1">
+        <%= sort_link search, :status, t(".status"), {}, {remote: true} %>
       </th>
       <th class="col-md-1"></th>
     </tr>

@@ -1,14 +1,17 @@
-<tr class="master-class master-class-<%= master_class.id %>"
-  data-id="<%= master_class.id %>">
-  <td><%= master_class.code %></td>
-  <td><%= master_class.name %></td>
+<tr>
+  <td>
+    <%= l master_course_schedule.date, format: :default %>
+  </td>
+  <td>
+    <%= t ".#{master_course_schedule.slot}" %>
+  </td>
   <td class="icon-link text-center">
-    <%= link_to edit_admin_master_class_path(master_class),
-      remote: true, class: "edit-master-class" do %>
+    <%= link_to edit_admin_master_course_schedule_path(master_course_schedule),
+      remote: true, class: "edit-master-course-schedule" do %>
       <i class="fa fa-pencil-square-o index-button" aria-hidden="true"
         title="<%=t 'buttons.edit'%>"></i>
     <% end %>
-    <%= link_to admin_master_class_path(master_class),
+    <%= link_to admin_master_course_schedule_path(master_course_schedule),
       method: :delete, data: {confirm: t("confirm")} do %>
       <i class="fa fa-times index-button" aria-hidden="true"
         title="<%= t 'buttons.delete' %>"></i>

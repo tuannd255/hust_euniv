@@ -5,9 +5,6 @@
   <td class="truncate-col" title="<%= master_class_subject.name %>">
     <%= master_class_subject.name %>
   </td>
-  <td class="truncate-col" title="<%= master_class_subject.master_subject_name %>">
-    <%= master_class_subject.master_subject_code %>
-  </td>
   <td class="truncate-col" title="<%= master_class_subject.master_class_name %>">
     <%= master_class_subject.master_class_name %>
   </td>
@@ -17,8 +14,18 @@
   <td>
     <%= master_class_subject.room_name %>
   </td>
+  <td>
+    <div>
+      <%= t ".#{master_class_subject.status}" %>
+    </div>
+    <div>
+      <%= link_to admin_master_class_subject_path(master_class_subject), remote: true do %>
+        <%= master_class_subject.slot_pick_count %>/<%= master_class_subject.slot_count %>
+      <% end %>
+    </div>
+  </td>
 
-  <td class="text-center">
+  <td class="icon-link text-center">
     <%= link_to edit_admin_master_class_subject_path(master_class_subject),
       remote: true, class: "edit-master-class-subject" do %>
       <i class="fa fa-pencil-square-o index-button" aria-hidden="true"
