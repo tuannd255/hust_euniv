@@ -1,0 +1,28 @@
+<%= search_form_for support.search, remote: true,
+  url: master_course_master_course_schedules_path do |f| %>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-sm-4">
+        <%= f.select :id_eq, support.collection_subject_select,
+          {include_blank: t(".select_subject")}, class: "form-control" %>
+      </div>
+      <div class="col-sm-4">
+        <%= f.select :master_class_id_eq, support.collection_class_select,
+          {include_blank: t(".select_class")}, class: "form-control" %>
+      </div>
+      <div class="col-sm-2">
+        <%= f.text_field :master_course_schedules_date_gteq,
+          placeholder: t(".from_date"), class: "form-control datepicker" %>
+      </div>
+      <div class="col-sm-2">
+        <%= f.text_field :master_course_schedules_date_lteq,
+          placeholder: t(".to_date"), class: "form-control datepicker" %>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 form-group">
+    <%= f.submit t("buttons.search"), class: "btn btn-info" %>
+    <%= link_to t("download_excell"), [@master_course, :master_course_schedules, format: :xls],
+      class: "btn btn-primary pull-right" %>
+  </div>
+<% end %>

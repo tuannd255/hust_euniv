@@ -13,9 +13,13 @@ class MasterCourseSchedule < ApplicationRecord
       user_id, master_subject_id
   end
 
-  scope :by_other_user, -> id do
-    joins(:master_class_subject).where "master_class_subjects.user_id != ?", id
+  scope :by_user, -> user do
+    joins(:master_class_subject).where "master_class_subjects.user_id = ?", user.id
   end
+  scope :by_class_subject, -> class_subject do
+    where master_class_subject: class_subject
+  end
+  scope :order_by_date, ->{order date: :asc, slot: :asc}
 
   delegate :user_id, :slot_count, :status, to: :master_class_subject, prefix: true
 
