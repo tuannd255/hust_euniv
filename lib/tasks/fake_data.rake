@@ -1,8 +1,8 @@
 namespace :db do
   desc "Fake data"
   task :fake_data do
-    puts "**********Reset db**********"
-    Rake::Task["db:migrate:reset"].invoke
+    # puts "**********Reset db**********"
+    # Rake::Task["db:migrate:reset"].invoke
     puts "**********Fake user**********"
     Rake::Task["db:fake_user"].invoke
     puts "**********Fake class**********"
