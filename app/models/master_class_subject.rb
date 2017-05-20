@@ -12,7 +12,7 @@ class MasterClassSubject < ApplicationRecord
 
   before_save :add_code, :add_slot_count
 
-  enum status: [:inprogess, :finished, :cancelled]
+  enum status: [:inprogress, :finished, :cancelled]
 
   scope :picked_master_class_subject, ->master_class_id, room_id, user_id, master_course_id do
     where "(master_class_id = ? OR room_id = ? OR user_id = ?) AND master_course_id = ?",

@@ -1,17 +1,17 @@
-<% provide :title, t("home.log_in") %>
+<% provide :title, t(".log_in") %>
 <div class="sign-in" style="min-height: 750px;">
   <div class="col-sm-8 col-sm-offset-2 sign-in-left">
-    <h2 class="text-left"><b><%= t "home.log_in" %></b></h2>
+    <h2 class="text-left"><b><%= t ".log_in" %></b></h2>
     <%= form_for resource, as: resource_name,
       url: session_path(resource_name) do |f| %>
       <%= devise_error_messages! %>
       <div class="input">
-        <%= f.label :email %>
+        <%= f.label :email, t(".email") %>
         <%= f.email_field :email, autofocus: true, class: "form-control signin-input" %>
       </div>
 
       <div class="input">
-        <%= f.label :password %>
+        <%= f.label :password, t(".password") %>
         <%= f.password_field :password, autocomplete: "off",
           class: "form-control signin-input" %>
       </div>
@@ -19,12 +19,12 @@
       <% if devise_mapping.rememberable? %>
         <div class="checkbox center">
           <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+          <%= f.label :remember_me, t(".remember_me") %>
         </div>
       <% end %>
 
       <div class="actions center">
-        <%= f.submit t("home.log_in"), class: "btn btn-primary" %>
+        <%= f.submit t("buttons.log_in"), class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>

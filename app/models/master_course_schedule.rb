@@ -25,12 +25,12 @@ class MasterCourseSchedule < ApplicationRecord
 
   private
   def update_class_subject_status
-    if master_class_subject_status == "inprogess" &&
+    if master_class_subject_status == "inprogress" &&
       master_class_subject_slot_count == master_class_subject.slot_pick_count
       master_class_subject.update_attributes status: :finished
     elsif master_class_subject_status == "finished" &&
       master_class_subject_slot_count < master_class_subject.slot_pick_count
-      master_class_subject.update_attributes status: :inprogess
+      master_class_subject.update_attributes status: :inprogress
     end
   end
 end

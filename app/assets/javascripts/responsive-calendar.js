@@ -379,7 +379,10 @@
       });
     };
     $.fn.responsiveCalendar.defaults = {
-      translateMonths: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+      translateMonths: [I18n.t('january'), I18n.t("february"), I18n.t("march"),
+        I18n.t("april"), I18n.t("may"), I18n.t("june"), I18n.t("july"),
+        I18n.t("august"), I18n.t("september"), I18n.t("october"), I18n.t("november"),
+        I18n.t("december")],
       events: {},
       time: void 0,
       allRows: true,

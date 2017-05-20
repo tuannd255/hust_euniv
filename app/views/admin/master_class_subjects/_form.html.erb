@@ -2,7 +2,7 @@
   <div class="modal-header">
     <h5 class="modal-title" id="exampleModalLabel">
       <% if support.master_class_subject.new_record? %>
-        <%= t ".create" %>
+        <%= t ".title" %>
       <% else %>
         <%= support.master_class_subject.name %>
       <% end%>
@@ -14,10 +14,10 @@
   <div class="modal-body">
     <div class="form-group">
       <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3">
           <%= f.label t(".code") %>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-9">
           <div class="class_subject_code">
             <%= f.text_field :code, disabled: true, class: "form-control" %>
           </div>
@@ -26,21 +26,20 @@
     </div>
     <div class="form-group">
       <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3">
           <%= f.label t(".name") %>
         </div>
-        <div class="col-md-10">
-          <%= f.text_field :name, placeholder: t(".please_input_name"),
-            class: "form-control" %>
+        <div class="col-md-9">
+          <%= f.text_field :name, class: "form-control" %>
         </div>
       </div>
     </div>
     <div class="form-group">
       <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3">
           <%= f.label t(".master_subject_id") %>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-9">
           <%= f.select :master_subject_id, support.collection_subject_select,
             {include_blank: true}, class: "form-control select-subject" %>
         </div>
@@ -48,10 +47,10 @@
     </div>
     <div class="form-group">
       <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3">
           <%= f.label t(".master_class_id") %>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-9">
           <%= f.select :master_class_id, support.collection_class_select,
             {include_blank: true}, class: "form-control select-class" %>
         </div>
@@ -59,10 +58,10 @@
     </div>
     <div class="form-group">
       <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3">
           <%= f.label t(".user_id") %>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-9">
           <%= f.select :user_id, support.collection_user_select,
             {include_blank: true}, class: "form-control select-user" %>
         </div>
@@ -70,10 +69,10 @@
     </div>
     <div class="form-group">
       <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3">
           <%= f.label t(".room_id") %>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-9">
           <%= f.select :room_id, support.collection_room_select,
             {include_blank: true}, class: "form-control select-room" %>
         </div>
@@ -82,7 +81,9 @@
     <%= hidden_field_tag :master_course_id, support.master_course.id %>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-secondary pull-left" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-secondary pull-left" data-dismiss="modal">
+      <%= t "buttons.close" %>
+    </button>
     <% if support.master_class_subject.new_record? %>
       <%= f.submit t("buttons.create_and_continue"), name: "create_and_continue",
         class: "btn btn-primary pull-right btn-create-and-continue btn-submit" %>

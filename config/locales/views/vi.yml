@@ -1,0 +1,261 @@
+vi:
+  code: &code Mã
+  name: &name Tên
+  creadit: &creadit Tín chỉ
+  code_or_name: &code_or_name Mã hoặc tên
+  please_input_code: &please_input_code Nhập mã
+  please_input_name: &please_input_name Nhập tên
+  please_input_creadit: &please_input_creadit Nhập số tín chỉ
+  please_input_start_date: &please_input_start_date Nhập ngày bắt đầu
+  please_input_end_date: &please_input_end_date Nhập ngày kết thúc
+  start_date: &start_date Ngày bắt đầu
+  end_date: &end_date Ngày kết thúc
+  status: &status Trạng thái
+  pick_schedule: Đăng kí lịch gỉang dạy
+  subject: &subject Môn học
+  class: &class Lớp học
+  teacher: &teacher Giáo viên
+  room: &room Phòng học
+  inprogress: &inprogress Trong tiến trình
+  finished: &finished Đã hoàn thành
+  cancelled: &cancelled Đã bị hủy
+  no_chosse: --Không chọn--
+  date: &date Ngày
+  slot: &slot Buổi
+  activate: &activate Hoạt động
+  block: &block Khóa
+  admin:
+    master_classes:
+      search_form:
+        code_or_name: Theo mã hoặc tên lớp học
+      master_classes_table:
+        code: Mã lớp học
+        name: Tên lớp học
+      master_class_form:
+        code: Mã lớp học
+        name: Tên lớp học
+        please_input_code: Nhập mã lớp học
+        please_input_name: Nhập tên lớp học
+      index:
+        title: Quản lý lớp học
+    master_subjects:
+      search_form:
+        code_or_name: Theo mã hoặc tên môn học
+        creadit: *creadit
+      master_subjects_table:
+        code: Mã học phân
+        name: Tên môn học
+        creadit: *creadit
+      master_subject_form:
+        code: Mã học phân
+        name: Tên môn học
+        creadit: *creadit
+        please_input_code: Nhập mã học phân
+        please_input_name: Nhập tên môn học
+        please_input_creadit: *please_input_creadit
+      index:
+        title: Quản lý môn học
+    master_courses:
+      search_form:
+        code_or_name: Theo mã hoặc tên học kì
+      master_class_subject_table:
+        code: Mã lớp môn tín chỉ
+        name: Tên lớp môn tín chỉ
+        class: Lớp
+        subject_code: &subject_code Mã môn học
+        teacher: *teacher
+        room: *room
+      master_courses_table:
+        code: Mã học kì
+        name: Tên học kì
+        start_date: *start_date
+        end_date: *end_date
+      index:
+        title: Quản lý học kì
+      master_course_form:
+        code: Mã học kì
+        name: Tên học kì
+        start_date: *start_date
+        end_date: *end_date
+        please_input_code: Nhập mã học kì
+        please_input_name: Nhập tên học kì
+      show:
+        create_master_class_subject: Tạo mới lớp môn
+        title: Quản lý lớp môn
+        course_name: &course_name Học kì %{name}
+    master_class_subjects:
+      form:
+        title: Tạo mới lớp môn
+        code: Mã lớp môn
+        name: Tên lớp môn
+        master_subject_id: *subject
+        master_class_id: *class
+        please_input_name: *please_input_name
+        user_id: *teacher
+        room_id: *room
+        create: Tạo mới
+      search_form:
+        subject: *subject
+        class: *class
+        teacher: *teacher
+        room: *room
+        class_subject_code_or_name: Nhập mã hoặc tên lớp môn
+        subject_code_or_name: Nhập mã hoặc tên môn học
+        class_code_or_name: Nhập mã hoặc tên lớp học
+        user_email_or_name: Nhập thư điện tử hoặc tên giáo viên
+        room_name: Tên phòng học
+      master_class_subject_table:
+        code: Mã lớp môn
+        name: Tên lớp môn
+        class: *class
+        subject_code: *subject_code
+        teacher: *teacher
+        room: *room
+        status: *status
+      master_class_subject:
+        inprogress: *inprogress
+        finished: *finished
+        cancelled: *cancelled
+    master_course_schedules:
+      master_course_schedule_table:
+        date: *date
+        slot: *slot
+      master_course_schedule:
+        morning: &morning Sáng
+        afternoon: &afternoon Chiều
+        evening: &evening Tối
+    users:
+      button_create:
+        create: Tạo mới người dùng
+      new_form:
+        title: Tạo người dùng
+        name: *name
+        email: &email Thư điện từ
+        password: &password Mật khẩu
+        password_confirm: Xác nhận mật khẩu
+        please_input_name: *please_input_name
+        please_input_email: &please_input_email Nhập thư điện tử
+        please_input_password: &please_input_password Nhập mật khẩu
+        please_input_password_confirm: Nhập lại mật khẩu
+      edit_form:
+        title: Chỉnh sửa người dùng
+        name: *name
+        email: *email
+        password: *password
+        please_input_name: *please_input_name
+        please_input_email: *please_input_email
+        please_input_password: *please_input_password
+        status: *status
+      search_form:
+        email_or_name: Thư điện tử hoặc tên
+        status: *status
+      user_table:
+        name: *name
+        email: *email
+        status: *status
+        admin: Quản trị viên
+      user:
+        activate: *activate
+        block: *block
+        "true": Đúng
+        "false": Sai
+      index:
+        title: Quản lý người dùng
+  master_courses:
+    search_form:
+      code_or_name: Nhập tên học kì
+    master_class_subject_table:
+      subject_code: Mã hoc phần
+      name: Tên lớp môn
+      subject: Tên môn học
+      class: Lớp
+      room: Phòng học
+    master_courses_table:
+      code: *code
+      name: Học kì
+      start_date: *start_date
+      end_date: *end_date
+      status: *status
+    index:
+      title: Danh sách học kì
+    master_course_form:
+      code: *code
+      name: *name
+      start_date: *start_date
+      end_date: *end_date
+      please_input_code: *please_input_code
+      please_input_name: *please_input_name
+      please_input_start_date: *please_input_start_date
+      please_input_end_date: *please_input_end_date
+    title: "Courses"
+    modal_calendar:
+      name: *name
+      subject: *subject
+      class: *class
+      room: *room
+      picked_schedules: Số lương đã đăng kí
+    show:
+      schedules: Lịch giảng dạy
+      course_name: *course_name
+  master_course_schedules:
+    master_course_schedule:
+      morning: *morning
+      afternoon: *afternoon
+      evening: *evening
+    master_course_schedule_table:
+      class: *class
+      subject: *subject
+      room: *room
+      date: *date
+      slot: *slot
+    search_form:
+      select_subject: Chọn môn
+      select_class: Chọn lớp
+      from_date: Từ ngày
+      to_date: Đến ngày
+    index:
+      subject: *subject
+      class: *class
+      room: *room
+      schedule: Lịch gỉang dạy
+      master_course_schedule: Lịch gỉang dạy
+      morning: *morning
+      afternoon: *afternoon
+      evening: *evening
+      sheet_name: Thông tin lịch gỉang dạy
+  layouts:
+    admin_sidebar:
+      master_subjects: Quản lý môn học
+      master_classes: Quản lý lớp học
+      master_courses: Quản lý học kì
+      users: Quản lý người dùng
+    admin_header:
+      setting: Cài đặt
+      log_out: Đăng xuất
+    header:
+      master_courses: Học kì
+      setting: Cài đặt
+      log_out: Đăng xuất
+  kaminari:
+    next_page:
+      next: Tiếp ›
+    last_page:
+      last: Trang cuối ››
+    first_page:
+      first: « Trang đầu
+    prev_page:
+      previous: ‹ Trước
+  days:
+    mon: Thứ hai
+    tue: Thứ ba
+    wed: Thứ tư
+    thu: Thứ năm
+    fri: Thứ sáu
+    sat: Thứ bảy
+    sun: Chủ nhật
+  download_excell: Tải xuống file excel
+  footer:
+    content: Nội dung
+  shared:
+    nothing:
+      no_data: Không có dữ liệu

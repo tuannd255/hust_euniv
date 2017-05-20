@@ -1,0 +1,92 @@
+vi:
+  title: Hust Euniv
+  search: Tìm kiếm
+  fail: Có lỗi xảy ra
+  confirm: Bạn có chắc?
+  buttons:
+    search: Tìm kiếm
+    create: Tạo mới
+    edit: Chỉnh sửa
+    delete: Xóa
+    update: Cập nhật
+    close: Đóng
+    create_and_continue: Tạo mới và tiếp tục
+    save_changes: Lưu thay đổi
+    cancel: Hủy bỏ
+    log_in: Đăng nhập
+  logout: Đăng xuất
+  log_in: Đăng nhập
+  select:
+    subject: Tìm kiếm môn học
+    class: Tìm kiếm lớp học
+    user: Tìm kiếm gìao viên
+    room: Tìm kiếm phòng học
+  end_date_gt_start_date: End date can't be greater than start date
+  datetime: &datetime
+    formats:
+      year_month: "%Y-%m"
+      time_log: "%d:%m:%Y_%H:%M:%S"
+      default: "%Y/%m/%d"
+      short: "%y/%m/%d"
+      year: "%d/%m/%Y"
+      datetime: "%Y-%m-%d %I:%M %p"
+      times: "%H:%M:%S"
+      timeline_js: "%Y,%m,%d"
+      ymd: "%Y-%m-%d"
+  date:
+    <<: *datetime
+  time:
+    <<: *datetime
+  datepicker:
+    time:
+      default: "yyyy/mm/dd"
+      short: "yyyy/mm"
+  can_not_prev: Không thể trở về trước
+  can_not_next: Không thể tiến lên
+  pick_schedules: Đăng kí lịch giảng dạy
+  days:
+    morning: Sáng
+    afternoon: Chiều
+    evening: Tối
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: phải được đồng ý
+      blank: không thể để trắng
+      present: cần phải để trắng
+      confirmation: không khớp với xác nhận
+      empty: không thể rỗng
+      equal_to: phải bằng %{count}
+      even: phải là số chẵn
+      exclusion: đã được giành trước
+      greater_than: phải lớn hơn %{count}
+      greater_than_or_equal_to: phải lớn hơn hoặc bằng %{count}
+      inclusion: không có trong danh sách
+      invalid: không hợp lệ
+      less_than: phải nhỏ hơn %{count}
+      less_than_or_equal_to: phải nhỏ hơn hoặc bằng %{count}
+      not_a_number: không phải là số
+      not_an_integer: phải là một số nguyên
+      odd: phải là số lẻ
+      taken: đã có
+      too_long: quá dài (tối đa %{count} ký tự)
+      too_short: quá ngắn (tối thiểu %{count} ký tự)
+      wrong_length: độ dài không đúng (phải là %{count} ký tự)
+      other_than: cần phải khác %{count}
+    template:
+      body: 'Có lỗi với các mục sau:'
+      header:
+        one: 1 lỗi ngăn không cho lưu %{model} này
+        other: "%{count} lỗi ngăn không cho lưu %{model} này"
+  january: Tháng Một
+  february: Tháng Hai
+  march: Thágn Ba
+  april: Tháng Bốn
+  may: Tháng Năm
+  june: Tháng Sáu
+  july: Tháng Bảy
+  august: Tháng Tám
+  september: Tháng Chín
+  october: Tháng Mười
+  november: Tháng Mười Một
+  december: Tháng Mười Hai

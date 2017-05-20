@@ -1,6 +1,6 @@
 <div id="master_class_subjects" class="col-md-10 col-md-offset-1"
   data-course-code="<%= @master_course.code %>">
-  <h2><%= t "course_name", name: @master_course.name %></h2>
+  <h2><%= t ".course_name", name: @master_course.name %></h2>
   <div class="form-group">
     <%= link_to t(".schedules"), [@master_course, :master_course_schedules],
       class: "btn btn-success" %>

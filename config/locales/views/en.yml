@@ -16,7 +16,7 @@ en:
   class: &class Class
   teacher: &teacher Teacher
   room: &room Room
-  inprogess: &inprogess Inprogess
+  inprogress: &inprogress Inprogress
   finished: &finished Finished
   cancelled: &cancelled Cancelled
   no_chosse: No Chosse
@@ -127,7 +127,7 @@ en:
         room: *room
         status: Status
       master_class_subject:
-        inprogess: *inprogess
+        inprogress: *inprogress
         finished: *finished
         cancelled: *cancelled
     master_course_schedules:
