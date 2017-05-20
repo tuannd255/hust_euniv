@@ -28,6 +28,14 @@ en:
         success: Delete class subject success
       update:
         success: Update class subject success
+    users:
+      create:
+        success: Create user success
+      update:
+        success: Update user success
+      destroy:
+        cant_delete_self: Can't delete self
+        success: Delete user success
   errors:
     not_found: "%{model_name} not found"
     not_owner: You're not schedule's owner

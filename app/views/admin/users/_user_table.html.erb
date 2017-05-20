@@ -1,0 +1,21 @@
+<table class="table table-striped table-bordered table-condensed table-hover">
+  <thead class="thead-inverse">
+    <tr>
+      <th class="col-md-4"><%= sort_link search, :name, t(".name"), {}, {remote: true} %></th>
+      <th class="col-md-4"><%= sort_link search, :email, t(".email"), {}, {remote: true} %></th>
+      <th class="col-md-1"><%= t ".status" %></th>
+      <th class="col-md-1"><%= t ".admin" %></th>
+      <th class="col-md-1"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if users.any? %>
+      <%= render users %>
+    <% else %>
+      <tr>
+        <td colspan="5"><%= render "shared/nothing" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate users, remote: true %>

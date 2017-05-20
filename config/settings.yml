@@ -1,2 +1,8 @@
 per_page:
   default: 10
+user:
+  name_minlength: 3
+  name_maxlength: 30
+  email_length: 60
+  password_minlength: 6
+  password_maxlength: 30
