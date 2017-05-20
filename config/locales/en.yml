@@ -47,3 +47,10 @@ en:
     morning: "Morning"
     afternoon: "Afternoon"
     evening: "Evening"
+  mailers:
+    teacher_subject: "Schedule by Course %{name}"
+    hello: "Hello %{name}"
+    completed_pick: "You completed pick schedule to semester %{name} in link: "
+    master_course: "Semester %{name}"
+    view_schedules: "View all schedule in:"
+    schedules: "Schedules"

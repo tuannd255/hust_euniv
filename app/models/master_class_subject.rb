@@ -20,6 +20,7 @@ class MasterClassSubject < ApplicationRecord
   end
 
   scope :by_user, ->user { where user: user }
+  scope :by_user_course, ->user, master_course { where user: user, master_course: master_course }
 
   delegate :name, :code, :creadit, to: :master_subject, prefix: true, allow_nil: true
   delegate :name, :code, to: :master_class, prefix: true, allow_nil: true

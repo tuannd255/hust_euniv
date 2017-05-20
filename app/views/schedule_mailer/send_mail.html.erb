@@ -1,0 +1,16 @@
+<div>
+  <h2><%= t("mailers.hello", name: @user.name) %></h2>
+</div>
+<div style="margin-left: 20px">
+  - <h2>
+    <%= t("mailers.completed_pick", name: @master_course.name) %>
+    <%= link_to t("mailers.master_course", name: @master_course.name),
+      @master_course %>
+  </h2>
+</div>
+<div style="margin-left: 20px">
+  - <h2>
+    <%= t("mailers.view_schedules") %>
+    <%= link_to t("mailers.schedules"), [@master_course, :master_course_schedules] %>
+  </h2>
+</div>
