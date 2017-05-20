@@ -90,3 +90,10 @@ vi:
   october: Tháng Mười
   november: Tháng Mười Một
   december: Tháng Mười Hai
+  mailers:
+    teacher_subject: "Lịch giảng dạy học kì %{name}"
+    hello: "Xin chào %{name}"
+    completed_pick: "Bạn vừa hoàn thành dăng kí lịch cho học kì %{name} tại link: "
+    master_course: "Học kì %{name}"
+    view_schedules: "Xem tất cả đăng kí tại:"
+    schedules: "Lịch giảng dạy"

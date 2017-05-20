@@ -11,7 +11,7 @@ vi:
   start_date: &start_date Ngày bắt đầu
   end_date: &end_date Ngày kết thúc
   status: &status Trạng thái
-  pick_schedule: Đăng kí lịch gỉang dạy
+  pick_schedule: Đăng kí lịch
   subject: &subject Môn học
   class: &class Lớp học
   teacher: &teacher Giáo viên
@@ -229,12 +229,12 @@ vi:
       subject: *subject
       class: *class
       room: *room
-      schedule: Lịch gỉang dạy
-      master_course_schedule: Lịch gỉang dạy
+      schedule: Lịch giảng dạy
+      master_course_schedule: Lịch giảng dạy
       morning: *morning
       afternoon: *afternoon
       evening: *evening
-      sheet_name: Thông tin lịch gỉang dạy
+      sheet_name: Thông tin lịch giảng dạy
   layouts:
     admin_sidebar:
       master_subjects: Quản lý môn học
