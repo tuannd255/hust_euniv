@@ -1,3 +1,3 @@
 <% if @user.errors.any? %>
-  $('.user-form').html("<%= j render 'edit_form', user: @user, support: @support %>")
+  $('.user-form').html("<%= j render 'user_form', user: @user %>")
 <% end %>

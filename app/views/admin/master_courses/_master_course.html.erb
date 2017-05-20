@@ -5,6 +5,7 @@
   </td>
   <td><%= l master_course.start_date, format: :default %></td>
   <td><%= l master_course.end_date, format: :default %></td>
+  <td><%= t ".#{master_course.status}" %></td>
   <td class="icon-link text-center">
     <%= link_to edit_admin_master_course_path(master_course),
       remote: true, class: "edit-master-course" do %>

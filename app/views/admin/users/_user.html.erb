@@ -1,6 +1,6 @@
-<tr class="user user-<%= user.id %>">
-  <td><%= user.name %></td>
-  <td><%= user.email %></td>
+<tr class="user-<%= user.id %>">
+  <td class="truncate-col" title="<%= user.name %>"><%= user.name %></td>
+  <td class="truncate-col" title="<%= user.email %>"><%= user.email %></td>
   <td><%= t ".#{user.status}" %></td>
   <td><%= t ".#{user.is_admin}" %></td>
    <td class="icon-link text-center">

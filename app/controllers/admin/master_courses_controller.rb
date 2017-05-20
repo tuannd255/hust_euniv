@@ -4,7 +4,12 @@ class Admin::MasterCoursesController < Admin::BaseController
   def index
     @master_course = MasterCourse.new
     @search = MasterCourse.search params[:q]
-    @master_courses = @search.result.page(params[:page]).per Settings.per_page.default
+    @master_courses = @search.result.order_by_created_at.page(params[:page]).
+      per Settings.per_page.default
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
@@ -14,10 +19,17 @@ class Admin::MasterCoursesController < Admin::BaseController
       search: class_subject_search, master_class_subjects: master_class_subjects
   end
 
+  def new
+    @master_course = MasterCourse.new
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def create
     @master_course = MasterCourse.new master_course_params
     if @master_course.save
-      flash.now[:success] = t ".success"
+      flash[:success] = t ".success"
       redirect_to [:admin, :master_courses]
     else
       respond_to do |format|
@@ -28,17 +40,17 @@ class Admin::MasterCoursesController < Admin::BaseController
 
   def edit
     respond_to do |format|
-      format.html
       format.js
     end
   end
 
   def update
     if @master_course.update_attributes master_course_params
-      flash.now[:success] = t ".success"
+      flash[:success] = t ".success"
+      redirect_to [:admin, :master_courses]
     end
     respond_to do |format|
-      format.json
+      format.js
     end
   end
 
@@ -53,7 +65,7 @@ class Admin::MasterCoursesController < Admin::BaseController
 
   private
   def master_course_params
-    params.require(:master_course).permit :code, :name, :start_date, :end_date
+    params.require(:master_course).permit :code, :name, :start_date, :end_date, :status
   end
 
   def find_master_course

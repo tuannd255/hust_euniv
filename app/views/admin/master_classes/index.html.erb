@@ -1,8 +1,8 @@
 <div id="master_classes">
   <h1><%= t ".title" %></h1>
   <div>
-    <div class="class-create col-md-10 col-md-offset-1">
-     <%= render "master_class_form", master_class: @master_class %>
+    <div class="class-form col-md-10 col-md-offset-1">
+      <%= render "button_create" %>
     </div>
     <div class="col-md-10 col-md-offset-1">
       <div class="search-form">
@@ -15,3 +15,11 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  $(document).on('turbolinks:load ajaxComplete', function() {
+    $(".cancel").on("click", function (argumen) {
+      $(".class-form").html("<%= j render 'button_create' %>");
+      $("tr.tr-edit").removeClass("tr-edit");
+    })
+  });
+</script>

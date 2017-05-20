@@ -4,16 +4,19 @@ class Admin::MasterSubjectsController < Admin::BaseController
   def index
     @master_subject = MasterSubject.new
     @search = MasterSubject.search params[:q]
-    @master_subjects = @search.result.page(params[:page]).per Settings.per_page.default
+    @master_subjects = @search.result.order_by_created_at.page(params[:page]).
+      per Settings.per_page.default
     respond_to do |format|
       format.html
       format.js
-      format.json {render json: @master_subjects.to_json}
     end
   end
 
   def new
     @master_subject = MasterSubject.new
+    respond_to do |format|
+      format.js
+    end
   end
 
   def create
@@ -30,16 +33,19 @@ class Admin::MasterSubjectsController < Admin::BaseController
 
   def edit
     respond_to do |format|
-      format.html
       format.js
     end
   end
 
   def update
     if @master_subject.update_attributes master_subject_params
-      flash.now[:success] = t ".success"
+      flash[:success] = t ".success"
+      redirect_to admin_master_subjects_path
+    else
+      respond_to do |format|
+        format.js
+      end
     end
-    render json: {master_subject: @master_subject}
   end
 
   def destroy

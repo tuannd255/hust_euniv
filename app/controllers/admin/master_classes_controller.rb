@@ -4,16 +4,19 @@ class Admin::MasterClassesController < Admin::BaseController
   def index
     @master_class = MasterClass.new
     @search = MasterClass.search params[:q]
-    @master_classes = @search.result.page(params[:page]).per Settings.per_page.default
+    @master_classes = @search.result.order_by_created_at.page(params[:page]).
+      per Settings.per_page.default
     respond_to do |format|
       format.html
       format.js
-      format.json {render json: @master_classes.to_json}
     end
   end
 
   def new
     @master_class = MasterClass.new
+    respond_to do |format|
+      format.js
+    end
   end
 
   def create
@@ -30,16 +33,19 @@ class Admin::MasterClassesController < Admin::BaseController
 
   def edit
     respond_to do |format|
-      format.html
       format.js
     end
   end
 
   def update
     if @master_class.update_attributes master_class_params
-      flash.now[:success] = t ".success"
+      flash[:success] = t ".success"
+      redirect_to admin_master_classes_path
+    else
+      respond_to do |format|
+        format.js
+      end
     end
-    render json: {master_class: @master_class}
   end
 
   def destroy

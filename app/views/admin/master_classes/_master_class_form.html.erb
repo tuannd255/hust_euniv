@@ -1,22 +1,29 @@
+<h3>
+  <% if master_class.new_record? %>
+    <%= t ".title_new" %>
+  <% else %>
+    <%= t ".title_update" %>
+  <% end %>
+</h3>
 <%= form_for [:admin, master_class], remote: true do |f| %>
-  <table class="table table-striped table-bordered table-condensed table-hover">
-    <thead class="thead-inverse">
-      <tr>
-        <th class="col-md-2"><%= f.label t(".code") %></th>
-        <th class="col-md-6"><%= f.label t(".name") %></th>
-        <th class="col-md-1"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%= f.text_field :code, class: "form-control",
-          placeholder: t(".please_input_code") %></td>
-        <td><%= f.text_field :name, class: "form-control",
-          placeholder: t(".please_input_name") %></td>
-        <td class="text-center">
-          <%= f.submit t("buttons.create"), class: "btn btn-primary" %>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-3">
+        <%= f.label t(".code") %>
+        <%= f.text_field :code, class: "form-control",
+          placeholder: t(".please_input_code") %>
+      </div>
+      <div class="col-md-6">
+        <%= f.label t(".name") %>
+        <%= f.text_field :name, class: "form-control",
+          placeholder: t(".please_input_name") %>
+      </div>
+    </div>
+  </div>
+  <% if master_class.new_record? %>
+    <%= f.submit t("buttons.create"), class: "btn btn-success" %>
+  <% else %>
+    <%= f.submit t("buttons.update"), class: "btn btn-success" %>
+  <% end %>
+  <button class= "cancel btn btn-danger"><%= t "buttons.cancel" %></button>
 <% end %>

@@ -1,8 +1,29 @@
 per_page:
   default: 10
 user:
-  name_minlength: 3
-  name_maxlength: 30
-  email_length: 60
-  password_minlength: 6
-  password_maxlength: 30
+  name:
+    minlength: 3
+    maxlength: 70
+  email:
+    maxlength: 70
+  password:
+    minlength: 6
+    maxlength: 30
+master_subject:
+  creadit:
+    greater: 1
+    less: 20
+  name:
+    maxlength: 70
+  code:
+    maxlength: 10
+master_class:
+  name:
+    maxlength: 70
+  code:
+    maxlength: 10
+master_course:
+  name:
+    maxlength: 10
+  code:
+    maxlength: 10
