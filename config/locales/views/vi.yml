@@ -173,6 +173,23 @@ vi:
         "false": Sai
       index:
         title: Quản lý người dùng
+    rooms:
+      button_create:
+        create: Tạo mới phòng học
+      room_form:
+        title_new: Tạo phòng học
+        title_update: Chỉnh sửa phòng học
+        code: Mã phòng học
+        name: Tên phòng học
+        please_input_name: Nhập tên phòng học
+        please_input_code: Nhập mã phòng học
+      search_form:
+        code_or_name: Nhập mã hoặc tên phòng học
+      room_table:
+        code: *code
+        name: *name
+      index:
+        title: Quản lý phòng học
   master_courses:
     search_form:
       code_or_name: Nhập tên học kì
@@ -241,6 +258,7 @@ vi:
       master_classes: Quản lý lớp học
       master_courses: Quản lý học kì
       users: Quản lý người dùng
+      rooms: Quản lý phòng học
     admin_header:
       setting: Cài đặt
       log_out: Đăng xuất

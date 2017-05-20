@@ -1,0 +1,19 @@
+<table class="table table-bordered table-condensed fixed-table">
+  <thead class="thead-inverse">
+    <tr>
+      <th class="col-md-4"><%= sort_link search, :name, t(".name"), {}, {remote: true} %></th>
+      <th class="col-md-4"><%= sort_link search, :code, t(".code"), {}, {remote: true} %></th>
+      <th class="col-md-1"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if rooms.any? %>
+      <%= render rooms %>
+    <% else %>
+      <tr>
+        <td colspan="3"><%= render "shared/nothing" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate rooms, remote: true %>

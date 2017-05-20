@@ -1,0 +1,16 @@
+<tr class="room-<%= room.id %>">
+  <td><%= room.name %></td>
+  <td><%= room.name %></td>
+  <td class="icon-link text-center">
+    <%= link_to edit_admin_room_path(room),
+      remote: true, class: "edit-room" do %>
+      <i class="fa fa-pencil-square-o index-button" aria-hidden="true"
+        title="<%=t 'buttons.edit'%>"></i>
+    <% end %>
+    <%= link_to admin_room_path(room),
+      method: :delete, data: {confirm: t("confirm")} do %>
+      <i class="fa fa-times index-button" aria-hidden="true"
+        title="<%= t 'buttons.delete' %>"></i>
+    <% end %>
+  </td>
+</tr>

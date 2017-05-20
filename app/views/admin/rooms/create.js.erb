@@ -1,0 +1,3 @@
+<% if @room.errors.any? %>
+  $('.room-form').html("<%= j render 'room_form', room: @room %>")
+<% end %>
