@@ -12,7 +12,9 @@ Rails.application.routes.draw do
     resources :master_courses
   end
   root "master_courses#index"
-  resources :master_courses
-  resources :master_class_subjects
-  resources :master_course_schedules
+  resources :master_courses, only: [:index, :show] do
+    resources :master_course_schedules, only: :index
+  end
+  resources :master_class_subjects, only: :edit
+  resources :master_course_schedules, only: [:create, :destroy]
 end

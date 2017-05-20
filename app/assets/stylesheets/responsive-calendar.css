@@ -22,10 +22,19 @@
   color: #000000;
   display: block;
   cursor: pointer;
+  z-index: 1000;
   /*padding: 20% 0 20% 0;*/
 }
 .responsive-calendar .day a:hover {
   background-color: #70da70;
+  text-decoration: none;
+}
+.responsive-calendar .day a.background-picked:hover {
+  background-color: green;
+  text-decoration: none;
+}
+.responsive-calendar .day a.background-gray:hover {
+  background-color: #eaeaea;
   text-decoration: none;
 }
 .responsive-calendar .day.header {

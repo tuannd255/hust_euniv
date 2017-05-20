@@ -20,6 +20,8 @@ en:
   finished: &finished Finished
   cancelled: &cancelled Cancelled
   no_chosse: No Chosse
+  date: &date Date
+  slot: &slot Time
   admin:
     master_classes:
       search_form:
@@ -168,12 +170,41 @@ en:
       please_input_name: *please_input_name
       please_input_start_date: *please_input_start_date
       please_input_end_date: *please_input_end_date
+    title: "Courses"
     modal_calendar:
       name: *name
       subject: *subject
       class: *class
       room: *room
       picked_schedules: "Picked Schedules"
+    show:
+      schedules: "Schedules"
+  master_course_schedules:
+    master_course_schedule:
+      morning: Morning
+      afternoon: Afternoon
+      evening: Evening
+    master_course_schedule_table:
+      class: *class
+      subject: *subject
+      room: *room
+      date: *date
+      slot: *slot
+    search_form:
+      select_subject: Select Subject
+      select_class: Select Class
+      from_date: From Date
+      to_date: To Date
+    index:
+      subject: *subject
+      class: *class
+      room: *room
+      schedule: "Schedule"
+      master_course_schedule: "Master Course Schedule"
+      morning: "Morning"
+      afternoon: "Afternoon"
+      evening: "Evening"
+      sheet_name: "ScheduleInformation"
   layouts:
     admin_sidebar:
       master_subjects: *subject
@@ -196,3 +227,4 @@ en:
     fri: "Fri"
     sat: "Sat"
     sun: "Sun"
+  download_excell: "Download Excell"

@@ -8,7 +8,7 @@ html {
   box-sizing: border-box;
 }
 .body-user {
-  margin-top: 45px;
+  padding-top: 45px;
 }
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -147,6 +147,9 @@ footer ul li {
       color: red;
     }
   }
+}
+#master_course_schedules .search-form {
+  margin-bottom: 10px;
 }
 @media (min-width: 768px) {
   #master_class_subjects .modal-dialog {

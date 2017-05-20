@@ -1,0 +1,14 @@
+<div id="master_course_schedules">
+  <h1><%= t ".master_course_schedule" %></h1>
+  <div>
+    <div class="col-md-10 col-md-offset-1">
+      <div class="search-form">
+        <%= render "search_form", support: @support %>
+      </div>
+      <div id="schedule-main">
+        <%= render "master_course_schedule_table",
+          master_course_schedules: @master_course_schedules %>
+      </div>
+    </div>
+  </div>
+</div>
