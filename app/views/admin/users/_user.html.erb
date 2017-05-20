@@ -1,0 +1,18 @@
+<tr class="user user-<%= user.id %>">
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  <td><%= t ".#{user.status}" %></td>
+  <td><%= t ".#{user.is_admin}" %></td>
+   <td class="icon-link text-center">
+    <%= link_to edit_admin_user_path(user),
+      remote: true, class: "edit-user" do %>
+      <i class="fa fa-pencil-square-o index-button" aria-hidden="true"
+        title="<%=t 'buttons.edit'%>"></i>
+    <% end %>
+    <%= link_to admin_user_path(user),
+      method: :delete, data: {confirm: t("confirm")} do %>
+      <i class="fa fa-times index-button" aria-hidden="true"
+        title="<%= t 'buttons.delete' %>"></i>
+    <% end %>
+  </td>
+</tr>

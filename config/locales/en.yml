@@ -12,6 +12,7 @@ en:
     close: Close
     create_and_continue: Create and continue
     save_changes: Save changes
+    cancel: Cancel
   logout: Log out
   select:
     subject: Search subject

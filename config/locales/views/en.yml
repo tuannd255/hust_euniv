@@ -22,6 +22,8 @@ en:
   no_chosse: No Chosse
   date: &date Date
   slot: &slot Time
+  activate: Activate
+  block: Block
   admin:
     master_classes:
       search_form:
@@ -136,6 +138,45 @@ en:
         morning: Morning
         afternoon: Afternoon
         evening: Evening
+    users:
+      button_create:
+        create: Create new user
+      new_form:
+        title: Create user
+        name: Name
+        email: &email Email
+        password: &password Password
+        password_confirm: Password confirm
+        please_input_name: *please_input_name
+        please_input_email: Please input email
+        please_input_password: Please input password
+        please_input_password_confirm: Please input password confirm
+      edit_form:
+        title: Edit user
+        name: Name
+        email: *email
+        password: *password
+        password_confirm: Password confirm
+        please_input_name: *please_input_name
+        please_input_email: Please input email
+        please_input_password: Please input password
+        status: Status
+      search_form:
+        search: Search
+        email_or_name: Email or Name
+        status: Status
+      user_table:
+        name: *name
+        email: *email
+        enabled: Enabled
+        admin: Admin
+      user:
+        activate: Activate
+        block: Block
+        "true": True
+        "false": False
+      index:
+        title: Users
   master_courses:
     search_form:
       code_or_name: *code_or_name
@@ -210,6 +251,7 @@ en:
       master_subjects: *subject
       master_classes: *class
       master_courses: Course
+      users: Users
   kaminari:
     next_page:
       next: "Next ›"
