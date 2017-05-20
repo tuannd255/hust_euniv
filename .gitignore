@@ -37,4 +37,4 @@ rerun.txt
 pickle-email-*.html
 /test/*
 /app/assets/javascripts/i18n/
-vendor/assets/javascripts/i18n/translations.js
+/vendor/assets/javascripts/i18n/*

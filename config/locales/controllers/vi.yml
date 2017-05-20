@@ -48,3 +48,10 @@ vi:
     not_owner: Bạn không phải chủ nhân của lịch trình này
     not_deleted: "%{model_name} không được xóa"
     not_created: "%{model_name} không được tạo"
+  master_course_schedules:
+    create:
+      enough_amount: Đã đủ số lượng
+      time_out: Không phải lúc để đăng kí lịch
+      invalide_time: Đăng kí thất bại
+    destroy:
+      time_out: Không phải lúc để đăng kí lịch
