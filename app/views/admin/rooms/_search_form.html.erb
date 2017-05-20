@@ -1,0 +1,15 @@
+<div class="form-group">
+  <%= search_form_for search, remote: true, url: admin_rooms_path do |f| %>
+    <div class="col-sm-2">
+      <label><%= t "search" %></label>
+    </div>
+    <div class="col-sm-5">
+      <%= f.search_field :code_or_name_cont, placeholder: t(".code_or_name"),
+        class: "form-control" %>
+    </div>
+    <div class="col-sm-1">
+      <%= f.submit t("buttons.search"), class: "btn btn-info" %>
+    </div>
+  <% end %>
+</div>
+

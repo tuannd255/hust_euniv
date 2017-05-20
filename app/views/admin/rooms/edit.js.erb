@@ -1,0 +1,4 @@
+$("tr.tr-edit").removeClass("tr-edit");
+$("html, body").animate({ scrollTop: 0 }, "slow");
+$(".room-form").html("<%= j render 'room_form', room: @room %>");
+$("tr.room-<%= @room.id %>").addClass("tr-edit");

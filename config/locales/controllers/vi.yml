@@ -36,6 +36,13 @@ vi:
       destroy:
         cant_delete_self: Không thể tự xóa chính mình
         success: Xóa người dùng thành công
+    rooms:
+      create:
+        success: Tạo phòng học thành công
+      update:
+        success: Cập nhật phòng học thành công
+      destroy:
+        success: Xóa phòng học thành công
   errors:
     not_found: "%{model_name} không tìm thấy"
     not_owner: Bạn không phải chủ nhân của lịch trình này

@@ -27,3 +27,10 @@ master_course:
     maxlength: 10
   code:
     maxlength: 10
+room:
+  name:
+    minlength: 3
+    maxlength: 10
+  code:
+    minlength: 3
+    maxlength: 10
