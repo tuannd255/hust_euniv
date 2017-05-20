@@ -22,11 +22,8 @@
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.ja.js
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.en-GB.js
-//= require master_subject
 //= require select2.min.js
 //= require_tree ../../../vendor/assets/javascripts/i18n
-//= require master_class
-//= require master_course
 //= require responsive-calendar
 //= require custom-calendar
 

@@ -16,6 +16,7 @@ vi:
   class: &class Lớp học
   teacher: &teacher Giáo viên
   room: &room Phòng học
+  init: &init Khởi tạo
   inprogress: &inprogress Trong tiến trình
   finished: &finished Đã hoàn thành
   cancelled: &cancelled Đã bị hủy
@@ -26,12 +27,16 @@ vi:
   block: &block Khóa
   admin:
     master_classes:
+      button_create:
+        create: Tạo mới lớp học
       search_form:
         code_or_name: Theo mã hoặc tên lớp học
       master_classes_table:
         code: Mã lớp học
         name: Tên lớp học
       master_class_form:
+        title_new: Tạo lớp học
+        title_update: Cập nhật lớp học
         code: Mã lớp học
         name: Tên lớp học
         please_input_code: Nhập mã lớp học
@@ -39,6 +44,8 @@ vi:
       index:
         title: Quản lý lớp học
     master_subjects:
+      button_create:
+        create: Tạo mới môn học
       search_form:
         code_or_name: Theo mã hoặc tên môn học
         creadit: *creadit
@@ -47,15 +54,19 @@ vi:
         name: Tên môn học
         creadit: *creadit
       master_subject_form:
-        code: Mã học phân
+        title_new: Tạo môn học
+        title_update: Cập nhật môn học
+        code: Mã học phần
         name: Tên môn học
         creadit: *creadit
-        please_input_code: Nhập mã học phân
+        please_input_code: Nhập mã học phần
         please_input_name: Nhập tên môn học
         please_input_creadit: *please_input_creadit
       index:
         title: Quản lý môn học
     master_courses:
+      button_create:
+        create: Tạo mới học kì
       search_form:
         code_or_name: Theo mã hoặc tên học kì
       master_class_subject_table:
@@ -65,6 +76,10 @@ vi:
         subject_code: &subject_code Mã môn học
         teacher: *teacher
         room: *room
+      master_course:
+        init: *init
+        inprogress: *inprogress
+        finished: *finished
       master_courses_table:
         code: Mã học kì
         name: Tên học kì
@@ -73,10 +88,13 @@ vi:
       index:
         title: Quản lý học kì
       master_course_form:
+        title_new: Tạo mới học kì
+        title_update: Cập nhật học kì
         code: Mã học kì
         name: Tên học kì
         start_date: *start_date
         end_date: *end_date
+        status: Trạng thái
         please_input_code: Nhập mã học kì
         please_input_name: Nhập tên học kì
       show:
@@ -127,24 +145,18 @@ vi:
     users:
       button_create:
         create: Tạo mới người dùng
-      new_form:
-        title: Tạo người dùng
+      user_form:
+        title_new: Tạo người dùng
+        title_update: Chỉnh sửa người dùng
         name: *name
         email: &email Thư điện từ
         password: &password Mật khẩu
         password_confirm: Xác nhận mật khẩu
+        can_blank: (có thể bỏ trống)
         please_input_name: *please_input_name
         please_input_email: &please_input_email Nhập thư điện tử
         please_input_password: &please_input_password Nhập mật khẩu
         please_input_password_confirm: Nhập lại mật khẩu
-      edit_form:
-        title: Chỉnh sửa người dùng
-        name: *name
-        email: *email
-        password: *password
-        please_input_name: *please_input_name
-        please_input_email: *please_input_email
-        please_input_password: *please_input_password
         status: *status
       search_form:
         email_or_name: Thư điện tử hoặc tên

@@ -21,7 +21,7 @@ vi:
     class: Tìm kiếm lớp học
     user: Tìm kiếm gìao viên
     room: Tìm kiếm phòng học
-  end_date_gt_start_date: End date can't be greater than start date
+  end_date_gt_start_date: Ngày kết thúc phải lớn hơn ngày bắt đầu
   datetime: &datetime
     formats:
       year_month: "%Y-%m"

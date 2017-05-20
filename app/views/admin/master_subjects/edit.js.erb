@@ -1,6 +1,4 @@
-<% if params[:close] %>
-  $('.master-subject-<%= @master_subject.id %>').replaceWith('<%= j render "master_subject", master_subject: @master_subject %>')
-<% else %>
-  $('.master-subject-<%= @master_subject.id %>').replaceWith('<%= j render "edit_master_subject", master_subject: @master_subject %>')
-<% end %>
-$('.flash').html('<%= j render "layouts/flash" %>');
+$("tr.tr-edit").removeClass("tr-edit");
+$("html, body").animate({ scrollTop: 0 }, "slow");
+$(".subject-form").html("<%= j render 'master_subject_form', master_subject: @master_subject %>");
+$("tr.master-subject-<%= @master_subject.id %>").addClass("tr-edit");
