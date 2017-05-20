@@ -1,9 +1,9 @@
 <div class="form-group">
   <%= search_form_for search, remote: true, url: admin_master_classes_path do |f| %>
-    <div class="col-sm-1">
-      <%= f.label :code_or_name_cont, t(".search")%>
+    <div class="col-sm-2">
+      <label><%= t "search" %></label>
     </div>
-    <div class="col-sm-10">
+    <div class="col-sm-8">
       <%= f.search_field :code_or_name_cont, placeholder: t(".code_or_name"),  class: "form-control" %>
     </div>
     <div class="col-sm-1">
