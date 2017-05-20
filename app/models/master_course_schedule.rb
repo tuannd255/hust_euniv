@@ -41,7 +41,7 @@ class MasterCourseSchedule < ApplicationRecord
       master_class_subject.master_course
     if master_class_subjects.map(&:slot_count).sum == MasterCourseSchedule.by_class_subject(master_class_subjects).size
       ScheduleMailer.send_mail(master_class_subject.user,
-        master_class_subject.master_course).deliver_now
+        master_class_subject.master_course).deliver_later
     end
   end
 end

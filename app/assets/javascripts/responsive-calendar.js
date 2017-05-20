@@ -235,7 +235,9 @@
           this.applyTransform(day, 'rotateY(180deg)');
           this.applyBackfaceVisibility(day);
         }
-        day = this.makeActive(day, this.options.events[dateString]);
+        day = this.makeActive(day, this.options.events[dateString + '-morning']);
+        day = this.makeActive(day, this.options.events[dateString + '-afternoon']);
+        day = this.makeActive(day, this.options.events[dateString + '-evening']);
         return this.$element.find('[data-group="days"]').append(day);
       },
       drawDays: function(year, month) {
