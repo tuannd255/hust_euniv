@@ -3,12 +3,12 @@ class MasterCoursesController < ApplicationController
 
   def index
     @search = MasterCourse.search params[:q]
-    @master_courses = @search.result.page(params[:page]).per Settings.per_page.default
+    @master_courses = @search.result.page(params[:page]).per Settings.per_page.course_index
   end
 
   def show
     @search = @master_course.master_class_subjects.by_user(current_user).search params[:q]
-    @master_class_subjects = @search.result.page(params[:page]).per Settings.per_page.default
+    @master_class_subjects = @search.result.page(params[:page]).per Settings.per_page.cours_index
   end
 
   private

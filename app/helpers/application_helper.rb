@@ -25,4 +25,15 @@ module ApplicationHelper
       end
     end.html_safe
   end
+
+  def color_status status
+    case status
+    when "init"
+      "success"
+    when "inprogress"
+      "primary"
+    when "finish"
+      "default"
+    end
+  end
 end

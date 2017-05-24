@@ -9,6 +9,7 @@ html {
 }
 .body-user {
   padding-top: 45px;
+  min-height: 90vh;
 }
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -46,8 +47,7 @@ p {
 footer {
   width: 100%;
   position: absolute;
-  bottom: 0px;
-  margin-top: 45px;
+  margin-top: 20px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #777;
@@ -160,5 +160,17 @@ footer ul li {
     .modal-body {
       width: 588px;
     }
+  }
+}
+#course-main {
+  .panel-group a:hover {
+    text-decoration: none;
+    .panel-heading {
+      text-decoration: underline;
+    }
+  }
+
+  .panel-group a .course-body {
+    color: #000;
   }
 }
