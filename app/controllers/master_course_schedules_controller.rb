@@ -146,7 +146,7 @@ class MasterCourseSchedulesController < ApplicationController
       schedules = ""
       if master_class_subject.master_course_schedules.any?
         master_class_subject.master_course_schedules.each.with_index 1 do |mcs, index|
-          schedules << "#{mcs.date.strftime("%a-%d-%m-%Y")}-#{t(".#{mcs.slot}")}, "
+          schedules << "#{t "days.#{mcs.date.strftime('%a')}"}-#{l mcs.date, fotmat: :excell}-#{t(".#{mcs.slot}")}, "
         end
       end
       cell = ["#{master_class_subject.master_subject_code} - #{master_class_subject.master_subject_name}",

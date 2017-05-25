@@ -174,3 +174,9 @@ footer ul li {
     color: #000;
   }
 }
+.table-striped tbody tr.tr-edit:nth-child(odd) td {
+  background: #65f16f;
+}
+.fixed-table th, .fixed-table td {
+  text-align: left !important;
+}

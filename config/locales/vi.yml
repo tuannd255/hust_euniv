@@ -33,6 +33,7 @@ vi:
       times: "%H:%M:%S"
       timeline_js: "%Y,%m,%d"
       ymd: "%Y-%m-%d"
+      excell: "%d-%m-%Y"
   date:
     <<: *datetime
   time:

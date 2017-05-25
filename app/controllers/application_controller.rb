@@ -13,19 +13,15 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_up, keys: [:username]
   end
 
-  # def after_sign_in_path_for resource
-  #   if current_user.nil?
-  #     root_path
-  #   elsif current_user.is_a? Admin
-  #     admin_root_path
-  #   elsif current_user.is_a? Trainer
-  #     trainer_root_path
-  #   else
-  #     root_path
-  #   end
-  # end
+  def after_sign_in_path_for resource
+    if current_user.is_admin?
+      admin_root_path
+    else
+      root_path
+    end
+  end
 
-  # def verify_admin
-  #   redirect_to admin_root_url if current_user.try(:is_admin?)
-  # end
+  def verify_admin
+    redirect_to admin_root_url if current_user.try(:is_admin?)
+  end
 end

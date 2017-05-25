@@ -18,6 +18,7 @@
 <script type="text/javascript">
   $(document).on('turbolinks:load ajaxComplete', function() {
     $(".cancel").on("click", function (argumen) {
+      argumen.preventDefault();
       $(".class-form").html("<%= j render 'button_create' %>");
       $("tr.tr-edit").removeClass("tr-edit");
     })
