@@ -216,7 +216,7 @@ vi:
       please_input_name: *please_input_name
       please_input_start_date: *please_input_start_date
       please_input_end_date: *please_input_end_date
-    title: "Courses"
+    title: Học kì
     modal_calendar:
       name: *name
       subject: *subject
@@ -226,6 +226,13 @@ vi:
     show:
       schedules: Lịch giảng dạy
       course_name: *course_name
+    master_courses_grid:
+      course: Học kì
+      start_date: Ngày bắt đầu
+      deadline_pick: Hạn chọn lịch
+      registering: Đang đăng kí
+      registered: Đã đăng kí
+      cancelled: Bị hủy
   master_course_schedules:
     master_course_schedule:
       morning: *morning

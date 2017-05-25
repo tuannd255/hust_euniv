@@ -1,5 +1,6 @@
 per_page:
   default: 10
+  course_index: 12
 user:
   name:
     minlength: 3

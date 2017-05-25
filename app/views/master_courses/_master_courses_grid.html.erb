@@ -1,0 +1,39 @@
+<div class="panel-group">
+  <% if master_courses.any? %>
+    <% master_courses.each do |master_course| %>
+      <div class="col-sm-3" style="margin-top: 20px">
+        <%= link_to master_course do %>
+          <div class="panel panel-<%= color_status master_course.status %>">
+            <div class="panel-heading">
+              <%= t ".name" %> - <%= master_course.name %>
+            </div>
+            <div class="panel-body course-body">
+              <div>
+                <%= t ".start_date" %>: <%= l master_course.start_date %>
+              </div>
+              <div>
+                <%= t ".deadline_pick" %>:
+                <%= l (master_course.start_date - 14.days) %>
+              </div>
+              <div class="text-primary">
+                <%= t ".registering" %>:
+                <%= master_course.master_class_subjects.inprogress.size %>
+              </div>
+              <div>
+                <%= t ".registered" %>:
+                <%= master_course.master_class_subjects.finished.size %>
+              </div>
+              <div class="text-danger">
+                <%= t ".cancelled" %>:
+                <%= master_course.master_class_subjects.cancelled.size %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<div class="col-sm-12">
+  <%= paginate master_courses, remote: true %>
+</div>
