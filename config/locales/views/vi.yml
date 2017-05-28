@@ -101,6 +101,8 @@ vi:
         create_master_class_subject: Tạo mới lớp môn
         title: Quản lý lớp môn
         course_name: &course_name Học kì %{name}
+        send_mail: Gửi mail
+        send_mail_notification: Gửi mail thông báo đăng ký lịch tới giảng viên
     master_class_subjects:
       form:
         title: Tạo mới lớp môn
@@ -134,6 +136,7 @@ vi:
         inprogress: *inprogress
         finished: *finished
         cancelled: *cancelled
+      title: Lớp môn
     master_course_schedules:
       master_course_schedule_table:
         date: *date

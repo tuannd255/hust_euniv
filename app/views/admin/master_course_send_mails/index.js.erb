@@ -1,0 +1,4 @@
+$("#flash").html("<%= j render 'layouts/flash' %>");
+<% if @master_course && @master_course.mail_sended %>
+  $("#send-mail-notification").remove();
+<% end %>

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :master_course_schedules
     resources :users
     resources :master_courses
+    resources :master_course_send_mails, only: :index
   end
   root "master_courses#index"
   resources :master_courses, only: [:index, :show] do

@@ -5,11 +5,19 @@
   <div class="search-form">
     <%= render "admin/master_class_subjects/search_form", support: @support %>
   </div>
-
-  <button id="create-class-subject" class="btn btn-primary"
-    data-master-course-id="<%= @support.master_course.id %>">
-    <%= t ".create_master_class_subject" %>
-  </button>
+  <div class="form-group">
+    <button id="create-class-subject" class="btn btn-primary"
+      data-master-course-id="<%= @support.master_course.id %>">
+      <%= t ".create_master_class_subject" %>
+    </button>
+    <% unless @support.master_course.mail_sended? %>
+      <%= link_to t(".send_mail"),
+        admin_master_course_send_mails_path(master_course_id: @support.master_course.id),
+         title: "#{t '.send_mail_notification'}",
+        remote: true, data: {confirm: t(:confirm_mailer)},
+        class: "btn btn-success pull-right", id: "send-mail-notification" %>
+    <% end %>
+  </div>
 
   <div id="master-class-subject-table">
     <%= render "admin/master_class_subjects/master_class_subject_table",
@@ -30,5 +38,5 @@
         data: {master_course_id: master_course_id}
       });
     });
-  });
+  })
 </script>

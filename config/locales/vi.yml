@@ -3,6 +3,7 @@ vi:
   search: Tìm kiếm
   fail: Có lỗi xảy ra
   confirm: Bạn có chắc?
+  confirm_mailer: Hành động gửi mail này chỉ có thể gửi một lần, bạn hãy xác nhận lại trước khi gửi. Bạn có chắc không?
   buttons:
     search: Tìm kiếm
     create: Tạo mới
@@ -93,8 +94,12 @@ vi:
   december: Tháng Mười Hai
   mailers:
     teacher_subject: "Lịch giảng dạy học kì %{name}"
-    hello: "Xin chào %{name}"
-    completed_pick: "Bạn vừa hoàn thành dăng kí lịch cho học kì %{name} tại link: "
+    hello: "Xin chào thầy(cô) %{name}"
+    completed_pick: "Thầy(cô) vừa hoàn thành dăng kí lịch cho học kì %{name} tại link: "
     master_course: "Học kì %{name}"
     view_schedules: "Xem tất cả đăng kí tại:"
     schedules: "Lịch giảng dạy"
+    master_course_subject: "Thông báo lịch giảng dạy học kì %{name}"
+    link_pick_schedule: "Kính mời thầy(cô) đến link sau để đăng ký lịch dạy cho kì mới"
+    register_schedule: "Đăng ký lịch"
+    sended: "Gửi mail thành công"
