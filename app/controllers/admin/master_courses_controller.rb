@@ -3,7 +3,7 @@ class Admin::MasterCoursesController < Admin::BaseController
 
   def index
     @master_course = MasterCourse.new
-    @search = MasterCourse.search params[:q]
+    @search = MasterCourse.order_by_created_at.search params[:q]
     @master_courses = @search.result.order_by_created_at.page(params[:page]).
       per Settings.per_page.default
     respond_to do |format|

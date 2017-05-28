@@ -32,7 +32,7 @@ module ApplicationHelper
       "success"
     when "inprogress"
       "primary"
-    when "finish"
+    when "finished"
       "default"
     end
   end

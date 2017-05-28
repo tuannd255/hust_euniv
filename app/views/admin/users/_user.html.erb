@@ -1,8 +1,8 @@
 <tr class="user-<%= user.id %>">
   <td class="truncate-col" title="<%= user.name %>"><%= user.name %></td>
   <td class="truncate-col" title="<%= user.email %>"><%= user.email %></td>
-  <td><%= t ".#{user.status}" %></td>
-  <td><%= t ".#{user.is_admin}" %></td>
+  <td class="text-center"><%= t ".#{user.status}" %></td>
+  <td class="text-center"><%= t ".#{user.is_admin}" %></td>
    <td class="icon-link text-center">
     <%= link_to edit_admin_user_path(user),
       remote: true, class: "edit-user" do %>

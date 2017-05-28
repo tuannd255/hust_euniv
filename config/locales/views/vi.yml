@@ -50,7 +50,7 @@ vi:
         code_or_name: Theo mã hoặc tên môn học
         creadit: *creadit
       master_subjects_table:
-        code: Mã học phân
+        code: Mã học phần
         name: Tên môn học
         creadit: *creadit
       master_subject_form:
@@ -149,7 +149,7 @@ vi:
         title_new: Tạo người dùng
         title_update: Chỉnh sửa người dùng
         name: *name
-        email: &email Thư điện từ
+        email: &email Thư điện tử
         password: &password Mật khẩu
         password_confirm: Xác nhận mật khẩu
         can_blank: (có thể bỏ trống)
@@ -290,6 +290,13 @@ vi:
     fri: Thứ sáu
     sat: Thứ bảy
     sun: Chủ nhật
+    Mon: Thứ hai
+    Tue: Thứ ba
+    Wed: Thứ tư
+    Thu: Thứ năm
+    Fri: Thứ sáu
+    Sat: Thứ bảy
+    Sun: Chủ nhật
   download_excell: Tải xuống file excel
   footer:
     content: Nội dung

@@ -5,6 +5,11 @@
     <ul class="sidebar-menu">
       <!-- Optionally, you can add icons to the links -->
       <li>
+        <%= link_to admin_master_courses_path do %>
+          <span><%= t ".master_courses" %></span>
+        <% end %>
+      </li>
+      <li>
         <%= link_to admin_master_subjects_path do %>
           <span><%= t ".master_subjects" %></span>
         <% end %>
@@ -15,18 +20,13 @@
         <% end %>
       </li>
       <li>
-        <%= link_to admin_master_courses_path do %>
-          <span><%= t ".master_courses" %></span>
+        <%= link_to admin_rooms_path do %>
+          <span><%= t ".rooms" %></span>
         <% end %>
       </li>
       <li>
         <%= link_to admin_users_path do %>
           <span><%= t ".users" %></span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to admin_rooms_path do %>
-          <span><%= t ".rooms" %></span>
         <% end %>
       </li>
     </ul><!-- /.sidebar-menu -->
