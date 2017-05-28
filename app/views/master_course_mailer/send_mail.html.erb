@@ -1,0 +1,7 @@
+<div>
+  <h2><%= t("mailers.hello", name: @user.name) %></h2>
+</div>
+<div>
+  <%= t("mailers.link_pick_schedule") %>:
+  <%= link_to t("mailers.register_schedule"), @master_course %>
+</div>

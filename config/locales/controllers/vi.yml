@@ -48,6 +48,7 @@ vi:
     not_owner: Bạn không phải chủ nhân của lịch trình này
     not_deleted: "%{model_name} không được xóa"
     not_created: "%{model_name} không được tạo"
+    not_blank: "%{model_name} không được để trống"
   master_course_schedules:
     create:
       enough_amount: Đã đủ số lượng
