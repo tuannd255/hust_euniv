@@ -26,6 +26,7 @@
 //= require_tree ../../../vendor/assets/javascripts/i18n
 //= require responsive-calendar
 //= require custom-calendar
+//= require jquery.remotipart
 
 $(document).on('turbolinks:load ajaxComplete', function() {
   $('.alert').delay(2000).fadeOut();
@@ -37,4 +38,10 @@ $(document).on('turbolinks:load ajaxComplete', function() {
     forceParse: false,
     todayHighlight: true
   });
+
+  $('.navbar-nav li a').each(function() {
+    if ($('img', this).length > 0) {
+      $(this).css('padding', '5');
+    }
+  })
 });

@@ -25,6 +25,10 @@ vi:
   slot: &slot Buổi
   activate: &activate Hoạt động
   block: &block Khóa
+  name: &name Họ và tên
+  workplace: &workplace Địa chỉ nơi làm việc
+  phone_number: &phone_number Số điện thoại
+  story: &story Lịch sử công việc
   admin:
     master_classes:
       button_create:
@@ -262,6 +266,28 @@ vi:
       afternoon: *afternoon
       evening: *evening
       sheet_name: Thông tin lịch giảng dạy
+  users:
+    teacher: Giảng viên
+    show:
+      fullname: *name
+      workplace: *workplace
+      email: *email
+      phone_number: *phone_number
+      story: *story
+    user:
+      edit_profile: Chỉnh sửa hồ sơ
+      fullname: Họ và Tên
+      workplace: *workplace
+      email: *email
+      phone_number: *phone_number
+      story: Tiêu sử
+    form:
+      avatar: Ảnh đại diện
+      name: *name
+      workplace: *workplace
+      email: *email
+      phone_number: *phone_number
+      story: Tiêu sử
   layouts:
     admin_sidebar:
       master_subjects: Quản lý môn học
@@ -270,11 +296,13 @@ vi:
       users: Quản lý người dùng
       rooms: Quản lý phòng học
     admin_header:
-      setting: Cài đặt
+      setting: Chỉnh sửa hồ sơ
+      profile: Hồ sơ
       log_out: Đăng xuất
     header:
       master_courses: Học kì
-      setting: Cài đặt
+      setting: Chỉnh sửa hồ sơ
+      profile: Hồ sơ
       log_out: Đăng xuất
   kaminari:
     next_page:
