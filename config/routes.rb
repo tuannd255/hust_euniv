@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   end
   resources :master_class_subjects, only: :edit
   resources :master_course_schedules, only: [:create, :destroy]
+  resources :users, only: [:show, :edit, :update]
 end

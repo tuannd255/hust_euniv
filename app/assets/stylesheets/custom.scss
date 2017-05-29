@@ -180,3 +180,11 @@ footer ul li {
 .fixed-table th, .fixed-table td {
   text-align: left !important;
 }
+.image-circle {
+  border-radius: 50%;
+}
+textarea#user_story.form-control {
+  height: 260px;
+  width: 419px;
+  resize: none;
+}

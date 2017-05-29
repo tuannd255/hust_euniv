@@ -33,6 +33,7 @@ gem "ransack"
 gem "i18n-js"
 gem "activerecord-import"
 gem "axlsx"
+gem "remotipart", "~> 1.2"
 
 group :development, :test do
   gem "byebug", platform: :mri

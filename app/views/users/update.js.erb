@@ -1,0 +1,10 @@
+<% if @user.errors.any? %>
+  $('#user_form').html('<%= j render "/users/form", user: @user %>');
+<% else %>
+  $("#flash").html("<%= j render 'layouts/flash' %>");
+  $('.user-detail').html('<%= j render "users/user" %>');
+  $('.modal').modal('hide');
+  $('#avatar-header').html('<%= image_tag @user.avatar.url,\
+    size: (@user.is_admin? ? "40x40" : "45x45"), class: "image-circle" %>\
+    <b class="caret"></b>');
+<% end %>
