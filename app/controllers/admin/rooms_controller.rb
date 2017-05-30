@@ -20,12 +20,15 @@ class Admin::RoomsController < Admin::BaseController
   def create
     @room = Room.new room_params
     if @room.save
-      flash[:success] = t ".success"
-      redirect_to admin_rooms_path
-    else
-      respond_to do |format|
-        format.js
-      end
+      flash.now[:success] = t ".success"
+      search = Room.order_by_created_at.search params[:q]
+      rooms = search.result.order_by_created_at.page(params[:page]).
+        per Settings.per_page.default
+      @support = Supports::RoomSupport.new search: search,
+        rooms: rooms
+    end
+    respond_to do |format|
+      format.js
     end
   end
 

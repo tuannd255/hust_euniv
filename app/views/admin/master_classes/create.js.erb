@@ -1,3 +1,9 @@
 <% if @master_class.errors.any? %>
-  $(".class-form").html("<%= j render 'master_class_form', master_class: @master_class %>");
+  $('.class-form').html('<%= j render "master_class_form", master_class: @master_class %>');
+<% else %>
+  $('.class-form #master_class_code').val('');
+  $('.class-form #master_class_name').val('');
+  $('#flash').html('<%= j render "layouts/flash" %>');
+  $('#class-main').html('<%= j render "master_classes_table",\
+    search: @support.search, master_classes: @support.master_classes %>');
 <% end %>

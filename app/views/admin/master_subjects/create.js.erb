@@ -1,3 +1,10 @@
 <% if @master_subject.errors.any? %>
-  $(".subject-form").html("<%= j render 'master_subject_form', master_subject: @master_subject %>");
+  $('.subject-form').html('<%= j render "master_subject_form", master_subject: @master_subject %>');
+<% else %>
+  $('.subject-form #master_subject_code').val('');
+  $('.subject-form #master_subject_name').val('');
+  $('.subject-form #master_subject_creadit').val('');
+  $('#flash').html('<%= j render "layouts/flash" %>');
+  $('#subject-main').html('<%= j render "master_subjects_table",\
+    search: @support.search, master_subjects: @support.master_subjects %>');
 <% end %>

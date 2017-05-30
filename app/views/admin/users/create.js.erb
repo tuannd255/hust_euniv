@@ -1,3 +1,11 @@
 <% if @user.errors.any? %>
   $('.user-form').html("<%= j render 'user_form', user: @user %>")
+<% else %>
+  $('.user-form #user_email').val('');
+  $('.user-form #user_name').val('');
+  $('.user-form #user_password').val('');
+  $('.user-form #user_password_confirmation').val('');
+  $('#flash').html('<%= j render "layouts/flash" %>');
+  $('#user-main').html('<%= j render "user_table",\
+    search: @support.search, users: @support.users %>');
 <% end %>
