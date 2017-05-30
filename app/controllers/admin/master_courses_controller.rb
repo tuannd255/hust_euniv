@@ -29,12 +29,15 @@ class Admin::MasterCoursesController < Admin::BaseController
   def create
     @master_course = MasterCourse.new master_course_params
     if @master_course.save
-      flash[:success] = t ".success"
-      redirect_to [:admin, :master_courses]
-    else
-      respond_to do |format|
-        format.js
-      end
+      flash.now[:success] = t ".success"
+      search = MasterCourse.order_by_created_at.search params[:q]
+      master_courses = search.result.order_by_created_at.page(params[:page]).
+        per Settings.per_page.default
+      @support = Supports::CourseSupport.new search: search,
+        master_courses: master_courses
+    end
+    respond_to do |format|
+      format.js
     end
   end
 

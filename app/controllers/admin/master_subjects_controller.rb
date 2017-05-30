@@ -23,11 +23,14 @@ class Admin::MasterSubjectsController < Admin::BaseController
     @master_subject = MasterSubject.new master_subject_params
     if @master_subject.save
       flash.now[:success] = t ".success"
-      redirect_to [:admin, :master_subjects]
-    else
-      respond_to do |format|
-        format.js
-      end
+      search = MasterSubject.order_by_created_at.search params[:q]
+      master_subjects = search.result.order_by_created_at.page(params[:page]).
+        per Settings.per_page.default
+      @support = Supports::SubjectSupport.new search: search,
+        master_subjects: master_subjects
+    end
+    respond_to do |format|
+      format.js
     end
   end
 

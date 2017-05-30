@@ -1,3 +1,11 @@
 <% if @master_course.errors.any? %>
   $(".course-form").html("<%= j render 'master_course_form', master_course: @master_course %>");
+<% else %>
+  $(".course-form #master_course_code").val('');
+  $(".course-form #master_course_name").val('');
+  $(".course-form #master_course_start_date").val('');
+  $(".course-form #master_course_end_date").val('');
+  $('#flash').html('<%= j render "layouts/flash" %>');
+  $('#course-main').html('<%= j render "master_courses_table",\
+    search: @support.search, master_courses: @support.master_courses %>');
 <% end %>

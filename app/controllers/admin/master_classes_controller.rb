@@ -23,11 +23,14 @@ class Admin::MasterClassesController < Admin::BaseController
     @master_class = MasterClass.new master_class_params
     if @master_class.save
       flash.now[:success] = t ".success"
-      redirect_to [:admin, :master_classes]
-    else
-      respond_to do |format|
-        format.js
-      end
+      search = MasterClass.order_by_created_at.search params[:q]
+      master_classes = search.result.order_by_created_at.page(params[:page]).
+        per Settings.per_page.default
+      @support = Supports::ClassSupport.new search: search,
+        master_classes: master_classes
+    end
+    respond_to do |format|
+      format.js
     end
   end
 

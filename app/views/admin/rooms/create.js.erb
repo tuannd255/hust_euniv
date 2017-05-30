@@ -1,3 +1,9 @@
 <% if @room.errors.any? %>
   $('.room-form').html("<%= j render 'room_form', room: @room %>")
+<% else %>
+  $('.room-form #room_code').val('');
+  $('.room-form #room_name').val('');
+  $('#flash').html('<%= j render "layouts/flash" %>');
+  $('#room-main').html('<%= j render "room_table",\
+    search: @support.search, rooms: @support.rooms %>');
 <% end %>
