@@ -27,6 +27,15 @@ $(document).on('turbolinks:load ajaxCompleted', function() {
             });
             $('.picked-schedules').html(data.picked_schedules);
           } else {
+            date = data.schedule.date.substring(0, 10).split('-');
+            $('.day:not(.header) a.' + data.schedule.slot).each(function() {
+              if ($(this).data('day') == date[2] &&
+                $(this).data('month') == date[1] &&
+                $(this).data('year') == date[0]) {
+                $(this).addClass('background-gray');
+                $(this).data('disabled', true);
+              }
+            });
             alert(data.errors);
           }
         }

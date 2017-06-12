@@ -11,6 +11,7 @@ class MasterCourse < ApplicationRecord
   enum status: [:init, :inprogress, :finished]
 
   scope :order_by_created_at, ->{order created_at: :desc}
+  scope :id_desc, ->{order id: :desc}
 
   private
   def end_date_after_start_date
