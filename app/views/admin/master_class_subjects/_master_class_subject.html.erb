@@ -5,8 +5,8 @@
   <td class="truncate-col" title="<%= master_class_subject.name %>">
     <%= master_class_subject.name %>
   </td>
-  <td class="truncate-col" title="<%= master_class_subject.master_class_name %>">
-    <%= master_class_subject.master_class_name %>
+  <td class="truncate-col" title="<%#= master_class_subject.master_class_name %>">
+    <%= master_class_subject.master_classes.map(&:name).join("\n") %>
   </td>
   <td class="truncate-col" title="<%= master_class_subject.user_name %>">
     <%= master_class_subject.user_name %>

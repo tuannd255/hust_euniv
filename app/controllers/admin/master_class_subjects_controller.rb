@@ -11,9 +11,10 @@ class Admin::MasterClassSubjectsController < Admin::BaseController
   def create
     master_class_subject = @master_course.master_class_subjects.new master_class_subject_params
     if master_class_subject.save
+      master_class_subject.init_master_class_class_subject(master_class_subject_params[:master_class_id])
       flash.now[:success] = t ".success"
     end
-    search = @master_course.master_class_subjects.search params[:q]
+    search = @master_course.master_class_subjects.id_desc.search params[:q]
     master_class_subjects = search.result.page(params[:page]).per Settings.per_page.default
     @support = Supports::MasterClassSubject.new master_course: @master_course,
       search: search, master_class_subjects: master_class_subjects,
@@ -42,7 +43,8 @@ class Admin::MasterClassSubjectsController < Admin::BaseController
 
   def update
     if @master_class_subject.update_attributes master_class_subject_params
-      search = @master_class_subject.master_course.master_class_subjects.search params[:q]
+      master_class_subject.init_master_class_class_subject(master_class_subject_params[:master_class_id])
+      search = @master_class_subject.master_course.master_class_subjects.id_desc.search params[:q]
       master_class_subjects = search.result.page(params[:page]).per Settings.per_page.default
       @support = Supports::MasterClassSubject.new master_course: @master_course,
         search: search, master_class_subjects: master_class_subjects
@@ -64,8 +66,8 @@ class Admin::MasterClassSubjectsController < Admin::BaseController
 
   private
   def master_class_subject_params
-    params.require(:master_class_subject).permit :name, :master_class_id, :master_subject_id,
-      :master_course_id, :user_id, :room_id
+    params.require(:master_class_subject).permit :name, :master_subject_id,
+      :master_course_id, :user_id, :room_id, master_class_id: []
   end
 
   def master_class_exist? master_class_id

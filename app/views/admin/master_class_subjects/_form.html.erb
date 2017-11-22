@@ -51,8 +51,9 @@
           <%= f.label t(".master_class_id") %>
         </div>
         <div class="col-md-9">
-          <%= f.select :master_class_id, support.collection_class_select,
-            {include_blank: true}, class: "form-control select-class" %>
+          <%= f.select :master_class_id, support.collection_class_select, {},
+            class: "form-control select-class",
+            multiple: true %>
         </div>
       </div>
     </div>
@@ -122,24 +123,23 @@ $(document).ready(function() {
   master_subject_code = $('#master_class_subject_master_subject_id')[0].value == "" ?
     "" : $('#master_class_subject_master_subject_id')[0]
     .options[$('#master_class_subject_master_subject_id')[0].value].text.split('-')[0];
-  master_class_code = $('#master_class_subject_master_class_id')[0].value == "" ?
-    "" : $('#master_class_subject_master_class_id')[0]
-    .options[$('#master_class_subject_master_class_id')[0].value].text.split('-')[0];
-  $('#master_class_subject_code').val(master_course_code + '-' + master_subject_code +
-    '-' + master_class_code);
+  // master_class_code = $('#master_class_subject_master_class_id')[0].value == "" ?
+  //   "" : $('#master_class_subject_master_class_id')[0]
+  //   .options[$('#master_class_subject_master_class_id')[0].value].text.split('-')[0];
+  $('#master_class_subject_code').val(master_course_code + '-' + master_subject_code);
   $('#master_class_subject_master_subject_id').on('change', function() {
     text = this.value == "" ? "" : this.options[this.value].text.split('-');
     code = $('#master_class_subject_code')[0].value.split('-');
     $('#master_class_subject_name').val(text[1] || text);
     $('#master_class_subject_code').val(master_course_code + '-' +
-      (text[0] || text) + '-' + code[2]);
+      (text[0] || text));
   });
 
-  $('#master_class_subject_master_class_id').on('change', function() {
-    text = this.value == "" ? "" : this.options[this.value].text.split('-');
-    code = $('#master_class_subject_code')[0].value.split('-');
-    $('#master_class_subject_code').val(master_course_code + '-' +
-      code[1] + '-' + (text[0] || text));
-  });
+  // $('#master_class_subject_master_class_id').on('change', function() {
+  //   text = this.value == "" ? "" : this.options[this.value].text.split('-');
+  //   code = $('#master_class_subject_code')[0].value.split('-');
+  //   $('#master_class_subject_code').val(master_course_code + '-' +
+  //     code[1] + '-' + (text[0] || text));
+  // });
 });
 </script>
