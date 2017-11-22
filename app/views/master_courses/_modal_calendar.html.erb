@@ -32,8 +32,8 @@
           <div class="form-group">
             <div class="master-class-subject-master_class">
               <%= label_tag :class, t(".class") %>:
-              <%= master_class_subject.master_class_code %>-
-              <%= master_class_subject.master_class_name %>
+              <%= master_class_subject.master_classes.map(&:code).join(",") %> -
+              <%= master_class_subject.master_classes.map(&:name).join(",") %>
             </div>
           </div>
           <div class="form-group">
