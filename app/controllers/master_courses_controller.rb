@@ -2,7 +2,7 @@ class MasterCoursesController < ApplicationController
   before_action :find_master_course, except: [:index, :new, :create]
 
   def index
-    @search = MasterCourse.search params[:q]
+    @search = MasterCourse.id_desc.search params[:q]
     @master_courses = @search.result.page(params[:page]).per Settings.per_page.course_index
   end
 

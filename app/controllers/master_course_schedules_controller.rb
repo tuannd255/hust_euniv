@@ -37,8 +37,7 @@ class MasterCourseSchedulesController < ApplicationController
         picked_schedules: @master_class_subject.master_course_schedules.size
       }
     else
-      render json: {errors: t("errors.not_created",
-        model_name: MasterCourseSchedule.name), status: 500}
+      render json: {errors: "Lịch đã bị đăng ký", schedule: master_course_schedule, status: 500}
     end
   end
 
@@ -145,7 +144,7 @@ class MasterCourseSchedulesController < ApplicationController
     @master_class_subjects.each do |master_class_subject|
       schedules = ""
       if master_class_subject.master_course_schedules.any?
-        master_class_subject.master_course_schedules.each.with_index 1 do |mcs, index|
+        master_class_subject.master_course_schedules.order_by_date.each.with_index 1 do |mcs, index|
           schedules << "#{t "days.#{mcs.date.strftime('%a')}"}-#{l mcs.date, fotmat: :excell}-#{t(".#{mcs.slot}")}, "
         end
       end

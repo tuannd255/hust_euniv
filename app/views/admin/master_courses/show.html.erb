@@ -29,7 +29,7 @@
 <div class="modal-calendar"></div>
 
 <script type="text/javascript">
-  $(document).on('turbolinks:load', function() {
+  $(document).ready(function() {
     $("#create-class-subject").on('click', function(){
       master_course_id = $(this).data('master-course-id');
       $.ajax({

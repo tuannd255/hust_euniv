@@ -1,5 +1,5 @@
 <tr class="master-class-subject master-class-subject-<%= master_class_subject.id %>">
-  <td><%= master_class_subject.master_subject_code %></td>
+  <td style="text-align: center !important;"><%= master_class_subject.master_subject_code %></td>
   <td class="truncate-col" title="<%= master_class_subject.name %>">
     <%= master_class_subject.name %>
   </td>
@@ -9,10 +9,10 @@
   <td class="truncate-col" title="<%= master_class_subject.master_class_name %>">
     <%= master_class_subject.master_class_name %>
   </td>
-  <td>
+  <td style="text-align: center !important;">
     <%= master_class_subject.room_name %>
   </td>
-  <td class="text-center">
+  <td style="text-align: center !important;">
     <%= link_to t(:pick_schedule),
       edit_master_class_subject_path(master_class_subject), remote: true,
       class: "btn btn-primary" %>

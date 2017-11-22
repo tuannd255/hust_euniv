@@ -3,7 +3,11 @@ namespace :db do
   task fake_class_subject: [:environment] do
     master_subjects = MasterSubject.all
     master_classes = MasterClass.all
-    master_courses = MasterCourse.all
+    master_courses = []
+    master_courses << MasterCourse.find_by(name: "20171")
+    MasterCourse.where.not(name: "20171").each do |mc|
+      master_courses << mc
+    end
     rooms = Room.all
     users = User.where is_admin: false
 
