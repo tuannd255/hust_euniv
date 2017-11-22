@@ -14,7 +14,7 @@ class MasterClassSubjectsController < ApplicationController
   end
 
   def find_schedule
-    picked_master_class_subjects = MasterClassSubject.picked_master_class_subject @master_class_subject.master_class_id,
+    picked_master_class_subjects = MasterClassSubject.picked_master_class_subject @master_class_subject.master_class_ids,
       @master_class_subject.room_id, current_user.id, @master_class_subject.master_course_id
     all_schedules = MasterCourseSchedule.where master_class_subject_id: picked_master_class_subjects.pluck(:id)
     @master_course_schedules = all_schedules.where master_class_subject_id: @master_class_subject.id
