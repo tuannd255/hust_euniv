@@ -220,6 +220,14 @@ en:
       picked_schedules: "Picked Schedules"
     show:
       schedules: "Schedules"
+    master_courses_grid:
+      course: Học kì
+      start_date: Ngày bắt đầu
+      deadline_pick: Hạn chọn lịch
+      registering: Đang đăng kí
+      registered: Đã đăng kí
+      cancelled: Bị hủy
+      name: Học kì
   master_course_schedules:
     master_course_schedule:
       morning: Morning

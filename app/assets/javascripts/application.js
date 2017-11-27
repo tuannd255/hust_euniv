@@ -27,6 +27,8 @@
 //= require responsive-calendar
 //= require custom-calendar
 //= require jquery.remotipart
+//= require cable
+
 
 $(document).on('turbolinks:load ajaxComplete', function() {
   $('.alert').delay(2000).fadeOut();
@@ -44,4 +46,9 @@ $(document).on('turbolinks:load ajaxComplete', function() {
       $(this).css('padding', '5');
     }
   })
+
+  $('#modal-schedule').on('hide.bs.modal', function () {
+    $(".modal-calendar").html("");
+  })
 });
+
