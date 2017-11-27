@@ -32,6 +32,14 @@ class MasterCourseSchedulesController < ApplicationController
   def create
     master_course_schedule = @master_class_subject.master_course_schedules.build master_course_schedule_params
     if master_course_schedule.save
+      RegistrationScheduleService.new(
+        reg_type: "add",
+        id: master_course_schedule.id,
+        slot: master_course_schedule.slot,
+        date: master_course_schedule.date.strftime("%Y-%m-%d"),
+        room_id: @master_class_subject.room_id,
+        master_class_subject_id: @master_class_subject.id,
+        master_class_ids: @master_class_subject.master_class_ids).perform
       render json: {
         master_course_schedule: master_course_schedule,
         picked_schedules: @master_class_subject.master_course_schedules.size
@@ -43,6 +51,14 @@ class MasterCourseSchedulesController < ApplicationController
 
   def destroy
     if @master_course_schedule.destroy
+      RegistrationScheduleService.new(
+        reg_type: "remove",
+        id: @master_course_schedule.id,
+        slot: @master_course_schedule.slot,
+        date: @master_course_schedule.date.strftime("%Y-%m-%d"),
+        room_id: @master_class_subject.room_id,
+        master_class_subject_id: @master_class_subject.id,
+        master_class_ids: @master_class_subject.master_class_ids).perform
       render json: {
         master_course_schedule: @master_course_schedule,
         picked_schedules: @master_class_subject.master_course_schedules.size

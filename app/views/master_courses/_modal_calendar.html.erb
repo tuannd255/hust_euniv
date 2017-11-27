@@ -1,8 +1,14 @@
+<%= javascript_include_tag 'channels/room.js' %>
+<%= javascript_include_tag 'channels/class.js' %>
+
 <div class="modal fade" id="modal-schedule" tabindex="-1" role="dialog"
   aria-labelledby="exampleModalLabel" aria-hidden="true"
   data-id="<%= master_class_subject.id %>"
   data-date="<%= l master_class_subject.master_course_start_date,
     format: :default %>">
+  <div class="actioncable" room-id="<%= master_class_subject.room_id %>"
+    master-class-subject-id="<%= master_class_subject.id %>"
+    master-class-ids="<%= master_class_subject.master_class_ids %>"></div>
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
