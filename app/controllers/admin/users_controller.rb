@@ -14,6 +14,7 @@ class Admin::UsersController < Admin::BaseController
 
   def new
     @user = User.new
+    @support = Supports::User.new user: @user
     respond_to do |format|
       format.js
     end
@@ -29,6 +30,7 @@ class Admin::UsersController < Admin::BaseController
       @support = Supports::User.new search: search,
         users: users
     end
+    @support = Supports::User.new user: @user
     respond_to do |format|
       format.js
     end
@@ -60,7 +62,8 @@ class Admin::UsersController < Admin::BaseController
 
   private
   def user_params
-    params.require(:user).permit :name, :email, :password, :password_confirmation, :status
+    params.require(:user).permit :name, :email, :password, :password_confirmation,
+      :status, :position_id
   end
 
   def find_user

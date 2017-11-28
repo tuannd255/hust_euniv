@@ -1,0 +1,17 @@
+<tr class="position position-<%= position.id %>"
+  data-id="<%= position.id %>">
+  <td><%= text_field_tag :name, {}, value: position.name,
+    class: "form-control position_name" %></td>
+  <td><%= text_field_tag :full_name, {}, value: position.full_name,
+    class: "form-control position_full_name" %></td>
+  <td class="icon-link text-center">
+    <a class="fa fa-check index-button update-position"
+      aria-hidden="true" title="<%= t 'buttons.update'%>" style="cursor: pointer"></a>
+
+    <%= link_to edit_admin_position_path(position, close: true),
+      remote: true do %>
+      <i class="fa fa-times index-button" aria-hidden="true"
+        title="<%= t 'buttons.close'%>"></i>
+    <% end %>
+  </td>
+</tr>

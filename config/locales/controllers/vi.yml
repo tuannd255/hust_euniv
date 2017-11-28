@@ -7,6 +7,13 @@ vi:
         success: Cập nhật lớp học thành công
       destroy:
         success: Xóa lớp học thành công
+    positions:
+      create:
+        success: Tạo học hàm thành công
+      update:
+        success: Cập học hàm học thành công
+      destroy:
+        success: Xóa học hàm thành công
     master_subjects:
       create:
         success: Tạo môn học thành công

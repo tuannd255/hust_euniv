@@ -1,8 +1,9 @@
 <table class="table table-bordered table-condensed table-striped table-hover">
   <thead class="thead-inverse">
     <tr>
+      <th class="col-md-2"><%= t ".position" %></th>
       <th class="col-md-3"><%= sort_link search, :name, t(".name"), {}, {remote: true} %></th>
-      <th class="col-md-4"><%= sort_link search, :email, t(".email"), {}, {remote: true} %></th>
+      <th class="col-md-2"><%= sort_link search, :email, t(".email"), {}, {remote: true} %></th>
       <th class="col-md-2 text-center"><%= t ".status" %></th>
       <th class="col-md-2 text-center"><%= t ".admin" %></th>
       <th class="col-md-1"></th>
