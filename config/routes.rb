@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   mount ActionCable.server => "/cable"
 
-  devise_for :users, path: "", path_names: {sign_in: "login",sign_out: "logout"}
+  devise_for :users, path: "", controllers: {sessions: "users/sessions"}, path_names: {sign_in: "login",sign_out: "logout"}
   namespace :admin do
     root "master_courses#index"
     resources :master_classes
@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   resources :master_class_subjects, only: :edit
   resources :master_course_schedules, only: [:create, :destroy]
   resources :users, only: [:show, :edit, :update]
+  resources :notifications, only: [:index, :show]
 end

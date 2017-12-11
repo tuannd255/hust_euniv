@@ -5,6 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
     :trackable, :validatable
   has_many :master_class_subjects
+  has_many :notifications, dependent: :destroy
 
   validates :name, length: { minimum: Settings.user.name.minlength,
     maximum: Settings.user.name.maxlength }

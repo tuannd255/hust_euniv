@@ -1,0 +1,15 @@
+<div class="col-md-2 col-md-offset-2">
+  <ul class="unstyled">
+    <li>
+      <%= link_to notifications_path  do %>
+        Chưa đọc(<%= @unread_count %>)
+      <% end %>
+    </li>
+    <li>
+      <%= link_to "Tất cả thông báo", notifications_path(all: 1)%>
+    </li>
+  </ul>
+</div>
+<div class="col-md-6">
+  <%= render "list_notification", notifications: @notifications%>
+</div>

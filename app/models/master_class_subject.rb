@@ -6,6 +6,7 @@ class MasterClassSubject < ApplicationRecord
   has_many :master_course_schedules, dependent: :destroy
   has_many :master_class_class_subjects, dependent: :destroy
   has_many :master_classes, through: :master_class_class_subjects
+  has_many :notifications, dependent: :destroy
 
   validates :name, presence: true, length: {minimum: 3, maximum: 70}
   validates :master_course_id, :master_subject_id, :user_id,

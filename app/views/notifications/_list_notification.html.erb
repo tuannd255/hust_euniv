@@ -1,0 +1,15 @@
+<div class="boxed-group">
+  <div class="boxed-group-header">Heading</div>
+  <div class="boxed-group-inner flush">
+    <ul class="boxed-group-list">
+      <% if notifications.present? %>
+    <%= render notifications %>
+  <% else %>
+    <li class="list-item list-item-expanded collapsed">
+      <%= render "shared/nothing" %>
+    </li>
+  <% end %>
+    </ul>
+  </div>
+</div>
+<%= paginate notifications %>
