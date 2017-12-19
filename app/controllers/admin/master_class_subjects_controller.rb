@@ -12,6 +12,8 @@ class Admin::MasterClassSubjectsController < Admin::BaseController
     master_class_subject = @master_course.master_class_subjects.new master_class_subject_params
     if master_class_subject.save
       master_class_subject.init_master_class_class_subject(master_class_subject_params[:master_class_id])
+      CreateNotificationService.new(user_id: master_class_subject.user_id,
+        master_class_subject_id: master_class_subject.id).perform
       flash.now[:success] = t ".success"
     end
     search = @master_course.master_class_subjects.id_desc.search params[:q]
