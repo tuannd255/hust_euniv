@@ -11,13 +11,13 @@ class MasterCourseSchedulesController < ApplicationController
     if params[:format] == "xls"
       @master_class_subjects = @master_course.master_class_subjects
         .includes(master_course_schedules: [master_class_subject: [:room,
-        :master_class, :master_subject]]).by_user current_user
+        :master_classes, :master_subject]]).by_user current_user
       respond_to do |format|
         format.html
         format.xls {send_xls}
       end
     else
-      search_class_subject = @master_course.master_class_subjects.includes(:master_class).by_user(current_user).search params[:q]
+      search_class_subject = @master_course.master_class_subjects.includes(:master_classes).by_user(current_user).search params[:q]
       @support = Supports::MasterCourseSchedule.new(master_course: @master_course,
         search: search_class_subject, master_class_subjects: search_class_subject.result)
       @master_course_schedules = MasterCourseSchedule.by_class_subject(search_class_subject.result).
@@ -165,7 +165,7 @@ class MasterCourseSchedulesController < ApplicationController
         end
       end
       cell = ["#{master_class_subject.master_subject_code} - #{master_class_subject.master_subject_name}",
-        master_class_subject.master_class_name, schedules, master_class_subject.room_name]
+        master_class_subject.master_classes.map(&:name).join(","), schedules, master_class_subject.room_name]
       data << cell
     end
     return data

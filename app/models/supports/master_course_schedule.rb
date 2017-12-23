@@ -12,7 +12,7 @@ class Supports::MasterCourseSchedule
   end
 
   def collection_class_select
-    @collection_class_select = master_class_subjects.map(&:master_class).uniq.
+    @collection_class_select = MasterClassClassSubject.where(master_class_subject: master_class_subjects).map(&:master_class).uniq.
       collect {|k| [k.code + "-" + k.name, k.id]}
   end
 end
