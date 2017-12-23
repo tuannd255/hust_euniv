@@ -1,15 +1,30 @@
-<div class="col-md-2 col-md-offset-2">
-  <ul class="unstyled">
-    <li>
-      <%= link_to notifications_path  do %>
-        Chưa đọc(<%= @unread_count %>)
-      <% end %>
-    </li>
-    <li>
-      <%= link_to "Tất cả thông báo", notifications_path(all: 1)%>
-    </li>
-  </ul>
+<div id="notifications">
+  <div class="col-md-3 col-md-offset-1">
+    <ul class="unstyled">
+      <li>
+        <%= link_to notifications_path, class: "filter-item selected" do %>
+          Chưa đọc
+          <span class="pull-right"><b><%= @unread_count %></b></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "Tất cả thông báo", notifications_path(all: 1),
+          class: "filter-item" %>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-7">
+    <%= render "list_notification", notifications: @notifications%>
+  </div>
 </div>
-<div class="col-md-6">
-  <%= render "list_notification", notifications: @notifications%>
-</div>
+<script type="text/javascript">
+  $(document).on("turbolinks:load", function() {
+    if(window.location.href.indexOf("all=1") != -1) {
+      $($(".filter-item")[0]).removeClass("selected");
+      $($(".filter-item")[1]).addClass("selected");
+    } else {
+      $($(".filter-item")[1]).removeClass("selected");
+      $($(".filter-item")[0]).addClass("selected");
+    }
+  })
+</script>

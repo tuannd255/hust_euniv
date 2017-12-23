@@ -1,5 +1,6 @@
-<%= link_to notification do %>
-  <li class="list-item list-item-expanded collapsed">
-    Bạn đã được phân công môn <%= notification.master_class_subject_name %> có mã <%= notification.master_class_subject_code%> vào lúc <%= l notification.master_class_subject_created_at%>
-  </li>
-<% end %>
+<li class="list-item list-item-expanded collapsed <%= notification.read ? "" : "background-gray" %>"
+  title="Bạn đã được phân công môn <%= notification.master_class_subject_name %> có mã <%= notification.master_class_subject_code%> vào lúc <%= l notification.master_class_subject_created_at %>">
+  <%= link_to notification do %>
+    Bạn đã được phân công môn <%= notification.master_class_subject_name %> có mã <%= notification.master_class_subject_code%> vào lúc <%= l notification.master_class_subject_created_at %>
+  <% end %>
+</li>
