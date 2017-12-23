@@ -1,15 +1,22 @@
 <div class="boxed-group">
-  <div class="boxed-group-header">Heading</div>
-  <div class="boxed-group-inner flush">
-    <ul class="boxed-group-list">
-      <% if notifications.present? %>
-    <%= render notifications %>
-  <% else %>
-    <li class="list-item list-item-expanded collapsed">
-      <%= render "shared/nothing" %>
-    </li>
-  <% end %>
-    </ul>
-  </div>
+  <ul class="boxed-group-list">
+    <% if notifications.present? %>
+      <%= render notifications %>
+    <% else %>
+      <li class="nothing">
+        <%= render "shared/nothing" %>
+      </li>
+    <% end %>
+  </ul>
 </div>
 <%= paginate notifications %>
+<script type="text/javascript">
+  $(document).on("turbolinks:load", function() {
+    $("li").on("click", function() {
+      const url = $("a", this).attr("href");
+      if (url) {
+        window.location.href = url;
+      }
+    })
+  })
+</script>

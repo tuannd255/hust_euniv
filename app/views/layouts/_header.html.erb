@@ -10,10 +10,10 @@
           <li class="nht-notification-icon">
             <%= link_to notifications_path do %>
               <i class="fa fa-bell td-notification-index-icon" aria-hidden="true">
-                <div class="nht-notification-count">
-                  <%= current_user.unread_notification %>
-                </div>
               </i>
+              <span class="nht-notification-count">
+                (<%= current_user.unread_notification %>)
+              </span>
             <% end %>
           </li>
           <li class="dropdown">

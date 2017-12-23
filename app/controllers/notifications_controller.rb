@@ -16,7 +16,7 @@ class NotificationsController < ApplicationController
     if noti
       if !noti.read
         noti.update_attributes(read: true)
-        current_user.update_attributes(unread_notification: current_user.unread_notification - 1) if current_user.unread_notification > 1
+        current_user.update_attributes(unread_notification: current_user.unread_notification - 1) if current_user.unread_notification >= 1
       end
       redirect_to master_course_url(noti.master_class_subject_master_course_id)
     else
