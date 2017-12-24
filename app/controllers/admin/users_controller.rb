@@ -37,6 +37,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def edit
+    @support = Supports::User.new user: @user
     respond_to do |format|
       format.js
     end
