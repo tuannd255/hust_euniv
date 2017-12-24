@@ -1,4 +1,5 @@
 <tr class="user-<%= user.id %>">
+  <td class="truncate-col" title="<%= user.position_name %>"><%= user.position_name %></td>
   <td class="truncate-col" title="<%= user.name %>"><%= user.name %></td>
   <td class="truncate-col" title="<%= user.email %>"><%= user.email %></td>
   <td class="text-center"><%= t ".#{user.status}" %></td>

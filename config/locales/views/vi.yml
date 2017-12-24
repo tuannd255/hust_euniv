@@ -47,6 +47,23 @@ vi:
         please_input_name: Nhập tên lớp học
       index:
         title: Quản lý lớp học
+    positions:
+      button_create:
+        create: Tạo mới học hàm
+      search_form:
+        name: Theo tên học hàm
+      positions_table:
+        full_name: Tên đầy đủ học hàm
+        name: Tên học hàm
+      position_form:
+        title_new: Tạo học hàm
+        title_update: Cập nhật học hàm
+        name: Tên học hàm
+        full_name: Tên đầy đủ học hàm
+        please_input_name: Nhập tên học hàm
+        please_input_full_name: Nhập tên đầy đủ học hàm
+      index:
+        title: Quản lý học hàm
     master_subjects:
       button_create:
         create: Tạo mới môn học
@@ -165,11 +182,13 @@ vi:
         please_input_password: &please_input_password Nhập mật khẩu
         please_input_password_confirm: Nhập lại mật khẩu
         status: *status
+        position: Học hàm
       search_form:
         email_or_name: Thư điện tử hoặc tên
         status: *status
       user_table:
         name: *name
+        position: Học hàm
         email: *email
         status: *status
         admin: Quản trị viên
@@ -282,6 +301,7 @@ vi:
       email: *email
       phone_number: *phone_number
       story: Tiêu sử
+      position: Học hàm
     form:
       avatar: Ảnh đại diện
       name: *name
@@ -289,6 +309,7 @@ vi:
       email: *email
       phone_number: *phone_number
       story: Tiêu sử
+      position: Học hàm
   layouts:
     admin_sidebar:
       master_subjects: Quản lý môn học
@@ -296,6 +317,7 @@ vi:
       master_courses: Quản lý học kì
       users: Quản lý người dùng
       rooms: Quản lý phòng học
+      positions: Quản lý học hàm
     admin_header:
       setting: Chỉnh sửa hồ sơ
       profile: Hồ sơ

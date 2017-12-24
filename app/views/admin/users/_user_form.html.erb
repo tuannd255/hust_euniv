@@ -8,12 +8,17 @@
 <%= form_for [:admin, user], remote: true do |f| %>
   <div class="form-group">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-2">
+        <%= f.label t(".position") %>
+        <%= f.select :position_id, support.collection_position,
+          {include_blank: true}, class: "form-control" %>
+      </div>
+      <div class="col-md-2">
         <%= f.label t(".name") %>
         <%= f.text_field :name, class: "form-control",
           placeholder: t(".please_input_name") %>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
         <%= f.label t(".email") %>
         <%= f.email_field :email, class: "form-control",
           placeholder: t(".please_input_email") %>

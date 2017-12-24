@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :users
     resources :master_courses
     resources :master_course_send_mails, only: :index
+    resources :positions
   end
   root "master_courses#index"
   resources :master_courses, only: [:index, :show] do

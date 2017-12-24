@@ -1,5 +1,5 @@
 <% if @user.errors.any? %>
-  $('.user-form').html("<%= j render 'user_form', user: @user %>")
+  $('.user-form').html("<%= j render 'user_form', user: @user, support: @support %>")
 <% else %>
   $('.user-form #user_email').val('');
   $('.user-form #user_name').val('');

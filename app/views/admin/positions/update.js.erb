@@ -1,0 +1,3 @@
+<% if @position.errors.any? %>
+  $(".position-form").html("<%= j render 'position_form', position: @position %>");
+<% end %>

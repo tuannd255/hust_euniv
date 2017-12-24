@@ -1,0 +1,16 @@
+<tr class="position-<%= position.id %>">
+  <td><%= position.name %></td>
+  <td><%= position.full_name %></td>
+  <td class="icon-link text-center">
+    <%= link_to edit_admin_position_path(position),
+      remote: true, class: "edit-position" do %>
+      <i class="fa fa-pencil-square-o index-button" aria-hidden="true"
+        title="<%=t 'buttons.edit'%>"></i>
+    <% end %>
+    <%= link_to admin_position_path(position),
+      method: :delete, data: {confirm: t("confirm")} do %>
+      <i class="fa fa-times index-button" aria-hidden="true"
+        title="<%= t 'buttons.delete' %>"></i>
+    <% end %>
+  </td>
+</tr>

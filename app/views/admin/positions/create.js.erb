@@ -1,0 +1,9 @@
+<% if @position.errors.any? %>
+  $('.position-form').html('<%= j render "position_form", position: @position %>');
+<% else %>
+  $('.position-form #position_name').val('');
+  $('.position-form #position_full_name').val('');
+  $('#flash').html('<%= j render "layouts/flash" %>');
+  $('#position-main').html('<%= j render "positions_table",\
+    search: @support.search, positions: @support.positions %>');
+<% end %>

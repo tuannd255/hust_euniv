@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @support = Supports::User.new user: @user
     respond_to do |format|
       format.html
       format.js
@@ -24,7 +25,8 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit :avatar, :name, :email, :phone_number, :story, :workplace
+    params.require(:user).permit :avatar, :name, :email, :phone_number, :story,
+      :workplace, :position_id
   end
 
   def find_user

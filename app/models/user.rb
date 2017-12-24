@@ -6,6 +6,7 @@ class User < ApplicationRecord
     :trackable, :validatable
   has_many :master_class_subjects
   has_many :notifications, dependent: :destroy
+  belongs_to :position
 
   validates :name, length: { minimum: Settings.user.name.minlength,
     maximum: Settings.user.name.maxlength }
@@ -17,6 +18,7 @@ class User < ApplicationRecord
   validates :phone_number, length: {minimum: Settings.user.phone_number.minlength,
     maximum: Settings.user.phone_number.maxlength}, format: {with: VALID_PHONE_NUMBER_REGEX},
     allow_blank: true
+  delegate :name, to: :position, prefix: true, allow_nil: true
 
   enum status: [:activate, :block]
 

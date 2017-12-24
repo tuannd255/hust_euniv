@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171211142711) do
+ActiveRecord::Schema.define(version: 20171223170155) do
 
   create_table "master_class_class_subjects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "master_class_id"
@@ -75,6 +75,14 @@ ActiveRecord::Schema.define(version: 20171211142711) do
     t.datetime "updated_at",                              null: false
   end
 
+  create_table "positions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "full_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_positions_on_name", using: :btree
+  end
+
   create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -107,6 +115,7 @@ ActiveRecord::Schema.define(version: 20171211142711) do
     t.string   "workplace"
     t.text     "story",                  limit: 65535
     t.integer  "unread_notification",                  default: 0
+    t.integer  "position_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

@@ -1,0 +1,19 @@
+<table class="table table-bordered table-condensed table-striped table-hover">
+  <thead class="thead-inverse">
+    <tr>
+      <th class="col-md-5"><%= sort_link search, :name, t(".name"), {}, {remote: true} %></th>
+      <th class="col-md-5"><%= sort_link search, :full_name, t(".full_name"), {}, {remote: true} %></th>
+      <th class="col-md-1"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if positions.present? %>
+      <%= render positions %>
+    <% else %>
+      <tr>
+        <td colspan="3"><%= render "shared/nothing" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate positions, remote: true %>

@@ -23,6 +23,19 @@
     <div class="form-group">
       <div class="row">
         <div class="col-md-3">
+          <%= f.label t(".position") %>
+        </div>
+        <div class="col-md-9">
+          <div>
+            <%= f.select :position_id, @support.collection_position,
+              {include_blank: true}, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-3">
           <%= f.label t(".name") %>
         </div>
         <div class="col-md-9">

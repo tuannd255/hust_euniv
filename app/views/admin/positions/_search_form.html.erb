@@ -1,0 +1,14 @@
+<div class="form-group">
+  <%= search_form_for search, remote: true, url: admin_positions_path do |f| %>
+    <div class="col-sm-2">
+      <label><%= t "search" %></label>
+    </div>
+    <div class="col-sm-8">
+      <%= f.search_field :name_or_full_name_cont, placeholder: t(".name"),  class: "form-control" %>
+    </div>
+    <div class="col-sm-1">
+      <%= f.submit t("buttons.search"), class: "btn btn-info" %>
+    </div>
+  <% end %>
+</div>
+
